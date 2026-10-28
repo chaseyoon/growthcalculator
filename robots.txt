@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://growthcalculator.kr/sitemap.xml
