@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://growthcalculator.kr/</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/</loc></url>
   <url><loc>https://growthcalculator.kr/about.html</loc></url>
   <url><loc>https://growthcalculator.kr/privacy.html</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/average-height.html</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/percentile-guide.html</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/predicted-height.html</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/measure-height.html</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/short-stature.html</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/child-bmi.html</loc></url>
 </urlset>

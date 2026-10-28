@@ -1,0 +1,19 @@
+:root { --bg:#f7f8fa; --card:#fff; --text:#1d2433; --muted:#5b6475; --line:#e3e6ec; --accent:#2f6fed; }
+@media (prefers-color-scheme: dark) { :root { --bg:#12151b; --card:#1b2029; --text:#e8ebf1; --muted:#9aa3b2; --line:#2b3240; --accent:#6b9bff; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.75 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+main { max-width:720px; margin:0 auto; padding:20px 16px 64px; }
+nav { font-size:.9rem; color:var(--muted); }
+a { color:var(--accent); }
+h1 { font-size:1.55rem; line-height:1.35; margin:16px 0 12px; }
+h2 { font-size:1.2rem; margin:32px 0 8px; }
+.table { overflow-x:auto; }
+table { border-collapse:collapse; width:100%; font-size:.9rem; background:var(--card); }
+th, td { border:1px solid var(--line); padding:6px 8px; text-align:center; white-space:nowrap; }
+th { background:var(--bg); }
+.note { font-size:.88rem; color:var(--muted); }
+.cta { margin:32px 0; padding:16px; background:var(--card); border:1px solid var(--line); border-radius:12px; font-weight:700; }
+.list { padding-left:18px; }
+.list p { margin:2px 0 14px; color:var(--muted); font-size:.92rem; }
+footer { margin-top:40px; font-size:.85rem; color:var(--muted); }
+footer a { color:var(--muted); }
