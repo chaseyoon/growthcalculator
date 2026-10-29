@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>출산예정일 계산기: 마지막 생리일로 임신 주수·예정일 계산 | 성장계산기</title>
+<meta name="description" content="마지막 생리 시작일과 생리 주기로 출산예정일, 오늘 기준 임신 몇 주 며칠인지, 임신 초기·중기·후기 구분과 주요 검사 시기를 계산합니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/due-date.html">
+<meta property="og:title" content="출산예정일 계산기: 마지막 생리일로 임신 주수·예정일 계산">
+<meta property="og:description" content="마지막 생리 시작일과 생리 주기로 출산예정일, 오늘 기준 임신 몇 주 며칠인지, 임신 초기·중기·후기 구분과 주요 검사 시기를 계산합니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>출산예정일 계산기: 마지막 생리일로 임신 주수·예정일 계산</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="ly">마지막 생리 시작일</label>
+      <div class="ymd"><select id="ly" aria-label="연도"></select><select id="lm" aria-label="월"></select><select id="ld" aria-label="일"></select></div></div>
+    <div class="full"><label for="cycle">평소 생리 주기 (일)</label>
+      <input id="cycle" type="number" inputmode="numeric" min="21" max="45" value="28"></div>
+  </div>
+  <button type="submit">예정일 계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>출산예정일 계산 방법</h2>
+<p>병원에서 처음 쓰는 방법은 <b>네겔레 법칙</b>입니다. 마지막 생리 시작일에 280일(40주)을 더합니다. 이 공식은 생리 주기를 28일로 가정하므로, 주기가 더 길거나 짧으면 그 차이만큼 예정일을 미루거나 당깁니다. 이 계산기도 같은 방식입니다.</p>
+<p>임신 주수도 수정일이 아니라 <b>마지막 생리 시작일부터</b> 셉니다. 그래서 수정 직후에 이미 임신 2주로 계산됩니다. 초기 초음파로 태아 크기를 재면 예정일이 조정될 수 있으니, 병원에서 정해준 날짜가 있다면 그 날짜를 따르세요.</p>
+
+<h2>시기별 주요 검사 (일반적 일정)</h2>
+<ul>
+  <li>11~13주: 목덜미 투명대 초음파, 1차 기형아 검사</li>
+  <li>15~20주: 2차 기형아 검사(쿼드 검사)</li>
+  <li>20~24주: 정밀 초음파</li>
+  <li>24~28주: 임신성 당뇨 검사</li>
+</ul>
+<p class="note">실제 검사 시기는 병원과 산모 상태에 따라 다릅니다. 이 계산기는 참고용이며 의학적 진단을 대신하지 않습니다.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>예정일에 실제로 낳는 경우가 많나요?</summary>
+  <p>예정일 당일 출산은 소수이고, 대부분 37~42주 사이에 출산합니다. 예정일은 준비 기준으로 보는 것이 좋습니다.</p></details>
+<details><summary>생리 주기가 불규칙하면요?</summary>
+  <p>주기가 불규칙하면 마지막 생리일 기준 계산은 오차가 커집니다. 초기 초음파로 잰 태아 크기 기준 예정일이 더 정확합니다.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("l", yearsRange(y, y - 1));
+  const TRIMESTER = (w) => w < 14 ? "임신 초기 (1~13주)" : w < 28 ? "임신 중기 (14~27주)" : "임신 후기 (28주~)";
+
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const lmp = readYmd("l"), cycle = parseInt($("cycle").value, 10);
+    if (!lmp) { $("out").innerHTML = '<p class="err">마지막 생리 시작일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (!(cycle >= 21 && cycle <= 45)) { $("out").innerHTML = '<p class="err">생리 주기는 21~45일 사이로 입력해 주세요.</p>'; return; }
+    if (lmp > t) { $("out").innerHTML = '<p class="err">마지막 생리일이 오늘보다 뒤일 수 없습니다.</p>'; return; }
+    const shift = cycle - 28;
+    const due = addDays(lmp, 280 + shift);
+    const elapsed = daysBetween(lmp, t) - shift;  // 주기 보정한 임신 일수
+    let html = row("출산예정일", fmtDate(due));
+    if (elapsed > 300) {
+      html += '<p class="note">입력한 날짜 기준으로 이미 출산 시기가 지났습니다. 날짜를 확인해 주세요.</p>';
+    } else if (elapsed < 14) {
+      html += row("오늘 기준", "아직 배란 전후 시기") + '<p class="note">임신 테스트기는 보통 생리 예정일 이후에 정확도가 높아집니다.</p>';
+    } else {
+      const w = Math.floor(elapsed / 7), d = elapsed % 7;
+      html += row("오늘 임신 주수", `${w}주 ${d}일`) + row("시기", TRIMESTER(w)) + row("예정일까지", `D-${Math.max(0, daysBetween(t, due))}`);
+    }
+    html += row("임신 12주 되는 날", fmtDate(addDays(lmp, 84 + shift)));
+    html += row("만삭(37주) 시작", fmtDate(addDays(lmp, 259 + shift)));
+    $("out").innerHTML = html;
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "예정일에 실제로 낳는 경우가 많나요?", "acceptedAnswer": {"@type": "Answer", "text": "예정일 당일 출산은 소수이고, 대부분 37~42주 사이에 출산합니다. 예정일은 준비 기준으로 보는 것이 좋습니다."}}, {"@type": "Question", "name": "생리 주기가 불규칙하면요?", "acceptedAnswer": {"@type": "Answer", "text": "주기가 불규칙하면 마지막 생리일 기준 계산은 오차가 커집니다. 초기 초음파로 잰 태아 크기 기준 예정일이 더 정확합니다."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/pregnancy-week.html">임신 주수 계산기</a></li><li><a href="/calc/height-percentile.html">키 백분위 계산기</a></li><li><a href="/calc/weight-percentile.html">아기 몸무게 백분위 계산기</a></li><li><a href="/calc/child-bmi.html">소아 BMI 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

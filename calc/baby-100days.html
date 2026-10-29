@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>아기 백일 계산기: 100일·50일·200일·돌 날짜와 D-day | 성장계산기</title>
+<meta name="description" content="아기 생일만 고르면 백일(100일), 50일, 200일, 300일, 1000일, 돌 날짜와 남은 날, 태어난 지 며칠째인지 바로 알려드립니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/baby-100days.html">
+<meta property="og:title" content="아기 백일 계산기: 100일·50일·200일·돌 날짜와 D-day">
+<meta property="og:description" content="아기 생일만 고르면 백일(100일), 50일, 200일, 300일, 1000일, 돌 날짜와 남은 날, 태어난 지 며칠째인지 바로 알려드립니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>아기 백일 계산기: 100일·50일·200일·돌 날짜와 D-day</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="by">아기 생일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+  </div>
+  <button type="submit">계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>백일은 어떻게 세나요?</h2>
+<p>우리나라에서는 <b>태어난 날을 1일째</b>로 셉니다. 그래서 백일은 생일에 99일을 더한 날입니다. 예를 들어 1월 1일생의 백일은 4월 10일(평년 기준)입니다. 50일, 200일도 같은 방식으로 계산했습니다.</p>
+<p><b>개월수</b>는 만 나이와 같은 방식으로, 매달 생일과 같은 날짜가 지나면 1개월씩 늘어납니다. 예방접종이나 영유아 건강검진 시기를 볼 때 이 개월수를 씁니다.</p>
+
+<h2>개월수별로 챙길 것</h2>
+<ul>
+  <li>생후 14~35일: 영유아 건강검진 1차</li>
+  <li>생후 4~6개월: 영유아 건강검진 2차, 이유식 시작 시기</li>
+  <li>생후 9~12개월: 영유아 건강검진 3차</li>
+</ul>
+<p class="note">검진 시기는 국민건강보험공단 영유아 건강검진 안내 기준이며, 개인 상황에 따라 다를 수 있습니다. 키·몸무게 백분위는 <a href="/">성장계산기</a>에서 확인할 수 있습니다.</p>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("b", yearsRange(y, y - 6));
+  const MILESTONES = [["50일", 49], ["100일 (백일)", 99], ["200일", 199], ["300일", 299], ["500일", 499], ["1000일", 999]];
+
+  function nthBirthday(birth, n) {
+    const d = utc(birth.getUTCFullYear() + n, birth.getUTCMonth() + 1, birth.getUTCDate());
+    return d.getUTCMonth() === birth.getUTCMonth() ? d : utc(birth.getUTCFullYear() + n, 3, 1);
+  }
+  const until = (date) => {
+    const n = daysBetween(t, date);
+    return n > 0 ? ` · D-${n}` : n === 0 ? " · 오늘!" : " · 지남";
+  };
+
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const birth = readYmd("b");
+    if (!birth) { $("out").innerHTML = '<p class="err">아기 생일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (birth > t) { $("out").innerHTML = '<p class="err">생일이 오늘보다 뒤일 수 없습니다.</p>'; return; }
+    const months = monthsBetween(birth, t);
+    let html = row("오늘 기준", `생후 ${months}개월 (${Math.floor(months / 12)}년 ${months % 12}개월)`) +
+      row("태어난 지", `${daysBetween(birth, t) + 1}일째`);
+    for (const [label, add] of MILESTONES) {
+      const d = addDays(birth, add);
+      html += row(label, fmtDate(d) + until(d));
+    }
+    html += row("돌 (첫 생일)", fmtDate(nthBirthday(birth, 1)) + until(nthBirthday(birth, 1)));
+    html += row("두 돌", fmtDate(nthBirthday(birth, 2)) + until(nthBirthday(birth, 2)));
+    $("out").innerHTML = html;
+  });
+</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/baby-months.html">아기 개월수 계산기</a></li><li><a href="/calc/korean-age.html">만나이 계산기</a></li><li><a href="/calc/child-bmi.html">소아 BMI 계산기</a></li><li><a href="/calc/weight-percentile.html">아기 몸무게 백분위 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

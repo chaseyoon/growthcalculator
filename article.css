@@ -17,3 +17,19 @@ th { background:var(--bg); }
 .list p { margin:2px 0 14px; color:var(--muted); font-size:.92rem; }
 footer { margin-top:40px; font-size:.85rem; color:var(--muted); }
 footer a { color:var(--muted); }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 14px; }
+.full { grid-column:1 / -1; }
+label { display:block; font-size:.9rem; color:var(--muted); margin-bottom:4px; }
+input, select { width:100%; padding:10px 12px; font-size:1rem; border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--text); }
+.ymd { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:6px; }
+.ymd select { padding:10px 6px; }
+button { margin-top:16px; width:100%; padding:13px; font-size:1.05rem; font-weight:700; border:0; border-radius:10px; background:var(--accent); color:#fff; cursor:pointer; }
+.out { margin-top:18px; }
+.row { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); }
+.row:last-child { border-bottom:0; }
+.row b { font-size:1.1rem; }
+.err { color:#c2410c; }
+details { border-top:1px solid var(--line); padding:12px 0; }
+summary { cursor:pointer; font-weight:600; }
+@media (max-width:480px) { .grid { grid-template-columns:1fr; } }

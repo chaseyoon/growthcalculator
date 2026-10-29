@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>만나이 계산기: 생년월일로 만 나이·연 나이·세는 나이 한 번에 | 성장계산기</title>
+<meta name="description" content="생년월일만 고르면 만 나이, 연 나이, 세는 나이와 다음 생일까지 남은 날을 바로 계산합니다. 2023년 6월부터 시행된 만 나이 통일법 기준을 함께 정리했습니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/korean-age.html">
+<meta property="og:title" content="만나이 계산기: 생년월일로 만 나이·연 나이·세는 나이 한 번에">
+<meta property="og:description" content="생년월일만 고르면 만 나이, 연 나이, 세는 나이와 다음 생일까지 남은 날을 바로 계산합니다. 2023년 6월부터 시행된 만 나이 통일법 기준을 함께 정리했습니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>만나이 계산기: 생년월일로 만 나이·연 나이·세는 나이 한 번에</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="by">생년월일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+    <div class="full"><label for="ty">기준일 (기본: 오늘)</label>
+      <div class="ymd"><select id="ty" aria-label="기준 연도"></select><select id="tm" aria-label="기준 월"></select><select id="td" aria-label="기준 일"></select></div></div>
+  </div>
+  <button type="submit">나이 계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>만 나이, 연 나이, 세는 나이 차이</h2>
+<ul>
+  <li><b>만 나이</b>: 태어난 날을 0살로 보고 생일이 지날 때마다 1살씩 더합니다. 2023년 6월 28일부터 법령·계약·공문서의 나이는 원칙적으로 만 나이입니다.</li>
+  <li><b>연 나이</b>: 올해 연도에서 태어난 연도를 뺀 값입니다. 병역법, 청소년보호법처럼 일부 법은 여전히 연 나이를 씁니다.</li>
+  <li><b>세는 나이</b>: 태어나자마자 1살, 해가 바뀔 때마다 1살씩 더하는 옛 방식입니다. 일상 대화에서 아직 많이 씁니다.</li>
+</ul>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>생일이 지나지 않았으면 만 나이는 어떻게 되나요?</summary>
+  <p>올해 생일이 아직 오지 않았다면 (올해 − 태어난 해 − 1)살입니다. 생일 당일부터 1살이 늘어납니다.</p></details>
+<details><summary>2월 29일생은 생일을 언제로 보나요?</summary>
+  <p>윤년이 아닌 해에는 3월 1일이 되어야 생일이 지난 것으로 계산합니다(민법의 기간 계산 방식).</p></details>
+<details><summary>초등학교 입학이나 주민등록증 발급 나이는요?</summary>
+  <p>초등학교는 만 6세가 되는 해의 다음 해 3월에 입학하고, 주민등록증은 만 17세가 되면 발급 대상입니다.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("b", yearsRange(y, y - 110));
+  fillYmd("t", yearsRange(y + 5, y - 110));
+  $("ty").value = y; $("tm").value = t.getUTCMonth() + 1; $("td").value = t.getUTCDate();
+
+  // 2월 29일생은 평년엔 3월 1일에 생일이 지난 것으로 본다
+  function birthdayIn(year, birth) {
+    const d = utc(year, birth.getUTCMonth() + 1, birth.getUTCDate());
+    return d.getUTCMonth() === birth.getUTCMonth() ? d : utc(year, 3, 1);
+  }
+
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const birth = readYmd("b"), base = readYmd("t");
+    if (!birth || !base) { $("out").innerHTML = '<p class="err">생년월일과 기준일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (base < birth) { $("out").innerHTML = '<p class="err">기준일이 생년월일보다 앞설 수 없습니다.</p>'; return; }
+    const by = birth.getUTCFullYear(), ty = base.getUTCFullYear();
+    const passed = base >= birthdayIn(ty, birth);
+    const man = ty - by - (passed ? 0 : 1);
+    let next = birthdayIn(passed ? ty + 1 : ty, birth);
+    if (next.getTime() === base.getTime()) next = birthdayIn(ty + 1, birth);
+    const dday = daysBetween(base, next);
+    $("out").innerHTML =
+      row("만 나이", `${man}세`) +
+      row("연 나이", `${ty - by}세`) +
+      row("세는 나이", `${ty - by + 1}세`) +
+      row("태어난 지", `${daysBetween(birth, base) + 1}일째`) +
+      row("다음 생일", `${fmtDate(next)} · D-${dday}`) +
+      (passed && base.getTime() === birthdayIn(ty, birth).getTime() ? '<p class="note">오늘이 생일입니다. 생일 축하합니다!</p>' : "");
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "생일이 지나지 않았으면 만 나이는 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "올해 생일이 아직 오지 않았다면 (올해 − 태어난 해 − 1)살입니다. 생일 당일부터 1살이 늘어납니다."}}, {"@type": "Question", "name": "2월 29일생은 생일을 언제로 보나요?", "acceptedAnswer": {"@type": "Answer", "text": "윤년이 아닌 해에는 3월 1일이 되어야 생일이 지난 것으로 계산합니다(민법의 기간 계산 방식)."}}, {"@type": "Question", "name": "초등학교 입학이나 주민등록증 발급 나이는요?", "acceptedAnswer": {"@type": "Answer", "text": "초등학교는 만 6세가 되는 해의 다음 해 3월에 입학하고, 주민등록증은 만 17세가 되면 발급 대상입니다."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/baby-100days.html">아기 백일 계산기</a></li><li><a href="/calc/baby-months.html">아기 개월수 계산기</a></li><li><a href="/calc/child-bmi.html">소아 BMI 계산기</a></li><li><a href="/calc/weight-percentile.html">아기 몸무게 백분위 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

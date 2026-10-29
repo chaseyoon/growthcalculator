@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>아기 개월수 계산기: 오늘 기준 생후 몇 개월·몇 주 | 성장계산기</title>
+<meta name="description" content="아기 생일로 오늘(또는 원하는 날) 기준 생후 개월수, 주수, 일수를 계산하고 다음 영유아 건강검진 시기까지 알려드립니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/baby-months.html">
+<meta property="og:title" content="아기 개월수 계산기: 오늘 기준 생후 몇 개월·몇 주">
+<meta property="og:description" content="아기 생일로 오늘(또는 원하는 날) 기준 생후 개월수, 주수, 일수를 계산하고 다음 영유아 건강검진 시기까지 알려드립니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>아기 개월수 계산기: 오늘 기준 생후 몇 개월·몇 주</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="by">아기 생일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+    <div class="full"><label for="ty">기준일 (기본: 오늘)</label>
+      <div class="ymd"><select id="ty" aria-label="기준 연도"></select><select id="tm" aria-label="기준 월"></select><select id="td" aria-label="기준 일"></select></div></div>
+  </div>
+  <button type="submit">개월수 계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>아기 개월수 세는 법</h2>
+<p>개월수는 만 나이처럼 <b>매달 생일과 같은 날짜가 지나면 1개월</b>이 늘어납니다. 3월 15일생이면 4월 15일부터 생후 1개월입니다. 31일생처럼 그 달에 같은 날짜가 없으면 다음 달 1일에 넘어갑니다. 예방접종, 영유아 건강검진, 이유식 시작 시기는 모두 이 개월수 기준입니다.</p>
+<p>생후 몇 주인지는 신생아 시기 수유량이나 발달을 볼 때 많이 씁니다. 키·몸무게가 또래 중 어느 정도인지는 <a href="/calc/height-percentile.html">키 백분위</a>, <a href="/calc/weight-percentile.html">몸무게 백분위</a> 계산기에서 확인하세요.</p>
+
+<h2>영유아 건강검진 시기</h2>
+<ul>
+  <li>1차: 생후 14~35일</li>
+  <li>2차: 생후 4~6개월</li>
+  <li>3차: 생후 9~12개월</li>
+  <li>4차: 생후 18~24개월</li>
+  <li>5차: 생후 30~36개월</li>
+  <li>6차: 생후 42~48개월</li>
+  <li>7차: 생후 54~60개월</li>
+  <li>8차: 생후 66~71개월</li>
+</ul>
+<p class="note">국민건강보험공단 영유아 건강검진 일정 기준입니다. 정확한 대상 기간은 공단 안내문을 확인하세요.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>생후 100일은 몇 개월인가요?</summary>
+  <p>대략 생후 3개월 무렵입니다. 백일 날짜는 <a href="/calc/baby-100days.html">백일 계산기</a>에서 정확히 볼 수 있습니다.</p></details>
+<details><summary>예방접종 개월수도 이 기준인가요?</summary>
+  <p>네, 예방접종 표준 일정의 "생후 ○개월"도 같은 방식으로 셉니다.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("b", yearsRange(y, y - 7));
+  fillYmd("t", yearsRange(y + 2, y - 7));
+  $("ty").value = y; $("tm").value = t.getUTCMonth() + 1; $("td").value = t.getUTCDate();
+  // [시작 개월, 끝 개월, 이름] — 1차는 일 단위라 따로 처리
+  const CHECKUPS = [[4, 6, "2차"], [9, 12, "3차"], [18, 24, "4차"], [30, 36, "5차"], [42, 48, "6차"], [54, 60, "7차"], [66, 71, "8차"]];
+
+  function plusMonths(birth, n) {
+    const d = utc(birth.getUTCFullYear(), birth.getUTCMonth() + 1 + n, birth.getUTCDate());
+    return d.getUTCDate() === birth.getUTCDate() ? d : utc(birth.getUTCFullYear(), birth.getUTCMonth() + 2 + n, 1);
+  }
+
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const birth = readYmd("b"), base = readYmd("t");
+    if (!birth || !base) { $("out").innerHTML = '<p class="err">아기 생일과 기준일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (base < birth) { $("out").innerHTML = '<p class="err">기준일이 생일보다 앞설 수 없습니다.</p>'; return; }
+    const months = monthsBetween(birth, base), days = daysBetween(birth, base);
+    let html = row("생후", `${months}개월` + (months >= 12 ? ` (${Math.floor(months / 12)}년 ${months % 12}개월)` : "")) +
+      row("생후 주수", `${Math.floor(days / 7)}주 ${days % 7}일`) +
+      row("태어난 지", `${days + 1}일째`) +
+      row(`${months + 1}개월 되는 날`, fmtDate(plusMonths(birth, months + 1)));
+    const next = days <= 35 ? [addDays(birth, 14), addDays(birth, 35), "1차"]
+      : (CHECKUPS.map(([a, b, n]) => [plusMonths(birth, a), addDays(plusMonths(birth, b), -1), n]).find(([, end]) => end >= base));
+    if (next) html += row(`영유아검진 ${next[2]}`, `${fmtDate(next[0])} ~ ${fmtDate(next[1])}`);
+    $("out").innerHTML = html;
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "생후 100일은 몇 개월인가요?", "acceptedAnswer": {"@type": "Answer", "text": "대략 생후 3개월 무렵입니다. 백일 날짜는 백일 계산기에서 정확히 볼 수 있습니다."}}, {"@type": "Question", "name": "예방접종 개월수도 이 기준인가요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 예방접종 표준 일정의 \"생후 ○개월\"도 같은 방식으로 셉니다."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/baby-100days.html">아기 백일 계산기</a></li><li><a href="/calc/child-bmi.html">소아 BMI 계산기</a></li><li><a href="/calc/korean-age.html">만나이 계산기</a></li><li><a href="/calc/weight-percentile.html">아기 몸무게 백분위 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

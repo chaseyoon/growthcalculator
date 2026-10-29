@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>소아 BMI 계산기: 아이 비만도 백분위로 과체중·비만 판정 | 성장계산기</title>
+<meta name="description" content="아이 키와 몸무게로 BMI를 구하고, 2017 성장도표 기준 나이·성별 BMI 백분위로 저체중·정상·과체중·비만을 판정합니다. 만 2~18세.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/child-bmi.html">
+<meta property="og:title" content="소아 BMI 계산기: 아이 비만도 백분위로 과체중·비만 판정">
+<meta property="og:description" content="아이 키와 몸무게로 BMI를 구하고, 2017 성장도표 기준 나이·성별 BMI 백분위로 저체중·정상·과체중·비만을 판정합니다. 만 2~18세.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>소아 BMI 계산기: 아이 비만도 백분위로 과체중·비만 판정</h1>
+<form class="card" id="form" data-indicator="bmi" novalidate>
+  <div class="grid">
+    <div><label for="sex">성별</label><select id="sex"><option value="M">남아</option><option value="F">여아</option></select></div>
+    <div><label for="by">생년월일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+    <div><label for="height">키 (cm)</label><input id="height" type="number" inputmode="decimal" step="0.1" min="40" max="200"></div>
+    <div><label for="weight">몸무게 (kg)</label><input id="weight" type="number" inputmode="decimal" step="0.1" min="2" max="150"></div>
+    <div class="full"><label for="my">측정일 (기본: 오늘)</label>
+      <div class="ymd"><select id="my" aria-label="측정 연도"></select><select id="mm" aria-label="측정 월"></select><select id="md" aria-label="측정 일"></select></div></div>
+  </div>
+  <button type="submit">비만도 계산</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>아이 BMI는 백분위로 판정합니다</h2>
+<p>어른은 BMI 25 이상을 비만으로 보지만, 아이는 자라면서 체지방 비율이 바뀌어 <b>나이·성별 백분위</b>로 판정합니다. 2017 성장도표 기준으로 5백분위 미만 저체중, 85~95백분위 과체중, 95백분위 이상 비만입니다.</p>
+<p>같은 BMI 17.8이라도 만 6세 여아는 과체중 구간, 만 12세 남아는 정상 범위일 수 있습니다. 자세한 설명은 <a href="/guide/child-bmi.html">소아 BMI 비만 기준 정리</a>에 있습니다.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>만 2세 미만은 왜 계산이 안 되나요?</summary>
+  <p>성장도표는 만 2세 미만에 BMI 대신 신장별 체중으로 평가합니다. 이 시기에는 몸무게 백분위와 키 백분위를 함께 보세요.</p></details>
+<details><summary>비만 구간이면 다이어트를 시켜야 하나요?</summary>
+  <p>성장기에는 무리한 식사 제한보다 단 음료·간식 줄이기, 수면, 하루 1시간 활동이 기본입니다. 비만 구간이 계속되면 소아청소년과 검진을 권합니다.</p></details>
+<script src="/calc.js"></script>
+<script src="/growth.js"></script>
+<script src="/percentile.js"></script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "만 2세 미만은 왜 계산이 안 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "성장도표는 만 2세 미만에 BMI 대신 신장별 체중으로 평가합니다. 이 시기에는 몸무게 백분위와 키 백분위를 함께 보세요."}}, {"@type": "Question", "name": "비만 구간이면 다이어트를 시켜야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "성장기에는 무리한 식사 제한보다 단 음료·간식 줄이기, 수면, 하루 1시간 활동이 기본입니다. 비만 구간이 계속되면 소아청소년과 검진을 권합니다."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/baby-months.html">아기 개월수 계산기</a></li><li><a href="/calc/weight-percentile.html">아기 몸무게 백분위 계산기</a></li><li><a href="/calc/baby-100days.html">아기 백일 계산기</a></li><li><a href="/calc/height-percentile.html">키 백분위 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

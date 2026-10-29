@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://growthcalculator.kr/</loc></url>
-  <url><loc>https://growthcalculator.kr/guide/</loc></url>
   <url><loc>https://growthcalculator.kr/about.html</loc></url>
   <url><loc>https://growthcalculator.kr/privacy.html</loc></url>
+  <url><loc>https://growthcalculator.kr/guide/</loc></url>
   <url><loc>https://growthcalculator.kr/guide/average-height.html</loc></url>
   <url><loc>https://growthcalculator.kr/guide/percentile-guide.html</loc></url>
   <url><loc>https://growthcalculator.kr/guide/predicted-height.html</loc></url>
   <url><loc>https://growthcalculator.kr/guide/measure-height.html</loc></url>
   <url><loc>https://growthcalculator.kr/guide/short-stature.html</loc></url>
   <url><loc>https://growthcalculator.kr/guide/child-bmi.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/due-date.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/pregnancy-week.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/height-percentile.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/weight-percentile.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/child-bmi.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/baby-months.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/baby-100days.html</loc></url>
+  <url><loc>https://growthcalculator.kr/calc/korean-age.html</loc></url>
 </urlset>
