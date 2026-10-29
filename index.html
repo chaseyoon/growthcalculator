@@ -25,6 +25,8 @@
   label { display:block; font-size:.9rem; color:var(--muted); margin-bottom:4px; }
   input, select { width:100%; padding:10px 12px; font-size:1rem; border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--text); }
   .full { grid-column:1 / -1; }
+  .ymd { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:6px; }
+  .ymd select { padding:10px 6px; }
   button { margin-top:16px; width:100%; padding:13px; font-size:1.05rem; font-weight:700; border:0; border-radius:10px; background:var(--accent); color:#fff; cursor:pointer; }
   #result { margin-top:18px; }
   .row { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); }
@@ -49,7 +51,12 @@
     <div class="grid">
       <div><label for="sex">성별</label>
         <select id="sex"><option value="M">남아</option><option value="F">여아</option></select></div>
-      <div><label for="birth">생년월일</label><input id="birth" type="date" required></div>
+      <div><label for="by">생년월일</label>
+        <div class="ymd">
+          <select id="by" aria-label="태어난 해"></select>
+          <select id="bm" aria-label="태어난 달"></select>
+          <select id="bd" aria-label="태어난 날"></select>
+        </div></div>
       <div><label for="height">키 (cm)</label><input id="height" type="number" inputmode="decimal" step="0.1" min="40" max="200" required></div>
       <div><label for="weight">몸무게 (kg, 선택)</label><input id="weight" type="number" inputmode="decimal" step="0.1" min="2" max="150"></div>
       <div><label for="father">아빠 키 (cm, 선택)</label><input id="father" type="number" inputmode="decimal" step="0.1" min="130" max="220"></div>
@@ -88,6 +95,22 @@
   const num = (id) => parseFloat($(id).value);
   const fmt = (v, d = 1) => v.toFixed(d);
   $("measured").valueAsDate = new Date();
+  const range = (a, b) => Array.from({ length: Math.abs(b - a) + 1 }, (_, i) => a < b ? a + i : a - i);
+  function fill(el, label, values, suffix) {
+    el.add(new Option(label, ""));
+    for (const v of values) el.add(new Option(v + suffix, v));
+  }
+  const thisYear = new Date().getFullYear();
+  fill($("by"), "년", range(thisYear, thisYear - 18), "년");
+  fill($("bm"), "월", range(1, 12), "월");
+  fill($("bd"), "일", range(1, 31), "일");
+  // 측정일(valueAsDate)과 같은 UTC 자정 기준으로 맞춘다. 2월 30일 같은 날짜는 null.
+  function birthDate() {
+    const y = +$("by").value, m = +$("bm").value, d = +$("bd").value;
+    if (!y || !m || !d) return null;
+    const date = new Date(Date.UTC(y, m - 1, d));
+    return date.getUTCDate() === d ? date : null;
+  }
   let lmsPromise = fetch("/lms.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
 
   function row(label, value, extra = "") {
@@ -106,8 +129,8 @@
     e.preventDefault();
     const out = $("result");
     const sex = $("sex").value, height = num("height"), weight = num("weight");
-    const birth = $("birth").valueAsDate, measured = $("measured").valueAsDate || new Date();
-    if (!birth || !(height > 0)) { out.innerHTML = '<p class="err">생년월일과 키를 입력해 주세요.</p>'; return; }
+    const birth = birthDate(), measured = $("measured").valueAsDate || new Date();
+    if (!birth || !(height > 0)) { out.innerHTML = '<p class="err">생년월일(년·월·일)과 키를 정확히 입력해 주세요.</p>'; return; }
     const month = ageInMonths(birth, measured);
     let lms;
     try { lms = await lmsPromise; } catch { out.innerHTML = '<p class="err">성장도표 데이터를 불러오지 못했습니다. 새로고침 해 주세요.</p>'; lmsPromise = fetch("/lms.json").then((r) => r.json()); return; }
