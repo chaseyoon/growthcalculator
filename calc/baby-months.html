@@ -60,11 +60,6 @@
   // [시작 개월, 끝 개월, 이름] — 1차는 일 단위라 따로 처리
   const CHECKUPS = [[4, 6, "2차"], [9, 12, "3차"], [18, 24, "4차"], [30, 36, "5차"], [42, 48, "6차"], [54, 60, "7차"], [66, 71, "8차"]];
 
-  function plusMonths(birth, n) {
-    const d = utc(birth.getUTCFullYear(), birth.getUTCMonth() + 1 + n, birth.getUTCDate());
-    return d.getUTCDate() === birth.getUTCDate() ? d : utc(birth.getUTCFullYear(), birth.getUTCMonth() + 2 + n, 1);
-  }
-
   $("form").addEventListener("submit", (e) => {
     e.preventDefault();
     const birth = readYmd("b"), base = readYmd("t");

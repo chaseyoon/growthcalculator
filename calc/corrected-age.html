@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>교정연령 계산기: 이른둥이(미숙아) 교정 개월수 계산 | 성장계산기</title>
+<meta name="description" content="출생일과 출생 당시 임신 주수로 이른둥이의 교정연령(교정 개월수)과 원래 출산예정일을 계산합니다. 발달·성장 평가 때 쓰는 기준입니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/corrected-age.html">
+<meta property="og:title" content="교정연령 계산기: 이른둥이(미숙아) 교정 개월수 계산">
+<meta property="og:description" content="출생일과 출생 당시 임신 주수로 이른둥이의 교정연령(교정 개월수)과 원래 출산예정일을 계산합니다. 발달·성장 평가 때 쓰는 기준입니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>교정연령 계산기: 이른둥이(미숙아) 교정 개월수 계산</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="by">아기 생일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+    <div><label for="gw">출생 당시 임신 주수 (주)</label><input id="gw" type="number" inputmode="numeric" min="22" max="42" placeholder="예: 32"></div>
+    <div><label for="gd">+ 일</label><input id="gd" type="number" inputmode="numeric" min="0" max="6" value="0"></div>
+  </div>
+  <button type="submit">교정연령 계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>교정연령이란?</h2>
+<p>교정연령은 이른둥이가 <b>원래 예정일(40주)에 태어났다면 몇 개월일지</b>를 계산한 나이입니다. 실제 나이에서 일찍 태어난 기간(40주 − 출생 주수)을 뺍니다. 예를 들어 32주에 태어난 아기는 8주 일찍 태어났으므로, 생후 6개월이면 교정연령은 약 4개월입니다.</p>
+<p>뒤집기·앉기·걷기 같은 발달과 키·몸무게 평가는 보통 <b>만 2세(24개월)까지 교정연령</b>으로 봅니다. 예방접종은 교정연령이 아니라 실제 나이 기준으로 맞습니다. 교정연령으로 성장 백분위를 보려면 <a href="/calc/height-percentile.html">키 백분위 계산기</a>에 예정일을 생일로 넣어 계산하면 됩니다.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>37주 이후에 태어나도 교정하나요?</summary>
+  <p>37주 이상은 만삭으로 보기 때문에 보통 교정연령을 쓰지 않습니다.</p></details>
+<details><summary>언제까지 교정연령을 쓰나요?</summary>
+  <p>대부분 만 2세까지 쓰고, 28주 미만 초미숙아는 만 3세까지 쓰기도 합니다. 담당 의사의 안내를 따르세요.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("b", yearsRange(y, y - 4));
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const birth = readYmd("b"), gw = parseInt($("gw").value, 10), gd = parseInt($("gd").value || "0", 10);
+    if (!birth || birth > t) { $("out").innerHTML = '<p class="err">아기 생일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (!(gw >= 22 && gw <= 42) || !(gd >= 0 && gd <= 6)) { $("out").innerHTML = '<p class="err">출생 주수는 22~42주, 일은 0~6 사이로 입력해 주세요.</p>'; return; }
+    const early = 280 - (gw * 7 + gd);
+    const due = addDays(birth, early), months = monthsBetween(birth, t);
+    let html = row("실제 나이", `생후 ${months}개월 (${daysBetween(birth, t) + 1}일째)`);
+    if (early <= 21) {
+      html += '<p class="note">37주 이후 출생은 만삭이라 교정연령을 따로 쓰지 않습니다.</p>';
+    } else {
+      const cm = due <= t ? monthsBetween(due, t) : null;
+      html += row("일찍 태어난 기간", `${Math.floor(early / 7)}주 ${early % 7}일`) +
+        row("원래 출산예정일", fmtDate(due)) +
+        row("교정연령", cm === null ? `아직 예정일 전 (D-${daysBetween(t, due)})` : `${cm}개월 (교정 ${daysBetween(due, t)}일)`);
+      if (months >= 24) html += '<p class="note">실제 나이가 만 2세를 넘어 보통은 실제 나이로 평가합니다.</p>';
+    }
+    $("out").innerHTML = html;
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "37주 이후에 태어나도 교정하나요?", "acceptedAnswer": {"@type": "Answer", "text": "37주 이상은 만삭으로 보기 때문에 보통 교정연령을 쓰지 않습니다."}}, {"@type": "Question", "name": "언제까지 교정연령을 쓰나요?", "acceptedAnswer": {"@type": "Answer", "text": "대부분 만 2세까지 쓰고, 28주 미만 초미숙아는 만 3세까지 쓰기도 합니다. 담당 의사의 안내를 따르세요."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/pregnancy-weight.html">임신 몸무게 증가 계산기</a></li><li><a href="/calc/school-year.html">초등학교 입학년도 계산기</a></li><li><a href="/calc/baby-food.html">이유식 시기 계산기</a></li><li><a href="/calc/checkup-schedule.html">영유아 건강검진 시기 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

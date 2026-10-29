@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>배란일 계산기: 가임기·배란 예정일·다음 생리 예정일 | 성장계산기</title>
+<meta name="description" content="마지막 생리 시작일과 생리 주기로 배란 예정일, 임신 가능성이 높은 가임기, 다음 생리 예정일을 3달 치까지 계산합니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/ovulation.html">
+<meta property="og:title" content="배란일 계산기: 가임기·배란 예정일·다음 생리 예정일">
+<meta property="og:description" content="마지막 생리 시작일과 생리 주기로 배란 예정일, 임신 가능성이 높은 가임기, 다음 생리 예정일을 3달 치까지 계산합니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>배란일 계산기: 가임기·배란 예정일·다음 생리 예정일</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="ly">마지막 생리 시작일</label>
+      <div class="ymd"><select id="ly" aria-label="연도"></select><select id="lm" aria-label="월"></select><select id="ld" aria-label="일"></select></div></div>
+    <div class="full"><label for="cycle">평소 생리 주기 (일)</label>
+      <input id="cycle" type="number" inputmode="numeric" min="21" max="45" value="28"></div>
+  </div>
+  <button type="submit">배란일 계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>배란일 계산 원리</h2>
+<p>배란은 보통 <b>다음 생리 시작일 약 14일 전</b>에 일어납니다. 생리 주기가 길든 짧든 배란 후 생리까지 기간(황체기)은 비교적 일정하기 때문입니다. 정자는 몸 안에서 최대 5일, 난자는 약 하루 살 수 있어서 <b>배란일 5일 전부터 배란 다음 날까지</b>를 가임기로 봅니다.</p>
+<p>주기가 불규칙하면 계산 오차가 커집니다. 배란 테스트기나 기초체온을 함께 쓰면 더 정확합니다. 임신이 확인되면 <a href="/calc/due-date.html">출산예정일 계산기</a>로 예정일을 확인해 보세요.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>가임기에만 임신이 되나요?</summary>
+  <p>가임기에 가능성이 가장 높지만, 배란이 예상보다 앞당겨지거나 늦어질 수 있어 가임기 밖이라고 피임이 보장되지는 않습니다.</p></details>
+<details><summary>배란일에 관계하면 임신 확률이 제일 높나요?</summary>
+  <p>연구에서는 배란일 하루~이틀 전이 가장 높게 나옵니다. 정자가 미리 기다리고 있어야 하기 때문입니다.</p></details>
+<p class="note">이 계산은 평균적인 주기를 가정한 추정치로, 피임 목적으로 쓰면 안 됩니다.</p>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("l", yearsRange(y, y - 1));
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const lmp = readYmd("l"), cycle = parseInt($("cycle").value, 10);
+    if (!lmp) { $("out").innerHTML = '<p class="err">마지막 생리 시작일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (!(cycle >= 21 && cycle <= 45)) { $("out").innerHTML = '<p class="err">생리 주기는 21~45일 사이로 입력해 주세요.</p>'; return; }
+    const md = (d) => `${d.getUTCMonth() + 1}/${d.getUTCDate()}`;
+    let html = "";
+    for (let i = 0; i < 3; i++) {
+      const start = addDays(lmp, cycle * i), next = addDays(start, cycle), ov = addDays(next, -14);
+      html += `<h3>${i + 1}번째 주기 (${md(start)} 시작)</h3>` +
+        row("배란 예정일", fmtDate(ov)) +
+        row("가임기", `${md(addDays(ov, -5))} ~ ${md(addDays(ov, 1))}`) +
+        row("다음 생리 예정일", fmtDate(next));
+    }
+    $("out").innerHTML = html;
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "가임기에만 임신이 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "가임기에 가능성이 가장 높지만, 배란이 예상보다 앞당겨지거나 늦어질 수 있어 가임기 밖이라고 피임이 보장되지는 않습니다."}}, {"@type": "Question", "name": "배란일에 관계하면 임신 확률이 제일 높나요?", "acceptedAnswer": {"@type": "Answer", "text": "연구에서는 배란일 하루~이틀 전이 가장 높게 나옵니다. 정자가 미리 기다리고 있어야 하기 때문입니다."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/formula-amount.html">분유량 계산기</a></li><li><a href="/calc/korean-age.html">만나이 계산기</a></li><li><a href="/calc/baby-100days.html">아기 백일 계산기</a></li><li><a href="/calc/baby-food.html">이유식 시기 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

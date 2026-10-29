@@ -49,10 +49,16 @@ function monthsBetween(from, to) {
   return months;
 }
 
+// n개월 뒤 같은 날짜. 그 달에 같은 날이 없으면(1/31 → 2월) 다음 달 1일
+function plusMonths(date, n) {
+  const d = utc(date.getUTCFullYear(), date.getUTCMonth() + 1 + n, date.getUTCDate());
+  return d.getUTCDate() === date.getUTCDate() ? d : utc(date.getUTCFullYear(), date.getUTCMonth() + 2 + n, 1);
+}
+
 function row(label, value) {
   return `<div class="row"><span>${label}</span><span><b>${value}</b></span></div>`;
 }
 
 if (typeof module !== "undefined") {
-  module.exports = { utc, addDays, daysBetween, monthsBetween, fmtDate, yearsRange };
+  module.exports = { utc, addDays, daysBetween, monthsBetween, plusMonths, fmtDate, yearsRange };
 }

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>이유식 시기 계산기: 초기·중기·후기·완료기 시작 날짜와 양 | 성장계산기</title>
+<meta name="description" content="아기 생일로 이유식 시작 권장일과 초기·중기·후기·완료기 단계별 시작 날짜, 단계별 1회 양과 하루 횟수를 알려드립니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/baby-food.html">
+<meta property="og:title" content="이유식 시기 계산기: 초기·중기·후기·완료기 시작 날짜와 양">
+<meta property="og:description" content="아기 생일로 이유식 시작 권장일과 초기·중기·후기·완료기 단계별 시작 날짜, 단계별 1회 양과 하루 횟수를 알려드립니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>이유식 시기 계산기: 초기·중기·후기·완료기 시작 날짜와 양</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="by">아기 생일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+  </div>
+  <button type="submit">이유식 일정 보기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>이유식은 언제 시작하나요?</h2>
+<p>세계보건기구는 <b>생후 6개월</b>부터, 대한소아청소년과학회는 <b>생후 4~6개월 사이</b>에 시작하도록 권합니다. 목을 가누고 받쳐 주면 앉을 수 있으며, 어른 음식에 관심을 보이면 시작할 준비가 된 것입니다. 너무 늦으면 철분이 부족해지기 쉬워 6개월을 넘기지 않는 것이 좋습니다.</p>
+
+<h2>단계별 이유식 (일반적인 기준)</h2>
+<div class="table"><table>
+  <thead><tr><th>단계</th><th>시기</th><th>형태</th><th>1회 양 · 하루</th></tr></thead>
+  <tbody>
+    <tr><td>초기</td><td>4~6개월</td><td>미음(10배죽), 곱게 간 것</td><td>30~80g · 1회</td></tr>
+    <tr><td>중기</td><td>7~8개월</td><td>죽(7배죽), 으깬 것</td><td>70~120g · 2회</td></tr>
+    <tr><td>후기</td><td>9~11개월</td><td>무른 밥(5배죽), 잘게 썬 것</td><td>120~150g · 3회</td></tr>
+    <tr><td>완료기</td><td>12개월~</td><td>진밥, 유아식</td><td>150~180g · 3회 + 간식</td></tr>
+  </tbody>
+</table></div>
+<p class="note">양은 평균이며 아기에 따라 다릅니다. 새 재료는 한 번에 한 가지씩 2~3일 간격으로 늘려 알레르기 반응을 확인하세요. 분유량 조절은 <a href="/calc/formula-amount.html">분유량 계산기</a>를 참고하세요.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>소고기는 언제부터 넣나요?</summary>
+  <p>생후 6개월 무렵부터 철분 보충을 위해 초기 이유식에 소고기를 넣는 것을 권합니다.</p></details>
+<details><summary>꿀과 생우유는요?</summary>
+  <p>꿀은 영아 보툴리누스증 위험 때문에 돌 전에는 먹이지 않고, 생우유도 돌 이후부터 마시게 합니다.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("b", yearsRange(y, y - 2));
+  const STAGES = [["이유식 시작 가능 (4개월)", 4], ["권장 시작 (6개월)", 6], ["중기 시작 (7개월)", 7], ["후기 시작 (9개월)", 9], ["완료기 시작 (12개월)", 12]];
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const birth = readYmd("b");
+    if (!birth || birth > t) { $("out").innerHTML = '<p class="err">아기 생일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    const months = monthsBetween(birth, t);
+    let html = row("현재", `생후 ${months}개월`);
+    for (const [label, m] of STAGES) {
+      const d = plusMonths(birth, m), n = daysBetween(t, d);
+      html += row(label, fmtDate(d) + (n > 0 ? ` · D-${n}` : n === 0 ? " · 오늘" : ""));
+    }
+    const stage = months < 4 ? "아직 수유만 하는 시기" : months < 7 ? "초기 이유식 시기" : months < 9 ? "중기 이유식 시기" : months < 12 ? "후기 이유식 시기" : "완료기·유아식 시기";
+    $("out").innerHTML = html + row("지금 단계", stage);
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "소고기는 언제부터 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "생후 6개월 무렵부터 철분 보충을 위해 초기 이유식에 소고기를 넣는 것을 권합니다."}}, {"@type": "Question", "name": "꿀과 생우유는요?", "acceptedAnswer": {"@type": "Answer", "text": "꿀은 영아 보툴리누스증 위험 때문에 돌 전에는 먹이지 않고, 생우유도 돌 이후부터 마시게 합니다."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/formula-amount.html">분유량 계산기</a></li><li><a href="/calc/school-year.html">초등학교 입학년도 계산기</a></li><li><a href="/calc/corrected-age.html">교정연령 계산기</a></li><li><a href="/calc/ovulation.html">배란일 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

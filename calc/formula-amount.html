@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>분유량 계산기: 개월수·몸무게별 하루 분유량과 1회 수유량 | 성장계산기</title>
+<meta name="description" content="아기 개월수와 몸무게로 하루 권장 분유량, 1회 수유량, 하루 수유 횟수를 계산합니다. 신생아부터 돌 무렵까지 월령별 분유량 표도 함께 정리했습니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/formula-amount.html">
+<meta property="og:title" content="분유량 계산기: 개월수·몸무게별 하루 분유량과 1회 수유량">
+<meta property="og:description" content="아기 개월수와 몸무게로 하루 권장 분유량, 1회 수유량, 하루 수유 횟수를 계산합니다. 신생아부터 돌 무렵까지 월령별 분유량 표도 함께 정리했습니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>분유량 계산기: 개월수·몸무게별 하루 분유량과 1회 수유량</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="by">아기 생일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+    <div class="full"><label for="weight">현재 몸무게 (kg)</label>
+      <input id="weight" type="number" inputmode="decimal" step="0.1" min="1.5" max="15"></div>
+  </div>
+  <button type="submit">분유량 계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>분유량 계산 기준</h2>
+<p>생후 6개월 전까지 하루 분유량은 흔히 <b>몸무게(kg) × 150ml</b>로 계산하고, 하루 1,000ml를 넘기지 않는 것을 권합니다. 이유식을 시작하면 분유는 조금씩 줄여 돌 무렵 하루 500~600ml 안팎이 됩니다. 아래 표는 분유 제조사와 육아 안내서에서 흔히 쓰는 월령별 평균입니다.</p>
+<div class="table"><table>
+  <thead><tr><th>월령</th><th>1회 수유량</th><th>하루 횟수</th></tr></thead>
+  <tbody>
+    <tr><td>0~2주</td><td>60~90ml</td><td>7~8회</td></tr>
+    <tr><td>2주~1개월</td><td>90~120ml</td><td>6~7회</td></tr>
+    <tr><td>1~2개월</td><td>120~160ml</td><td>6회</td></tr>
+    <tr><td>2~3개월</td><td>160~200ml</td><td>5~6회</td></tr>
+    <tr><td>3~5개월</td><td>200~220ml</td><td>5회</td></tr>
+    <tr><td>5~6개월</td><td>200~240ml</td><td>4~5회</td></tr>
+    <tr><td>6~9개월</td><td>200~240ml</td><td>3~4회 (+이유식)</td></tr>
+    <tr><td>9~12개월</td><td>200~240ml</td><td>2~3회 (+이유식)</td></tr>
+  </tbody>
+</table></div>
+<p class="note">아기마다 먹는 양이 다릅니다. 기저귀가 하루 6장 이상 젖고 몸무게가 성장곡선을 따라 늘면 충분히 먹고 있는 것입니다. 몸무게 추이는 <a href="/calc/weight-percentile.html">몸무게 백분위 계산기</a>로 확인하세요.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>아기가 계산보다 많이(적게) 먹어요.</summary>
+  <p>하루 이틀 차이는 흔합니다. 체중이 잘 늘고 소변·대변이 정상이면 괜찮고, 체중이 줄거나 계속 토하면 소아청소년과 상담을 받으세요.</p></details>
+<details><summary>밤수유는 언제 끊나요?</summary>
+  <p>보통 생후 4~6개월 무렵, 낮에 충분히 먹고 체중이 잘 늘면 밤수유를 줄여 볼 수 있습니다.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("b", yearsRange(y, y - 2));
+  // [최대 일수(미만), 1회 최소, 1회 최대, 횟수 표기]
+  const TABLE = [[14, 60, 90, "7~8회"], [30, 90, 120, "6~7회"], [61, 120, 160, "6회"], [91, 160, 200, "5~6회"],
+    [152, 200, 220, "5회"], [183, 200, 240, "4~5회"], [274, 200, 240, "3~4회 (+이유식)"], [366, 200, 240, "2~3회 (+이유식)"]];
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const birth = readYmd("b"), weight = parseFloat($("weight").value);
+    if (!birth || birth > t) { $("out").innerHTML = '<p class="err">아기 생일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (!(weight >= 1.5 && weight <= 15)) { $("out").innerHTML = '<p class="err">몸무게를 1.5~15kg 사이로 입력해 주세요.</p>'; return; }
+    const days = daysBetween(birth, t), months = monthsBetween(birth, t);
+    const r = TABLE.find(([max]) => days < max);
+    if (!r) { $("out").innerHTML = '<p class="err">돌이 지난 아기는 분유 대신 생우유·일반식으로 넘어가는 시기입니다. 하루 우유는 400~500ml 정도를 권합니다.</p>'; return; }
+    const daily = Math.min(Math.round(weight * 150 / 10) * 10, 1000);
+    let html = row("월령", `생후 ${months}개월 (${days + 1}일째)`);
+    html += days < 183 ? row("하루 권장 분유량", `약 ${daily}ml`) : row("하루 분유량", "이유식 포함 500~800ml 안팎");
+    html += row("1회 수유량", `${r[1]}~${r[2]}ml`) + row("하루 수유 횟수", r[3]);
+    if (days < 183 && weight * 150 > 1000) html += '<p class="note">계산값이 1,000ml를 넘어 상한으로 맞췄습니다.</p>';
+    $("out").innerHTML = html;
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "아기가 계산보다 많이(적게) 먹어요.", "acceptedAnswer": {"@type": "Answer", "text": "하루 이틀 차이는 흔합니다. 체중이 잘 늘고 소변·대변이 정상이면 괜찮고, 체중이 줄거나 계속 토하면 소아청소년과 상담을 받으세요."}}, {"@type": "Question", "name": "밤수유는 언제 끊나요?", "acceptedAnswer": {"@type": "Answer", "text": "보통 생후 4~6개월 무렵, 낮에 충분히 먹고 체중이 잘 늘면 밤수유를 줄여 볼 수 있습니다."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/baby-food.html">이유식 시기 계산기</a></li><li><a href="/calc/ovulation.html">배란일 계산기</a></li><li><a href="/calc/korean-age.html">만나이 계산기</a></li><li><a href="/calc/school-year.html">초등학교 입학년도 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>

@@ -33,3 +33,4 @@ button { margin-top:16px; width:100%; padding:13px; font-size:1.05rem; font-weig
 details { border-top:1px solid var(--line); padding:12px 0; }
 summary { cursor:pointer; font-weight:600; }
 @media (max-width:480px) { .grid { grid-template-columns:1fr; } }
+.warn { color:#c2410c; font-weight:600; }

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>출산휴가 계산기 2026: 출산전후휴가 기간·급여 계산 | 성장계산기</title>
+<meta name="description" content="출산예정일과 통상임금, 회사 규모로 출산전후휴가 시작·종료일과 2026년 기준 정부 지원 급여(30일 220만원 상한)를 계산합니다. 다태아·미숙아도 반영합니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/maternity-leave.html">
+<meta property="og:title" content="출산휴가 계산기 2026: 출산전후휴가 기간·급여 계산">
+<meta property="og:description" content="출산예정일과 통상임금, 회사 규모로 출산전후휴가 시작·종료일과 2026년 기준 정부 지원 급여(30일 220만원 상한)를 계산합니다. 다태아·미숙아도 반영합니다.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main>
+<nav><a href="/">성장계산기</a> · <a href="/calc/">계산기 모음</a> · <a href="/guide/">성장 정보</a></nav>
+<article>
+<h1>출산휴가 계산기 2026: 출산전후휴가 기간·급여 계산</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="dy">출산예정일 (또는 출산일)</label>
+      <div class="ymd"><select id="dy" aria-label="연도"></select><select id="dm" aria-label="월"></select><select id="dd" aria-label="일"></select></div></div>
+    <div><label for="type">유형</label>
+      <select id="type"><option value="single">단태아 (90일)</option><option value="preterm">미숙아 (100일)</option><option value="multi">다태아 (120일)</option></select></div>
+    <div><label for="size">회사 규모</label>
+      <select id="size"><option value="small">우선지원대상기업 (중소기업)</option><option value="large">대규모기업</option></select></div>
+    <div class="full"><label for="wage">월 통상임금 (만원)</label><input id="wage" type="number" inputmode="numeric" min="10" max="5000" placeholder="예: 300"></div>
+  </div>
+  <button type="submit">출산휴가 계산하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>출산전후휴가 기준 (2026)</h2>
+<ul>
+  <li><b>기간:</b> 단태아 90일(출산 후 45일 이상), 미숙아 100일, 다태아 120일(출산 후 60일 이상)</li>
+  <li><b>정부 지원 상한:</b> 30일 기준 220만원, 하한은 최저임금(2026년 월 2,156,880원)</li>
+  <li><b>우선지원대상기업:</b> 휴가 전 기간을 고용보험에서 지원</li>
+  <li><b>대규모기업:</b> 처음 60일(다태아 75일)은 회사가 통상임금을 주고, 나머지 30일(미숙아 40일, 다태아 45일)만 고용보험에서 지원</li>
+  <li><b>배우자 출산휴가:</b> 20일 유급, 3회까지 나눠 쓸 수 있고 2026년 9월부터 출산예정일 50일 전부터 출산 후 120일 안에 사용 가능</li>
+</ul>
+<p class="note">근거: 고용노동부 고시 제2026-67호(2026.9.18 시행), 고용24 안내. 휴직 이후 급여는 <a href="/calc/parental-leave-pay.html">육아휴직 급여 계산기</a>를 참고하세요.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>출산휴가는 언제부터 시작하나요?</summary>
+  <p>출산 후 45일(다태아 60일)을 남기면 출산 전 시작일은 자유롭게 정할 수 있습니다. 이 계산기는 출산 전 최대한 앞당겨 시작하는 경우를 보여줍니다.</p></details>
+<details><summary>예정일보다 일찍 낳으면요?</summary>
+  <p>출산일을 기준으로 출산 후 45일 이상이 보장되도록 휴가가 조정됩니다. 실제 출산일을 넣어 다시 계산해 보세요.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  const t = today(), y = t.getUTCFullYear();
+  fillYmd("d", yearsRange(y - 1, y + 1));
+  // 전체 일수, 출산 후 최소 일수, 대규모기업 정부 지원 일수
+  const TYPE = { single: [90, 45, 30], preterm: [100, 45, 40], multi: [120, 60, 45] };
+  const CAP = 220, FLOOR = 215.688;
+  const won = (man) => `${Math.round(man * 10000).toLocaleString("ko-KR")}원`;
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const due = readYmd("d"), wage = parseFloat($("wage").value), [total, after, largeGov] = TYPE[$("type").value];
+    if (!due) { $("out").innerHTML = '<p class="err">출산예정일(년·월·일)을 정확히 골라 주세요.</p>'; return; }
+    if (!(wage >= 10 && wage <= 5000)) { $("out").innerHTML = '<p class="err">통상임금을 만원 단위로 입력해 주세요.</p>'; return; }
+    const start = addDays(due, -(total - after)), end = addDays(start, total - 1);
+    const govDays = $("size").value === "small" ? total : largeGov;
+    const monthly = Math.max(FLOOR, Math.min(wage, CAP));
+    const gov = monthly * govDays / 30;
+    // 대규모기업: 정부 지원 전 기간은 회사가 통상임금 지급. 우선지원: 최초 유급기간(60일, 다태아 75일)의 상한 초과분을 회사가 지급(근로기준법 제74조)
+    const paidDays = total - largeGov;
+    const company = total > govDays ? wage * (total - govDays) / 30 : Math.max(0, wage - CAP) * paidDays / 30;
+    let html = row("휴가 기간", `${total}일`) +
+      row("가장 빠른 시작일", fmtDate(start)) +
+      row("그때 종료일", fmtDate(end)) +
+      row("정부 지원 (고용보험)", `${won(gov)} (${govDays}일분)`);
+    if (company > 0) html += row("회사 지급", `${won(company)} (${total > govDays ? `${total - govDays}일분 통상임금` : `처음 ${paidDays}일 상한 초과분`})`);
+    html += row("합계 (세전)", won(gov + company));
+    $("out").innerHTML = html;
+  });
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "출산휴가는 언제부터 시작하나요?", "acceptedAnswer": {"@type": "Answer", "text": "출산 후 45일(다태아 60일)을 남기면 출산 전 시작일은 자유롭게 정할 수 있습니다. 이 계산기는 출산 전 최대한 앞당겨 시작하는 경우를 보여줍니다."}}, {"@type": "Question", "name": "예정일보다 일찍 낳으면요?", "acceptedAnswer": {"@type": "Answer", "text": "출산일을 기준으로 출산 후 45일 이상이 보장되도록 휴가가 조정됩니다. 실제 출산일을 넣어 다시 계산해 보세요."}}]}</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/parental-leave-pay.html">육아휴직 급여 계산기 2026</a></li><li><a href="/calc/vaccination.html">아기 예방접종 일정 계산기</a></li><li><a href="/calc/checkup-schedule.html">영유아 건강검진 시기 계산기</a></li><li><a href="/calc/pregnancy-weight.html">임신 몸무게 증가 계산기</a></li></ul>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기 →</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+</footer>
+</main>
+</body>
+</html>
