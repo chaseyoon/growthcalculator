@@ -11,38 +11,13 @@
 <meta property="og:description" content="질병관리청 2017 성장도표 기준 키·체중·BMI 백분위와 예상 성인키">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://growthcalculator.kr/">
-<style>
-  :root { --bg:#f7f8fa; --card:#fff; --text:#1d2433; --muted:#5b6475; --line:#e3e6ec; --accent:#2f6fed; --warn:#c2410c; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#12151b; --card:#1b2029; --text:#e8ebf1; --muted:#9aa3b2; --line:#2b3240; --accent:#6b9bff; --warn:#fb923c; } }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
-  main { max-width:720px; margin:0 auto; padding:24px 16px 64px; }
-  h1 { font-size:1.6rem; line-height:1.3; margin:8px 0 4px; }
-  h2 { font-size:1.2rem; margin:40px 0 8px; }
-  p.lead { color:var(--muted); margin:0 0 20px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 14px; }
-  label { display:block; font-size:.9rem; color:var(--muted); margin-bottom:4px; }
-  input, select { width:100%; padding:10px 12px; font-size:1rem; border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--text); }
-  .full { grid-column:1 / -1; }
-  .ymd { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:6px; }
-  .ymd select { padding:10px 6px; }
-  button { margin-top:16px; width:100%; padding:13px; font-size:1.05rem; font-weight:700; border:0; border-radius:10px; background:var(--accent); color:#fff; cursor:pointer; }
-  #result { margin-top:18px; }
-  .row { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); }
-  .row:last-child { border-bottom:0; }
-  .row b { font-size:1.1rem; }
-  .note { font-size:.88rem; color:var(--muted); }
-  .warn { color:var(--warn); font-weight:600; }
-  .err { color:var(--warn); }
-  details { border-top:1px solid var(--line); padding:12px 0; }
-  summary { cursor:pointer; font-weight:600; }
-  footer { margin-top:48px; font-size:.85rem; color:var(--muted); }
-  footer a { color:var(--muted); }
-  @media (max-width:480px) { .grid { grid-template-columns:1fr; } }
-</style>
+<link rel="stylesheet" href="/article.css">
 </head>
 <body>
+<header class="mast"><div class="mast-in">
+<a class="brand" href="/">성장계산기</a>
+<nav aria-label="주요 메뉴"><a href="/">예상키 계산</a><a href="/calc/">계산기 모음</a><a href="/guide/">성장 정보</a></nav>
+</div></header>
 <main>
   <h1>우리 아이 예상키 계산기</h1>
   <p class="lead">질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」 기준으로 키·체중·BMI 백분위와 예상 성인키를 계산합니다.</p>
