@@ -27,7 +27,7 @@
 <main>
 <article>
 <h1>성장도표 백분위 보는 법: 50백분위, 3백분위는 무슨 뜻일까</h1>
-<p class="note">작성 2026-10-28</p>
+<p class="note">작성 2026-10-28 · 수정 2026-11-04</p>
 <p>영유아 검진이나 학교 건강검진 결과지에 나오는 "키 백분위 35"는 <b>같은 성별·같은 월령 아이 100명 중 키가 작은 쪽부터 35번째</b>라는 뜻입니다. 백분위가 높을수록 또래보다 큰 편이고, 50백분위가 딱 중간입니다.</p>
 
 <h2>백분위 구간별 의미</h2>
@@ -38,6 +38,40 @@
 </ul>
 <p>몸무게와 BMI도 같은 방식으로 읽습니다. 다만 BMI는 85백분위 이상이면 과체중, 95백분위 이상이면 비만으로 판정합니다.</p>
 
+<h2>예시: 만 6세(72개월) 백분위별 키</h2>
+<div class="table"><table>
+<thead><tr><th>백분위</th><th>남아 (cm)</th><th>여아 (cm)</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>107.4</td><td>106.6</td></tr>
+<tr><td>10</td><td>110.1</td><td>109.1</td></tr>
+<tr><td>25</td><td>112.8</td><td>111.8</td></tr>
+<tr><td>50</td><td>115.9</td><td>114.7</td></tr>
+<tr><td>75</td><td>119.1</td><td>117.8</td></tr>
+<tr><td>90</td><td>122.0</td><td>120.5</td></tr>
+<tr><td>97</td><td>125.0</td><td>123.3</td></tr>
+</tbody></table></div>
+<p>만 6세 0개월 남아가 키 115cm라면 이 표에서 25~50백분위 사이에 있다는 것을 바로 알 수 있습니다. 정확한 값은 생년월일과 키를 넣어 <a href="/calc/height-percentile.html">키 백분위 계산기</a>로 구하세요. 다른 나이의 평균과 정상 범위는 <a href="/guide/average-height.html">나이별 평균 키 표</a>에 있습니다.</p>
+
+<h2>표준점수 ↔ 백분위 변환표</h2>
+<div class="table"><table>
+<thead><tr><th>표준점수(Z)</th><th>백분위</th></tr></thead>
+<tbody>
+<tr><td>-3.0</td><td>0.1</td></tr>
+<tr><td>-2.5</td><td>0.6</td></tr>
+<tr><td>-2.0</td><td>2.3</td></tr>
+<tr><td>-1.88</td><td>3.0</td></tr>
+<tr><td>-1.5</td><td>6.7</td></tr>
+<tr><td>-1.0</td><td>15.9</td></tr>
+<tr><td>-0.5</td><td>30.9</td></tr>
+<tr><td>0</td><td>50.0</td></tr>
+<tr><td>+0.5</td><td>69.1</td></tr>
+<tr><td>+1.0</td><td>84.1</td></tr>
+<tr><td>+1.5</td><td>93.3</td></tr>
+<tr><td>+1.88</td><td>97.0</td></tr>
+<tr><td>+2.0</td><td>97.7</td></tr>
+<tr><td>+3.0</td><td>99.9</td></tr>
+</tbody></table></div>
+
 <h2>표준점수(Z점수)와의 관계</h2>
 <p>표준점수는 중앙값에서 표준편차 몇 개만큼 떨어져 있는지를 나타냅니다. 0이면 50백분위, −1.88이면 약 3백분위, +1.88이면 약 97백분위입니다. 병원에서는 아주 작거나 큰 아이를 비교할 때 백분위보다 표준점수를 더 많이 씁니다. 1백분위와 0.1백분위는 숫자로는 비슷해 보이지만 표준점수로는 차이가 분명하게 드러나기 때문입니다.</p>
 
@@ -47,10 +81,18 @@
 <h2>성장도표는 어떻게 계산하나요?</h2>
 <p>2017 성장도표는 월령별 L(분포의 치우침을 보정하는 값), M(중앙값), S(변동계수) 세 값을 제공합니다. 측정값을 이 값에 넣어 표준점수를 구하고, 그 표준점수를 정규분포 누적확률로 바꾼 것이 백분위입니다. 이 사이트의 계산기도 같은 공식과 공식 LMS 값을 씁니다. 만 3세 미만은 성장도표 규정에 따라 WHO 성장기준을 적용합니다.</p>
 
+<h2>자주 묻는 질문</h2>
+<details><summary>백분위 50이면 반에서 중간인가요?</summary>
+  <p>성장도표 기준으로는 그렇습니다. 다만 성장도표는 기준 연도 아이들의 자료라서, 실제 반 친구들의 키 분포와는 조금 다를 수 있습니다.</p></details>
+<details><summary>키 백분위와 몸무게 백분위가 많이 달라도 괜찮나요?</summary>
+  <p>체형 차이일 수 있어서 바로 문제라고 보지는 않습니다. 만 2세 이상이면 키와 몸무게를 함께 쓰는 <a href="/calc/child-bmi.html">BMI 백분위</a>를 보는 것이 더 정확합니다.</p></details>
+
 <h2>이 글과 함께 쓰는 계산기</h2>
 <ul><li><a href="/calc/height-percentile.html">키 백분위 계산기</a></li><li><a href="/calc/weight-percentile.html">아기 몸무게 백분위 계산기</a></li><li><a href="/calc/child-bmi.html">소아 BMI 계산기</a></li></ul>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "성장도표 백분위 보는 법: 50백분위, 3백분위는 무슨 뜻일까", "description": "아이 키 백분위가 무엇인지, 몇 백분위부터 걱정해야 하는지, 표준점수(Z)와 어떻게 다른지 2017 성장도표 기준으로 설명합니다.", "image": "https://growthcalculator.kr/og.png", "datePublished": "2026-10-28", "dateModified": "2026-10-28", "author": {"@type": "Organization", "name": "성장계산기", "url": "https://growthcalculator.kr/about.html", "logo": {"@type": "ImageObject", "url": "https://growthcalculator.kr/apple-touch-icon.png"}}, "publisher": {"@type": "Organization", "name": "성장계산기", "url": "https://growthcalculator.kr/about.html", "logo": {"@type": "ImageObject", "url": "https://growthcalculator.kr/apple-touch-icon.png"}}, "mainEntityOfPage": "https://growthcalculator.kr/guide/percentile-guide.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "성장도표 백분위 보는 법: 50백분위, 3백분위는 무슨 뜻일까", "description": "아이 키 백분위가 무엇인지, 몇 백분위부터 걱정해야 하는지, 표준점수(Z)와 어떻게 다른지 2017 성장도표 기준으로 설명합니다.", "image": "https://growthcalculator.kr/og.png", "datePublished": "2026-10-28", "dateModified": "2026-11-04", "author": {"@type": "Organization", "name": "성장계산기", "url": "https://growthcalculator.kr/about.html", "logo": {"@type": "ImageObject", "url": "https://growthcalculator.kr/apple-touch-icon.png"}}, "publisher": {"@type": "Organization", "name": "성장계산기", "url": "https://growthcalculator.kr/about.html", "logo": {"@type": "ImageObject", "url": "https://growthcalculator.kr/apple-touch-icon.png"}}, "mainEntityOfPage": "https://growthcalculator.kr/guide/percentile-guide.html"}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "백분위 50이면 반에서 중간인가요?", "acceptedAnswer": {"@type": "Answer", "text": "성장도표 기준으로는 그렇습니다. 다만 성장도표는 기준 연도 아이들의 자료라서, 실제 반 친구들의 키 분포와는 조금 다를 수 있습니다."}}, {"@type": "Question", "name": "키 백분위와 몸무게 백분위가 많이 달라도 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "체형 차이일 수 있어서 바로 문제라고 보지는 않습니다. 만 2세 이상이면 키와 몸무게를 함께 쓰는 BMI 백분위를 보는 것이 더 정확합니다."}}]}</script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "성장 정보", "item": "https://growthcalculator.kr/guide/"}, {"@type": "ListItem", "position": 3, "name": "성장도표 백분위 보는 법: 50백분위, 3백분위는 무슨 뜻일까", "item": "https://growthcalculator.kr/guide/percentile-guide.html"}]}</script>
 
