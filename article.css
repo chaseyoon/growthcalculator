@@ -4,9 +4,11 @@
 body { margin:0; background:var(--bg); color:var(--text); font:16px/1.75 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
 main { max-width:720px; margin:0 auto; padding:24px 16px 64px; }
 :focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
-.mast { background:var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 104' preserveAspectRatio='none' fill='none' stroke='%231c7a58'%3E%3Cpath stroke-opacity='.3' d='M0 104C140 86 260 62 380 50S610 34 720 30'/%3E%3Cpath stroke-opacity='.65' stroke-width='2' d='M0 92C140 70 260 44 380 30S610 12 720 9'/%3E%3Cpath stroke-opacity='.3' d='M0 80C140 54 260 26 380 12S610-6 720-10'/%3E%3C/svg%3E") right 8px / 62% 58% no-repeat; }
-.mast-in { max-width:720px; min-height:104px; margin:0 auto; padding:14px 16px 0; display:flex; flex-direction:column; justify-content:space-between; }
-.brand { width:max-content; font-size:1.3rem; font-weight:800; letter-spacing:-.02em; color:var(--text); text-decoration:none; }
+.mast { background:var(--tint); border-bottom:1px solid var(--line); }
+.mast-in { max-width:720px; min-height:176px; margin:0 auto; padding:18px 16px 4px; display:flex; flex-direction:column; justify-content:space-between; background:url(/mast.svg) right 8px bottom 0 / auto 168px no-repeat; }
+.brand { width:max-content; font-size:1.45rem; font-weight:800; letter-spacing:-.02em; color:var(--text); text-decoration:none; }
+.brand::after { content:"우리 아이 키, 지금 몇 등일까?"; display:block; margin-top:2px; font-size:.86rem; font-weight:600; color:var(--muted); letter-spacing:0; }
+@media (max-width:560px) { .mast-in { min-height:150px; padding-top:14px; background-size:auto 112px; background-position:right 6px top 8px; } .brand::after { font-size:.8rem; white-space:nowrap; } }
 .mast nav { display:flex; flex-wrap:wrap; gap:0 18px; font-size:.92rem; }
 .mast nav a { padding:8px 0; color:var(--text); text-decoration:none; font-weight:600; }
 .mast nav a:hover { color:var(--accent); }
@@ -25,6 +27,7 @@ th { background:var(--bg); }
 .list p { margin:2px 0 14px; color:var(--muted); font-size:.92rem; }
 footer { margin-top:40px; font-size:.85rem; color:var(--muted); }
 footer a { color:var(--muted); }
+.credit { font-size:.72rem; opacity:.75; }
 .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 14px; }
 .full { grid-column:1 / -1; }
