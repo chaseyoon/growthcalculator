@@ -42,7 +42,7 @@
 
 
 <h2>분유량 계산 기준</h2>
-<p>생후 6개월 전까지 하루 분유량은 흔히 <b>몸무게(kg) × 150ml</b>로 계산하고, 하루 1,000ml를 넘기지 않는 것을 권합니다. 이유식을 시작하면 분유는 조금씩 줄여 돌 무렵 하루 500~600ml 안팎이 됩니다. 아래 표는 분유 제조사와 육아 안내서에서 흔히 쓰는 월령별 평균입니다.</p>
+<p>보건복지부 육아정책 포털(아이사랑)은 하루 분유량을 몸무게 1kg당 <b>생후 3개월까지 150~180ml</b>, <b>3~6개월은 약 120ml</b>(하루 960ml를 넘기지 않기), <b>6~12개월은 90~100ml</b>로 안내합니다. 이 계산기도 이 기준을 씁니다. 아래 월령별 표는 분유 제조사와 육아 안내서에서 흔히 쓰는 1회량·횟수 평균이라 참고용으로만 보세요.</p>
 <div class="table"><table>
   <thead><tr><th>월령</th><th>1회 수유량</th><th>하루 횟수</th></tr></thead>
   <tbody>
@@ -60,15 +60,16 @@
 
 <h2>몸무게별 하루 분유량 (생후 6개월 전)</h2>
 <div class="table"><table>
-<thead><tr><th>아기 몸무게</th><th>하루 분유량 (×150ml)</th><th>하루 6회 먹을 때 1회</th><th>하루 5회 먹을 때 1회</th></tr></thead>
+<thead><tr><th>아기 몸무게</th><th>생후 3개월 전 (1kg당 150~180ml)</th><th>생후 3~6개월 (1kg당 약 120ml)</th></tr></thead>
 <tbody>
-<tr><td>3kg</td><td>450ml</td><td>75ml</td><td>90ml</td></tr>
-<tr><td>4kg</td><td>600ml</td><td>100ml</td><td>120ml</td></tr>
-<tr><td>5kg</td><td>750ml</td><td>125ml</td><td>150ml</td></tr>
-<tr><td>6kg</td><td>900ml</td><td>150ml</td><td>180ml</td></tr>
-<tr><td>7kg 이상</td><td>1,000ml (상한)</td><td>약 165ml</td><td>200ml</td></tr>
+<tr><td>3kg</td><td>450~540ml</td><td>–</td></tr>
+<tr><td>4kg</td><td>600~720ml</td><td>480ml</td></tr>
+<tr><td>5kg</td><td>750~900ml</td><td>600ml</td></tr>
+<tr><td>6kg</td><td>900~1,080ml</td><td>720ml</td></tr>
+<tr><td>7kg</td><td>–</td><td>840ml</td></tr>
+<tr><td>8kg 이상</td><td>–</td><td>960ml (상한)</td></tr>
 </tbody></table></div>
-<p><b>예시</b>: 생후 4개월, 6.5kg 아기라면 하루 약 975ml, 하루 5회 먹으면 1회 약 195ml입니다. 월령별 표의 3~5개월 구간(1회 200~220ml, 5회)과 비슷합니다. 아기 개월수는 <a href="/calc/baby-months.html">아기 개월수 계산기</a>로 확인하세요.</p>
+<p><b>예시</b>: 생후 4개월, 6.5kg 아기라면 하루 약 780ml(6.5 × 120), 하루 5회 먹으면 1회 약 155ml입니다. 생후 2개월, 5kg 아기라면 하루 750~900ml입니다. 아기 개월수는 <a href="/calc/baby-months.html">아기 개월수 계산기</a>로 확인하세요.</p>
 
 <h2>분유 탈 때 지킬 것</h2>
 <ul>
@@ -100,14 +101,22 @@
     const days = daysBetween(birth, t), months = monthsBetween(birth, t);
     const r = TABLE.find(([max]) => days < max);
     if (!r) { $("out").innerHTML = '<p class="err">돌이 지난 아기는 분유 대신 생우유·일반식으로 넘어가는 시기입니다. 하루 우유는 400~500ml 정도를 권합니다.</p>'; return; }
-    const daily = Math.min(Math.round(weight * 150 / 10) * 10, 1000);
+    // 보건복지부 아이사랑: 1kg당 3개월까지 150~180ml, 3~6개월 약 120ml(하루 960ml 이하), 6~12개월 90~100ml
+    const r10 = (v) => Math.round(v / 10) * 10;
+    const [lo, hi] = days < 91 ? [weight * 150, weight * 180] : days < 183 ? [Math.min(weight * 120, 960), Math.min(weight * 120, 960)] : [weight * 90, weight * 100];
+    const daily = lo === hi ? `약 ${r10(lo)}ml` : `${r10(lo)}~${r10(hi)}ml`;
+    const cs = r[3].match(/\d+/g).map(Number), cMin = cs[0], cMax = cs[1] || cs[0];
     let html = row("월령", `생후 ${months}개월 (${days + 1}일째)`);
-    html += days < 183 ? row("하루 권장 분유량", `약 ${daily}ml`) : row("하루 분유량", "이유식 포함 500~800ml 안팎");
-    html += row("1회 수유량", `${r[1]}~${r[2]}ml`) + row("하루 수유 횟수", r[3]);
-    if (days < 183 && weight * 150 > 1000) html += '<p class="note">계산값이 1,000ml를 넘어 상한으로 맞췄습니다.</p>';
+    html += row(days < 183 ? "하루 권장 분유량" : "하루 분유량 (이유식 별도)", daily);
+    const per = days < 183 ? [r10(lo / cMax), r10(hi / cMin)] : [r[1], r[2]];
+    html += row("하루 수유 횟수", r[3]) + row("1회 수유량", per[0] === per[1] ? `약 ${per[0]}ml` : `${per[0]}~${per[1]}ml`);
+    if (days >= 91 && days < 183 && weight * 120 > 960) html += '<p class="note">계산값이 960ml를 넘어 상한으로 맞췄습니다.</p>';
     $("out").innerHTML = html;
   });
 </script>
+
+<h2>더 알아보기</h2>
+<ul><li><a href="/guide/formula-amount-guide.html">월령별 분유량 기준</a></li></ul>
 
 <h2>함께 보면 좋은 계산기</h2>
 <ul><li><a href="/calc/baby-food.html">이유식 시기 계산기</a></li><li><a href="/calc/ovulation.html">배란일 계산기</a></li><li><a href="/calc/korean-age.html">만나이 계산기</a></li><li><a href="/calc/school-year.html">초등학교 입학년도 계산기</a></li></ul>
