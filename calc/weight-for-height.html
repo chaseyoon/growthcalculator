@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>키 대비 체중 계산기: 신장별 체중 백분위와 과체중 기준 | 성장계산기</title>
+<meta name="description" content="아이 키와 몸무게로 질병관리청 2017 성장도표의 신장별 체중 백분위를 계산합니다. 2세 미만 누운 키 표, 2~3세 미만·3세 이상 선 키 표를 나이에 맞게 고르고, 2세부터는 BMI 백분위 판정도 함께 보여 줍니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/weight-for-height.html">
+<meta property="og:title" content="키 대비 체중 계산기: 신장별 체중 백분위와 과체중 기준">
+<meta property="og:description" content="아이 키와 몸무게로 질병관리청 2017 성장도표의 신장별 체중 백분위를 계산합니다. 2세 미만 누운 키 표, 2~3세 미만·3세 이상 선 키 표를 나이에 맞게 고르고, 2세부터는 BMI 백분위 판정도 함께 보여 줍니다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://growthcalculator.kr/calc/weight-for-height.html">
+<meta property="og:image" content="https://growthcalculator.kr/og.png">
+<meta property="og:site_name" content="성장계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<header class="mast"><div class="mast-in">
+<a class="brand" href="/">성장계산기</a>
+<nav aria-label="주요 메뉴"><a href="/">예상키 계산</a><a href="/calc/">계산기 모음</a><a href="/guide/">성장 정보</a></nav>
+</div></header>
+<main>
+<article>
+<h1>키 대비 체중 계산기: 신장별 체중 백분위와 과체중 기준</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div><label for="sex">성별</label><select id="sex"><option value="M">남아</option><option value="F">여아</option></select></div>
+    <div><label for="by">생년월일</label>
+      <div class="ymd"><select id="by" aria-label="태어난 해"></select><select id="bm" aria-label="태어난 달"></select><select id="bd" aria-label="태어난 날"></select></div></div>
+    <div><label for="height">키 (cm)</label><input id="height" type="number" inputmode="decimal" step="0.1" min="40" max="190"></div>
+    <div><label for="weight">몸무게 (kg)</label><input id="weight" type="number" inputmode="decimal" step="0.1" min="1" max="120"></div>
+    <div class="full"><label for="pos">키 잰 자세</label><select id="pos">
+      <option value="">나이에 맞게 잼 (2세 미만 누워서, 2세부터 서서)</option>
+      <option value="standing">2세 미만인데 서서 잼 (+0.7cm 보정)</option>
+      <option value="lying">2세 이상인데 누워서 잼 (−0.7cm 보정)</option></select></div>
+    <div class="full"><label for="my">측정일 (기본: 오늘)</label>
+      <div class="ymd"><select id="my" aria-label="측정 연도"></select><select id="mm" aria-label="측정 월"></select><select id="md" aria-label="측정 일"></select></div></div>
+  </div>
+  <button type="submit">키 대비 체중 계산</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>신장별 체중이란</h2>
+<p>신장별 체중은 나이와 상관없이 <b>키가 같은 아이들끼리</b> 몸무게를 비교한 백분위입니다. 같은 12개월 아기라도 키가 크면 몸무게도 많이 나가는 것이 자연스럽기 때문에, 몸무게 백분위만 보면 "많이 나간다"로 보여도 키에 견주면 보통인 경우가 있습니다. 반대로 키와 몸무게 백분위가 둘 다 보통이어도 키에 비해 몸무게가 많은 체형일 수 있습니다.</p>
+<p>2017 소아청소년 성장도표는 <b>2세 미만의 과체중 선별 기준을 신장별 체중 95백분위 이상</b>으로 정했습니다. 2세부터 18세까지는 같은 목적에 연령별 BMI 백분위를 씁니다(85~95백분위 미만 과체중, 95백분위 이상 비만). 그래서 이 계산기는 2세 미만에서는 신장별 체중으로 판정하고, 2세 이상에서는 신장별 체중 백분위를 참고값으로 보여 주면서 판정은 BMI 백분위로 합니다.</p>
+
+<h2>나이별로 쓰는 표</h2>
+<div class="table"><table>
+<thead><tr><th>나이</th><th>쓰는 표</th><th>키 범위</th><th>판정 기준</th></tr></thead>
+<tbody>
+<tr><td>0~23개월</td><td>신장별 체중(2세 미만), 누운 키</td><td>45~110cm</td><td>신장별 체중 95백분위 이상이면 과체중</td></tr>
+<tr><td>24~35개월</td><td>신장별 체중(2~3세 미만), 선 키</td><td>65~120cm</td><td>BMI 백분위</td></tr>
+<tr><td>만 3~18세</td><td>신장별 체중(3세 이상), 선 키</td><td>남 90~186cm, 여 88~172cm</td><td>BMI 백분위</td></tr>
+</tbody></table></div>
+<p>3세 미만 표는 세계보건기구(WHO) 성장기준, 3세 이상 표는 국내 1997·2005년 신체발육조사로 만든 값입니다. 표는 0.5cm(3세 이상은 1cm) 간격으로 되어 있어, 그 사이의 키는 앞뒤 칸 값을 비례로 나눠 계산합니다. 표 칸에 맞는 키로 계산하면 성장도표 데이터 테이블에 실린 3·50·95·97백분위 몸무게와 소수 첫째 자리에서 같거나 0.1kg 이내로 맞습니다.</p>
+<p>누운 키는 선 키보다 평균 0.7cm 깁니다. 2세 미만 아기를 서서 쟀다면 0.7cm를 더하고, 2세가 넘은 아이를 누워서 쟀다면 0.7cm를 빼야 표와 맞습니다. "키 잰 자세"에서 고르면 자동으로 보정합니다.</p>
+
+<h2>계산 예시</h2>
+<ul>
+  <li><b>10개월 남아, 누운 키 73.0cm·몸무게 10.5kg</b>: 키 73.0cm 남아의 몸무게 중앙값은 9.1kg, 95백분위는 10.4kg입니다. 신장별 체중 약 96백분위로 2세 미만 과체중 선별 기준에 해당합니다.</li>
+  <li><b>8개월 여아, 68.3cm·7.0kg</b>: 같은 키 중앙값 7.8kg, 약 11백분위입니다. 과체중 기준과는 거리가 멀고, 저체중 여부는 연령별 몸무게 5백분위 기준으로 따로 봅니다.</li>
+  <li><b>30개월 남아, 선 키 90.0cm·14.5kg</b>: 신장별 체중은 약 92백분위, BMI 17.9는 약 94백분위로 BMI 과체중 기준(85~95백분위 미만)에 해당합니다.</li>
+  <li><b>만 7세 0개월 남아, 120cm·26kg</b>: 신장별 체중은 약 91백분위지만 BMI 18.1은 약 82백분위라 과체중 기준에 들지 않습니다. 2세 이상은 BMI 판정이 공식 기준입니다.</li>
+</ul>
+
+<h2>결과를 볼 때 주의할 점</h2>
+<ul>
+  <li><b>분유 수유아는 높게 나오기 쉽습니다.</b> 3세 미만 기준인 WHO 성장기준은 모유 수유아로 만든 표입니다. 2017 성장도표 해설집은 2015년 영유아 건강검진 자료에서 신장별 체중 95백분위 이상 비율이 2007 성장도표 때보다 높게(예: 9~12개월 3.6%→11.3%) 나왔다며 분유 수유아 해석에 유의하라고 적고 있습니다.</li>
+  <li><b>한 번의 값보다 추세입니다.</b> 영아기 몸무게는 아프거나 수유량이 바뀌면 며칠 사이에도 움직입니다. 같은 조건으로 한두 달 뒤 다시 재서 백분위가 계속 오르는지 보세요.</li>
+  <li><b>키에 비해 가벼운 쪽에는 공식 기준이 따로 있습니다.</b> 성장도표의 저체중 기준은 신장별 체중이 아니라 연령별 몸무게 5백분위 미만입니다. <a href="/calc/weight-percentile.html">몸무게 백분위 계산기</a>로 함께 확인하세요.</li>
+</ul>
+<p>2세 이상의 비만도는 <a href="/calc/child-bmi.html">소아 BMI 계산기</a>에서도 같은 기준으로 볼 수 있습니다. 결과는 성장도표상 위치를 알려 주는 참고값이며, 의사의 진찰·진단을 대신하지 않습니다.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>몸무게 백분위가 90인데 신장별 체중은 50이에요. 어느 쪽이 맞나요?</summary>
+  <p>둘 다 맞습니다. 몸무게 백분위는 같은 나이끼리, 신장별 체중은 같은 키끼리 비교한 값입니다. 키도 큰 아이라면 몸무게가 많이 나가도 키에 견주면 보통이라는 뜻이라, 체형으로는 균형 잡힌 편입니다.</p></details>
+<details><summary>2세 미만에서 95백분위 이상이 나오면 어떻게 하나요?</summary>
+  <p>과체중 "선별" 기준에 해당한다는 뜻입니다. 먼저 키를 정확히 쟀는지(누운 키, 0.1cm 단위) 확인하고, 수유·이유식 양과 간식, 다음 검진까지의 추세를 소아청소년과나 영유아 건강검진에서 상담하세요. 2017 성장도표 해설집은 성장기에 급격히 먹는 양을 줄이는 과도한 체중 관리가 성장을 방해할 수 있다고 주의를 줍니다.</p></details>
+<details><summary>왜 2세 이상은 BMI로 판정하나요?</summary>
+  <p>2017 성장도표의 선별 기준이 2~18세 과체중·비만을 연령별 BMI 백분위로 정해 두었기 때문입니다. 신장별 체중 표도 3~18세까지 있지만, 판정 기준은 BMI 쪽에만 있습니다.</p></details>
+<details><summary>표 범위를 벗어난다고 나와요.</summary>
+  <p>표마다 키 범위가 정해져 있습니다. 2세 미만 45~110cm, 2~3세 미만 65~120cm, 3세 이상 남아 90~186cm·여아 88~172cm입니다. 범위 밖이면 이 표로는 계산할 수 없어 키·몸무게 백분위를 따로 확인해야 합니다.</p></details>
+
+<script src="/calc.js"></script>
+<script src="/growth.js"></script>
+<script>
+(function () {
+  const form = $("form"), t = today(), y = t.getUTCFullYear();
+  fillYmd("b", yearsRange(y, y - 18));
+  fillYmd("m", yearsRange(y, y - 18));
+  $("my").value = y; $("mm").value = t.getUTCMonth() + 1; $("md").value = t.getUTCDate();
+  let lmsPromise = fetch("/lms.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  const Z95 = 1.644853627;
+  const TABLE = { wfh_lt2: "2세 미만 누운 키 표", wfh_2to3: "2~3세 미만 선 키 표", wfh_ge3: "3세 이상 선 키 표" };
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const out = $("out"), birth = readYmd("b"), measured = readYmd("m"), sex = $("sex").value, pos = $("pos").value;
+    const h0 = parseFloat($("height").value), w = parseFloat($("weight").value);
+    if (!birth || !measured || !(h0 > 0) || !(w > 0)) { out.innerHTML = '<p class="err">생년월일, 측정일, 키·몸무게를 정확히 입력해 주세요.</p>'; return; }
+    const month = monthsBetween(birth, measured);
+    if (month < 0 || month > 227) { out.innerHTML = '<p class="err">만 0~18세 아이만 계산할 수 있습니다. 날짜를 확인해 주세요.</p>'; return; }
+    const h = h0 + (month < 24 && pos === "standing" ? 0.7 : month >= 24 && pos === "lying" ? -0.7 : 0);
+    let lms;
+    try { lms = await lmsPromise; } catch { out.innerHTML = '<p class="err">성장도표 데이터를 불러오지 못했습니다. 새로고침 해 주세요.</p>'; lmsPromise = fetch("/lms.json").then((r) => r.json()); return; }
+    const r = wfhAssess(lms, sex, month, h, w);
+    if (!r) { out.innerHTML = '<p class="err">이 나이에 맞는 성장도표가 없습니다. 날짜를 확인해 주세요.</p>'; return; }
+    if (r.outOfRange) { out.innerHTML = `<p class="err">${TABLE[r.table]}는 키 ${r.min}~${r.max}cm 범위만 있습니다. 키를 확인해 주세요.</p>`; return; }
+    const p = r.percentile;
+    let html = row("월령", `${Math.floor(month / 12)}세 ${month % 12}개월`) + row("사용한 표", TABLE[r.table]);
+    if (h !== h0) html += row("보정한 키", `${h.toFixed(1)}cm`);
+    html += row("신장별 체중 백분위", `${p.toFixed(1)}%`) +
+      row(`키 ${h.toFixed(1)}cm 몸무게 중앙값`, `${r.median.toFixed(1)}kg`) +
+      row("같은 키 5~95백분위", `${valueAt(-Z95, r.row).toFixed(1)}~${valueAt(Z95, r.row).toFixed(1)}kg`);
+    if (month < 24) {
+      html += row("판정 (2세 미만 기준)", p >= 95 ? "과체중 선별 기준 해당(95백분위 이상)" : "과체중 선별 기준 해당 없음");
+      if (p < 5) html += '<p class="note">키에 비해 가벼운 편(5백분위 미만)입니다. 저체중 기준은 연령별 몸무게 5백분위 미만이니 <a href="/calc/weight-percentile.html">몸무게 백분위</a>도 확인해 보세요.</p>';
+    } else {
+      const bmi = w / Math.pow(h / 100, 2), b = assess(lms, "bmi", sex, month, bmi);
+      const bp = b.percentile;
+      html += row("BMI", bmi.toFixed(1)) + row("BMI 백분위", `${bp.toFixed(1)}%`) +
+        row("판정 (2세 이상, BMI 기준)", bp >= 95 ? "비만 선별 기준 해당(95백분위 이상)" : bp >= 85 ? "과체중 선별 기준 해당(85~95백분위 미만)" : "과체중·비만 기준 해당 없음");
+    }
+    html += `<p class="note">키가 같은 ${sex === "M" ? "남아" : "여아"} 100명 중 몸무게가 가벼운 쪽부터 약 ${Math.max(1, Math.round(p))}번째입니다. 통계적 추정이며 진단이 아닙니다.</p>`;
+    out.innerHTML = html;
+  });
+})();
+</script>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/childcare-benefits.html">출산·육아 지원금 계산기 2026</a></li><li><a href="/calc/head-circumference.html">머리둘레 백분위 계산기</a></li><li><a href="/calc/daycare-class.html">어린이집 반 나이 계산기</a></li><li><a href="/calc/maternity-leave.html">출산휴가 계산기 2026</a></li></ul>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "몸무게 백분위가 90인데 신장별 체중은 50이에요. 어느 쪽이 맞나요?", "acceptedAnswer": {"@type": "Answer", "text": "둘 다 맞습니다. 몸무게 백분위는 같은 나이끼리, 신장별 체중은 같은 키끼리 비교한 값입니다. 키도 큰 아이라면 몸무게가 많이 나가도 키에 견주면 보통이라는 뜻이라, 체형으로는 균형 잡힌 편입니다."}}, {"@type": "Question", "name": "2세 미만에서 95백분위 이상이 나오면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "과체중 \"선별\" 기준에 해당한다는 뜻입니다. 먼저 키를 정확히 쟀는지(누운 키, 0.1cm 단위) 확인하고, 수유·이유식 양과 간식, 다음 검진까지의 추세를 소아청소년과나 영유아 건강검진에서 상담하세요. 2017 성장도표 해설집은 성장기에 급격히 먹는 양을 줄이는 과도한 체중 관리가 성장을 방해할 수 있다고 주의를 줍니다."}}, {"@type": "Question", "name": "왜 2세 이상은 BMI로 판정하나요?", "acceptedAnswer": {"@type": "Answer", "text": "2017 성장도표의 선별 기준이 2~18세 과체중·비만을 연령별 BMI 백분위로 정해 두었기 때문입니다. 신장별 체중 표도 3~18세까지 있지만, 판정 기준은 BMI 쪽에만 있습니다."}}, {"@type": "Question", "name": "표 범위를 벗어난다고 나와요.", "acceptedAnswer": {"@type": "Answer", "text": "표마다 키 범위가 정해져 있습니다. 2세 미만 45~110cm, 2~3세 미만 65~120cm, 3세 이상 남아 90~186cm·여아 88~172cm입니다. 범위 밖이면 이 표로는 계산할 수 없어 키·몸무게 백분위를 따로 확인해야 합니다."}}]}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "계산기 모음", "item": "https://growthcalculator.kr/calc/"}, {"@type": "ListItem", "position": 3, "name": "키 대비 체중 계산기: 신장별 체중 백분위와 과체중 기준", "item": "https://growthcalculator.kr/calc/weight-for-height.html"}]}</script>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+<p class="credit">Illustrations by <a href="https://storyset.com/children">Storyset</a></p>
+</footer>
+</main>
+</body>
+</html>

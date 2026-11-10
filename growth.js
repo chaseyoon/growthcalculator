@@ -36,6 +36,25 @@ function assess(lms, indicator, sex, month, value) {
   return { z, percentile: normCdf(z) * 100, median: row[1] };
 }
 
+// 신장별 체중. 24개월 미만은 누운 키 표, 24~35개월·36개월 이상은 선 키 표.
+// lms.json 의 wfh_* 는 start/인덱스가 '키 ÷ 간격' 단위(data/build_lms.py 참고)
+const WFH = [[24, "wfh_lt2", 0.5], [36, "wfh_2to3", 0.5], [228, "wfh_ge3", 1]];
+
+function wfhAssess(lms, sex, month, height, weight) {
+  const pick = month >= 0 ? WFH.find(([end]) => month < end) : null;
+  if (!pick || !(weight > 0) || !(height > 0)) return null;
+  const [, table, step] = pick;
+  const t = lms[table] && lms[table][sex];
+  if (!t) return null;
+  // ponytail: 표 간격(0.5·1cm) 사이 키는 L·M·S 선형보간. 원본에 보간 규칙이 없어 일반적인 방식을 씀
+  const pos = Math.round((height / step - t.start) * 1e6) / 1e6, i = Math.floor(pos);
+  const a = t.rows[i], b = pos === i ? a : t.rows[i + 1];
+  if (pos < 0 || !a || !b) return { table, outOfRange: true, min: t.start * step, max: (t.start + t.rows.length - 1) * step };
+  const row = a.map((v, k) => v + (b[k] - v) * (pos - i));
+  const z = zScore(weight, row);
+  return { table, z, percentile: normCdf(z) * 100, median: row[1], row };
+}
+
 // 현재 키 백분위가 성인(마지막 월령)까지 유지된다고 가정한 예상 성인키
 function projectedAdultHeight(lms, sex, month, height) {
   const table = lms.height[sex];
@@ -50,5 +69,5 @@ function midParentalHeight(sex, father, mother) {
 }
 
 if (typeof module !== "undefined") {
-  module.exports = { zScore, valueAt, normCdf, ageInMonths, assess, projectedAdultHeight, midParentalHeight };
+  module.exports = { zScore, valueAt, normCdf, ageInMonths, lmsRow, assess, wfhAssess, projectedAdultHeight, midParentalHeight };
 }
