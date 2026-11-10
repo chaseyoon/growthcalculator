@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>평균키 몸무게 계산기: 나이별 평균 키·몸무게·BMI와 우리 아이 차이 | 성장계산기</title>
+<meta name="description" content="성별과 나이(개월까지)를 고르면 2017 성장도표 기준 평균 키·몸무게·BMI와 정상 범위를 보여 주는 평균키 계산기입니다. 아이 키·몸무게를 넣으면 나이별 평균키 몸무게와의 차이도 계산합니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/average-height-weight.html">
+<meta property="og:title" content="평균키 몸무게 계산기: 나이별 평균 키·몸무게·BMI와 우리 아이 차이">
+<meta property="og:description" content="성별과 나이(개월까지)를 고르면 2017 성장도표 기준 평균 키·몸무게·BMI와 정상 범위를 보여 주는 평균키 계산기입니다. 아이 키·몸무게를 넣으면 나이별 평균키 몸무게와의 차이도 계산합니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://growthcalculator.kr/calc/average-height-weight.html">
+<meta property="og:image" content="https://growthcalculator.kr/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="성장계산기">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<header class="mast"><div class="mast-in">
+<a class="brand" href="/">성장계산기</a>
+<nav aria-label="주요 메뉴"><a href="/">예상키 계산</a><a href="/calc/">계산기 모음</a><a href="/guide/">성장 정보</a></nav>
+</div></header>
+<main>
+<article>
+<h1>평균키 몸무게 계산기: 나이별 평균 키·몸무게·BMI와 우리 아이 차이</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div><label for="sex">성별</label><select id="sex"><option value="M">남아</option><option value="F">여아</option></select></div>
+    <div><label for="ay">만 나이</label>
+      <div class="ymd"><select id="ay" aria-label="만 나이(세)"></select><select id="am" aria-label="개월"></select></div></div>
+    <div><label for="height">아이 키 (cm, 선택)</label><input id="height" type="number" inputmode="decimal" step="0.1" min="40" max="200"></div>
+    <div><label for="weight">아이 몸무게 (kg, 선택)</label><input id="weight" type="number" inputmode="decimal" step="0.1" min="1" max="150"></div>
+  </div>
+  <button type="submit">평균 키·몸무게 보기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>평균키 몸무게 계산기 결과 보는 법</h2>
+<p>이 계산기는 질병관리청·대한소아청소년과학회의 「2017 소아청소년 성장도표」 LMS 값으로 계산합니다. 여기서 <b>평균 키·평균 몸무게는 50백분위(중앙값)</b>입니다. 같은 성별·같은 개월수 아이 100명을 줄 세웠을 때 딱 가운데 아이의 값이라는 뜻이고, 산술평균과는 조금 다를 수 있습니다. <b>정상 범위는 3백분위~97백분위</b>로, 100명 중 작은 쪽 3번째부터 큰 쪽 3번째까지가 이 안에 들어갑니다.</p>
+<p>나이만 고르면 그 나이의 평균 키·몸무게·BMI와 정상 범위가 나옵니다. 아이 키나 몸무게를 함께 넣으면 평균보다 몇 cm, 몇 kg 차이 나는지와 백분위를 같이 보여 주고, 키와 몸무게를 모두 넣으면(만 2세 이상) BMI 백분위로 비만도까지 판정합니다. 입력한 값은 브라우저 안에서만 계산되고 어디에도 저장되지 않습니다.</p>
+
+<h2>같은 나이라도 개월수에 따라 평균키가 다릅니다</h2>
+<p>"10살 평균키"처럼 나이 하나로 찾으면 보통 생일 당일(0개월) 값을 보게 됩니다. 하지만 성장기 아이는 1년에 5~7cm씩 자라기 때문에, 같은 만 나이 안에서도 생일 직후와 다음 생일 직전의 평균 키는 꽤 차이가 납니다. 아래 표는 같은 만 나이의 0개월·6개월·11개월 평균 키입니다.</p>
+<div class="table"><table>
+<caption>만 나이 안에서 개월수별 평균 키 (cm, 50백분위)</caption>
+<thead><tr><th rowspan="2">만 나이</th><th colspan="3">남아</th><th colspan="3">여아</th></tr>
+<tr><th>0개월</th><th>6개월</th><th>11개월</th><th>0개월</th><th>6개월</th><th>11개월</th></tr></thead>
+<tbody>
+<tr><td>4세</td><td>103.1</td><td>106.3</td><td>109.1</td><td>101.9</td><td>105.1</td><td>107.8</td></tr>
+<tr><td>6세</td><td>115.9</td><td>119.0</td><td>121.6</td><td>114.7</td><td>117.8</td><td>120.3</td></tr>
+<tr><td>8세</td><td>127.9</td><td>130.7</td><td>133.0</td><td>126.7</td><td>129.6</td><td>132.1</td></tr>
+<tr><td>10세</td><td>138.8</td><td>141.7</td><td>144.2</td><td>139.1</td><td>142.5</td><td>145.2</td></tr>
+<tr><td>12세</td><td>151.4</td><td>155.0</td><td>158.1</td><td>151.7</td><td>154.0</td><td>155.7</td></tr>
+<tr><td>14세</td><td>165.0</td><td>167.4</td><td>169.0</td><td>158.3</td><td>159.0</td><td>159.4</td></tr>
+</tbody></table></div>
+<p class="note">2017 소아청소년 성장도표 LMS 값으로 계산했습니다. 만 10세 여아는 0개월과 11개월 평균이 6.1cm, 만 12세 남아는 6.7cm 차이 납니다. 그래서 이 계산기는 개월수까지 고르게 되어 있습니다.</p>
+<p>생일 당일 기준 만 3~18세 전체 표는 <a href="/guide/average-height.html">나이별 평균 키·몸무게 표</a>에, 0~36개월 아기 표는 <a href="/guide/infant-growth-0-36.html">0~36개월 아기 키·몸무게 표</a>에 있습니다. 만 나이가 헷갈린다면 <a href="/calc/korean-age.html">만나이 계산기</a>로 먼저 확인하세요.</p>
+
+<h2>계산 예시</h2>
+<ul>
+  <li><b>만 8세 6개월 남아, 키 125cm·몸무게 24kg</b>: 평균 키 130.7cm보다 5.7cm 작고(키 백분위 약 14), 평균 몸무게 29.4kg보다 5.4kg 적습니다(몸무게 백분위 약 10). 둘 다 정상 범위 안이고 BMI 15.4는 BMI 백분위 약 16으로 보통입니다. 평균과 cm 차이는 커 보여도 백분위로는 정상이라는 점을 보여 주는 예입니다.</li>
+  <li><b>만 11세 3개월 여아, 키 150cm·몸무게 38kg</b>: 평균 키 147.3cm보다 2.7cm 크고(약 66백분위), 몸무게는 평균 40.3kg보다 2.3kg 적습니다(약 38백분위). BMI 16.9는 약 24백분위로 정상 범위입니다.</li>
+  <li><b>만 13세 0개월 남아, 키 158cm·몸무게 58kg</b>: 키는 평균(158.6cm)과 거의 같지만 몸무게는 평균 50.9kg보다 7.1kg 많습니다. BMI 23.2는 약 83백분위로, 과체중 기준(85백분위)에 가깝습니다. 몸무게가 평균보다 많다는 사실만으로 비만이라고 할 수는 없고, 키를 함께 반영한 BMI 백분위로 판단해야 합니다.</li>
+  <li><b>생후 18개월(만 1세 6개월) 여아, 키 80cm·몸무게 10.5kg</b>: 평균 키 80.7cm, 평균 몸무게 10.2kg으로 둘 다 평균과 비슷합니다. 만 2세 미만이라 BMI 판정은 하지 않고, 키는 누운 키 기준입니다.</li>
+</ul>
+
+<h2>평균과 차이가 날 때 어떻게 볼까</h2>
+<p>평균과의 cm 차이는 나이가 많을수록 커지는 경향이 있습니다. 만 5세 남아의 정상 범위(3~97백분위)는 101.6~118.0cm로 폭이 16.4cm인데, 만 12세 남아는 138.2~164.7cm로 26.5cm까지 벌어집니다. 사춘기가 오는 시기가 아이마다 몇 년씩 다르기 때문입니다. 그래서 "평균보다 5cm 작다"는 말의 무게는 나이에 따라 다르고, 비교할 때는 cm보다 <b>백분위</b>가 더 정확합니다.</p>
+<ul>
+  <li><b>키가 3백분위 미만</b>이면 2017 성장도표의 저신장 기준에 해당합니다. 자세한 신호는 <a href="/guide/short-stature.html">저신장 기준과 병원에 가봐야 하는 성장 신호</a>를 보세요.</li>
+  <li><b>평균보다 작아도 매년 같은 백분위를 유지</b>한다면 자기 곡선을 따라 크고 있는 것입니다. 1년에 몇 cm 자랐는지는 <a href="/guide/growth-velocity.html">나이별 성장 속도 표</a>와 비교해 보세요.</li>
+  <li><b>몸무게가 평균보다 많을 때</b>는 키를 함께 넣어 BMI 백분위를 확인하세요. 85백분위 이상이 과체중, 95백분위 이상이 비만 기준입니다(<a href="/calc/child-bmi.html">소아 BMI 계산기</a>).</li>
+</ul>
+<p>생년월일과 측정일로 정확한 개월수를 계산해 백분위를 보고 싶다면 <a href="/calc/height-percentile.html">키 백분위 계산기</a>를 쓰면 됩니다. 이 계산기는 나이만 알면 바로 평균을 볼 수 있도록 만든 것입니다.</p>
+
+<h2>계산 기준과 한계</h2>
+<ul>
+  <li>만 3세 미만은 2017 성장도표 규정대로 WHO 성장기준(2006)을 쓰고, 만 2세 미만 키는 누워서 잰 키 기준입니다.</li>
+  <li>BMI 백분위는 만 2세(24개월)부터 계산합니다. 그 전에는 키 대비 체중으로 평가합니다.</li>
+  <li>성장도표는 약 10년 주기로 개정되며 현재 기준은 2017년판입니다. 지금 아이들의 실제 평균과는 조금 다를 수 있습니다.</li>
+  <li>통계적 비교일 뿐 진단이 아니며, 의사의 진료나 상담을 대신하지 않습니다.</li>
+</ul>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>여기서 말하는 평균 키는 산술평균인가요?</summary>
+  <p>아닙니다. 성장도표의 50백분위, 즉 중앙값입니다. 같은 나이·성별 아이를 키 순서로 세웠을 때 한가운데 아이의 키이며, 성장 평가에는 이 값을 기준으로 씁니다.</p></details>
+<details><summary>"10살 평균키"를 찾을 때 10살은 만 나이인가요?</summary>
+  <p>이 계산기와 성장도표의 나이는 모두 만 나이입니다. 2023년 6월부터 법령과 공문서의 나이는 만 나이로 통일됐습니다. 세는 나이로 10살이라면 보통 만 8~9세에 해당하니 만 나이로 바꿔 고르세요.</p></details>
+<details><summary>평균보다 작으면 성장 클리닉에 가야 하나요?</summary>
+  <p>평균보다 작은 것만으로는 문제가 아닙니다. 키가 3백분위 미만이거나, 1년에 4cm 미만으로 자라거나, 백분위가 해마다 계속 떨어진다면 소아청소년과 상담을 권합니다.</p></details>
+<details><summary>몸무게만 넣어도 되나요?</summary>
+  <p>됩니다. 키·몸무게는 둘 다 선택 입력입니다. 다만 비만도는 키와 함께 봐야 하므로 BMI 판정은 키와 몸무게를 모두 넣었을 때(만 2세 이상)만 나옵니다.</p></details>
+
+<script src="/calc.js"></script>
+<script src="/growth.js"></script>
+<script>
+  // 3·97백분위 Z (표준정규분포)
+  const Z3 = 1.880793608;
+  for (let y = 0; y <= 18; y++) $("ay").add(new Option(y + "세", y));
+  for (let m = 0; m <= 11; m++) $("am").add(new Option(m + "개월", m));
+  $("ay").value = 7;
+  let lmsPromise = fetch("/lms.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
+
+  const range = (lms, ind, sex, month, unit) => {
+    const r = lmsRow(lms, ind, sex, month);
+    return `${valueAt(-Z3, r).toFixed(1)}~${valueAt(Z3, r).toFixed(1)}${unit}`;
+  };
+  const gap = (v, median, unit) => {
+    const d = v - median;
+    return Math.abs(d) < 0.05 ? "평균과 같음" : `평균보다 ${Math.abs(d).toFixed(1)}${unit} ${d > 0 ? (unit === "cm" ? "큼" : "많음") : (unit === "cm" ? "작음" : "적음")}`;
+  };
+  const bmiVerdict = (p) => p >= 95 ? "비만 기준(95백분위 이상)" : p >= 85 ? "과체중 기준(85~95백분위)" : p < 5 ? "저체중 기준(5백분위 미만)" : "정상 범위";
+
+  $("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const out = $("out"), sex = $("sex").value;
+    const month = +$("ay").value * 12 + +$("am").value;
+    const hRaw = $("height").value.trim(), wRaw = $("weight").value.trim();
+    const h = parseFloat(hRaw), w = parseFloat(wRaw);
+    if ((hRaw && !(h >= 40 && h <= 200)) || (wRaw && !(w >= 1 && w <= 150))) {
+      out.innerHTML = '<p class="err">키는 40~200cm, 몸무게는 1~150kg 사이로 입력해 주세요. 비워 두면 평균만 보여 줍니다.</p>'; return;
+    }
+    let lms;
+    try { lms = await lmsPromise; } catch { out.innerHTML = '<p class="err">성장도표 데이터를 불러오지 못했습니다. 새로고침 해 주세요.</p>'; lmsPromise = fetch("/lms.json").then((r) => r.json()); return; }
+    const hMed = valueAt(0, lmsRow(lms, "height", sex, month)), wMed = valueAt(0, lmsRow(lms, "weight", sex, month));
+    let html = row("나이", `만 ${Math.floor(month / 12)}세 ${month % 12}개월 ${sex === "M" ? "남아" : "여아"}`) +
+      row("평균 키", `${hMed.toFixed(1)}cm`) + row("키 정상 범위", range(lms, "height", sex, month, "cm")) +
+      row("평균 몸무게", `${wMed.toFixed(1)}kg`) + row("몸무게 정상 범위", range(lms, "weight", sex, month, "kg"));
+    if (month >= 24) html += row("평균 BMI", valueAt(0, lmsRow(lms, "bmi", sex, month)).toFixed(1));
+    if (hRaw) {
+      const r = assess(lms, "height", sex, month, h);
+      html += row("우리 아이 키", `${h.toFixed(1)}cm · ${gap(h, hMed, "cm")}`) + row("키 백분위", `${r.percentile.toFixed(1)}${r.percentile < 3 ? " (저신장 기준)" : ""}`);
+    }
+    if (wRaw) {
+      const r = assess(lms, "weight", sex, month, w);
+      html += row("우리 아이 몸무게", `${w.toFixed(1)}kg · ${gap(w, wMed, "kg")}`) + row("몸무게 백분위", r.percentile.toFixed(1));
+    }
+    if (hRaw && wRaw && month >= 24) {
+      const bmi = w / Math.pow(h / 100, 2), r = assess(lms, "bmi", sex, month, bmi);
+      html += row("우리 아이 BMI", `${bmi.toFixed(1)} · ${r.percentile.toFixed(1)}백분위`) + row("비만도 판정", bmiVerdict(r.percentile));
+    }
+    html += `<p class="note">평균은 50백분위, 정상 범위는 3~97백분위입니다.${month < 24 ? " 만 2세 미만은 누운 키 기준이며 BMI는 계산하지 않습니다." : ""} 2017 소아청소년 성장도표 기준의 통계적 비교이며 진단이 아닙니다.</p>`;
+    out.innerHTML = html;
+  });
+</script>
+
+<h2>더 알아보기</h2>
+<ul><li><a href="/guide/growth-spurt.html">키 크는 시기·급성장기 정리</a></li><li><a href="/guide/height-by-age-detail.html">나이 별 평균키 해설</a></li></ul>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/adult-height-percentile.html">키 상위 % 계산기</a></li><li><a href="/calc/grade-height.html">학년별 평균키 계산기</a></li><li><a href="/calc/country-height.html">나라별 평균키 계산기</a></li><li><a href="/calc/fetal-size.html">태아 크기 계산기</a></li></ul>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "평균키 몸무게 계산기", "description": "성별과 나이(개월까지)를 고르면 2017 성장도표 기준 평균 키·몸무게·BMI와 정상 범위를 보여 주는 평균키 계산기입니다. 아이 키·몸무게를 넣으면 나이별 평균키 몸무게와의 차이도 계산합니다.", "url": "https://growthcalculator.kr/calc/average-height-weight.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ko-KR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "여기서 말하는 평균 키는 산술평균인가요?", "acceptedAnswer": {"@type": "Answer", "text": "아닙니다. 성장도표의 50백분위, 즉 중앙값입니다. 같은 나이·성별 아이를 키 순서로 세웠을 때 한가운데 아이의 키이며, 성장 평가에는 이 값을 기준으로 씁니다."}}, {"@type": "Question", "name": "\"10살 평균키\"를 찾을 때 10살은 만 나이인가요?", "acceptedAnswer": {"@type": "Answer", "text": "이 계산기와 성장도표의 나이는 모두 만 나이입니다. 2023년 6월부터 법령과 공문서의 나이는 만 나이로 통일됐습니다. 세는 나이로 10살이라면 보통 만 8~9세에 해당하니 만 나이로 바꿔 고르세요."}}, {"@type": "Question", "name": "평균보다 작으면 성장 클리닉에 가야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "평균보다 작은 것만으로는 문제가 아닙니다. 키가 3백분위 미만이거나, 1년에 4cm 미만으로 자라거나, 백분위가 해마다 계속 떨어진다면 소아청소년과 상담을 권합니다."}}, {"@type": "Question", "name": "몸무게만 넣어도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "됩니다. 키·몸무게는 둘 다 선택 입력입니다. 다만 비만도는 키와 함께 봐야 하므로 BMI 판정은 키와 몸무게를 모두 넣었을 때(만 2세 이상)만 나옵니다."}}]}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "계산기 모음", "item": "https://growthcalculator.kr/calc/"}, {"@type": "ListItem", "position": 3, "name": "평균키 몸무게 계산기: 나이별 평균 키·몸무게·BMI와 우리 아이 차이", "item": "https://growthcalculator.kr/calc/average-height-weight.html"}]}</script>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+<p class="credit">Illustrations by <a href="https://storyset.com/children">Storyset</a></p>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>키 상위 % 계산기: 성인 키 백분위, 같은 성별·연령대 100명 중 몇 번째? | 성장계산기</title>
+<meta name="description" content="성별·연령대·키를 넣으면 사이즈코리아 제8차 한국인 인체치수조사 실측 평균과 표준편차로 성인 키 백분위와 상위 몇 %인지, 100명 중 몇 번째인지 계산합니다. 남자 키 상위, 여자 키 상위를 연령대별로 비교할 수 있습니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/adult-height-percentile.html">
+<meta property="og:title" content="키 상위 % 계산기: 성인 키 백분위, 같은 성별·연령대 100명 중 몇 번째?">
+<meta property="og:description" content="성별·연령대·키를 넣으면 사이즈코리아 제8차 한국인 인체치수조사 실측 평균과 표준편차로 성인 키 백분위와 상위 몇 %인지, 100명 중 몇 번째인지 계산합니다. 남자 키 상위, 여자 키 상위를 연령대별로 비교할 수 있습니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://growthcalculator.kr/calc/adult-height-percentile.html">
+<meta property="og:image" content="https://growthcalculator.kr/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="성장계산기">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<header class="mast"><div class="mast-in">
+<a class="brand" href="/">성장계산기</a>
+<nav aria-label="주요 메뉴"><a href="/">예상키 계산</a><a href="/calc/">계산기 모음</a><a href="/guide/">성장 정보</a></nav>
+</div></header>
+<main>
+<article>
+<h1>키 상위 % 계산기: 성인 키 백분위, 같은 성별·연령대 100명 중 몇 번째?</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div><label for="sex">성별</label><select id="sex"><option value="M">남자</option><option value="F">여자</option></select></div>
+    <div><label for="age">연령대 (만 나이)</label><select id="age">
+      <option value="20-24">20~24세</option><option value="25-29">25~29세</option>
+      <option value="30-34">30~34세</option><option value="35-39">35~39세</option>
+      <option value="40-44">40~44세</option><option value="45-49">45~49세</option>
+      <option value="50-59">50~59세</option><option value="60-69">60~69세</option>
+      <option value="20-69">20~69세 전체</option></select></div>
+    <div class="full"><label for="height">키 (cm)</label><input id="height" type="number" inputmode="decimal" step="0.1" min="120" max="230"></div>
+  </div>
+  <button type="submit">키 상위 % 계산</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>키 상위 %는 이렇게 계산합니다</h2>
+<p>이 계산기는 국가기술표준원 사이즈코리아가 공개한 「제8차 한국인 인체치수조사」 측정 자료에서 같은 성별·같은 연령대의 <b>평균 키와 표준편차</b>를 가져와, 키가 정규분포를 따른다고 보고 백분위를 구합니다. 공식 자료가 사람마다의 순위를 직접 알려 주지는 않으므로 결과는 <b>정규분포 근사값</b>입니다.</p>
+<ul>
+  <li><b>백분위</b>: 같은 집단 100명을 작은 사람부터 세웠을 때 내 키보다 작은 사람의 비율입니다.</li>
+  <li><b>상위 %</b>: 100에서 백분위를 뺀 값으로, 나보다 큰 사람의 비율입니다. 상위 20%라면 100명 중 20명 정도가 나보다 큽니다.</li>
+  <li><b>100명 중 몇 번째</b>: 키 큰 순서로 줄 섰을 때의 대략적인 자리입니다.</li>
+</ul>
+<p>연령대를 꼭 골라야 하는 이유는 세대 차이 때문입니다. 같은 8차 조사에서 남자 35~39세 평균은 175.4cm, 60~69세는 168.2cm로 7cm 넘게 차이 납니다. 175cm 남자는 30대 후반 사이에서는 딱 중간보다 조금 작지만 60대 사이에서는 상위 11% 정도입니다. 연령대별 평균이 왜 이렇게 다른지는 <a href="/guide/korean-male-height.html">한국 남자 평균키</a>와 <a href="/guide/korean-female-height.html">한국 여자 평균키</a> 글에 정리했습니다.</p>
+
+<h2>기준 데이터: 성별·연령대별 평균 키와 표준편차</h2>
+<p>아래 표는 사이즈코리아 누리집 「측정 항목 검색」에서 8차 조사의 '키'(바닥에서 머리마루점까지의 수직거리)를 성별·연령대별로 조회한 값입니다(2026년 11월 10일 조회). 신발을 벗고 선 자세로 잰 실측치입니다.</p>
+<div class="table"><table>
+<caption>사이즈코리아 제8차 조사 성인 키 평균·표준편차 (단위 cm)</caption>
+<thead><tr><th>연령대</th><th>남자 평균</th><th>남자 표준편차</th><th>여자 평균</th><th>여자 표준편차</th></tr></thead>
+<tbody>
+<tr><td>20~24세</td><td>175.0</td><td>5.6</td><td>161.8</td><td>5.2</td></tr>
+<tr><td>25~29세</td><td>174.7</td><td>5.6</td><td>162.1</td><td>5.3</td></tr>
+<tr><td>30~34세</td><td>175.2</td><td>5.7</td><td>162.3</td><td>5.2</td></tr>
+<tr><td>35~39세</td><td>175.4</td><td>5.4</td><td>162.4</td><td>5.0</td></tr>
+<tr><td>40~44세</td><td>174.1</td><td>5.4</td><td>161.3</td><td>5.1</td></tr>
+<tr><td>45~49세</td><td>172.7</td><td>5.1</td><td>159.9</td><td>5.2</td></tr>
+<tr><td>50~59세</td><td>170.5</td><td>5.6</td><td>157.8</td><td>4.9</td></tr>
+<tr><td>60~69세</td><td>168.2</td><td>5.6</td><td>155.5</td><td>4.6</td></tr>
+<tr><td>20~69세 전체</td><td>173.2</td><td>6.1</td><td>160.4</td><td>5.6</td></tr>
+</tbody></table></div>
+<p class="note">조회 인원은 20~69세 남자 4,295명, 여자 5,285명입니다. 2022년 3월 보도자료의 직접측정 인원(5,092명)과 집계 대상이 달라 연령대 평균이 0.1~0.6cm 다를 수 있습니다. "20~69세 전체"는 측정자를 단순 합친 값이라 실제 인구의 연령 구성과는 다릅니다.</p>
+
+<h2>정규분포 근사는 얼마나 맞을까</h2>
+<p>같은 조회 결과에는 실제 측정자의 5·95백분위도 함께 나옵니다. 평균과 표준편차만으로 계산한 값과 비교해 보니, 남녀 8개 연령대(16개 집단)의 하위·상위 5% 지점 32곳 가운데 21곳은 차이가 0.5cm 안쪽이었고 가장 큰 차이도 1.0cm였습니다. 아래는 그중 일부입니다.</p>
+<div class="table"><table>
+<caption>실측 백분위와 정규분포 계산값 비교 (단위 cm)</caption>
+<thead><tr><th>집단</th><th>하위 5% 실측</th><th>하위 5% 계산</th><th>상위 5% 실측</th><th>상위 5% 계산</th></tr></thead>
+<tbody>
+<tr><td>남자 20대</td><td>165.9</td><td>165.6</td><td>184.4</td><td>184.1</td></tr>
+<tr><td>남자 30대</td><td>166.0</td><td>166.2</td><td>184.2</td><td>184.4</td></tr>
+<tr><td>여자 20대</td><td>153.7</td><td>153.3</td><td>170.7</td><td>170.5</td></tr>
+<tr><td>여자 30대</td><td>154.1</td><td>154.0</td><td>170.8</td><td>170.7</td></tr>
+</tbody></table></div>
+<p>다만 양 끝으로 갈수록 오차가 커집니다. 남자 20대의 실측 상위 1%는 189.0cm인데 정규분포로는 188.0cm가 나옵니다. 그래서 결과가 상위 1% 밖이거나 하위 1% 밖이면 "대략 그 근처"로만 읽는 것이 좋습니다.</p>
+
+<h2>남자 키 상위 % 예시</h2>
+<ul>
+  <li><b>27세 남자, 178cm</b>: 25~29세 평균 174.7cm보다 3.3cm 큽니다. 상위 약 28%, 100명 중 29번째 정도입니다.</li>
+  <li><b>22세 남자, 185cm</b>: 평균보다 10cm 큽니다. 상위 약 3.7%로 100명 중 4번째 정도입니다.</li>
+  <li><b>47세 남자, 170cm</b>: 45~49세 평균 172.7cm보다 2.7cm 작습니다. 상위 약 70%로, 100명 중 70번째 정도입니다.</li>
+</ul>
+
+<h2>여자 키 상위 % 예시</h2>
+<ul>
+  <li><b>32세 여자, 165cm</b>: 30~34세 평균 162.3cm보다 2.7cm 큽니다. 상위 약 30%입니다.</li>
+  <li><b>23세 여자, 158cm</b>: 20~24세 평균 161.8cm보다 3.8cm 작습니다. 상위 약 77%, 100명 중 77번째 정도입니다.</li>
+  <li><b>65세 여자, 150cm</b>: 60~69세 평균 155.5cm보다 5.5cm 작아 상위 약 88%입니다. 같은 키라도 20~24세 기준으로 계산하면 상위 99% 정도로 내려갑니다.</li>
+</ul>
+<p>성장 중인 만 18세 11개월까지는 성인 기준이 아니라 <a href="/calc/height-percentile.html">키 백분위 계산기</a>(2017 소아청소년 성장도표 기준)를 쓰세요. 한국인 키가 세대마다 얼마나 달라졌는지는 <a href="/guide/korean-height-trend.html">대한민국 평균키 변화</a>에서 볼 수 있습니다.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>상위 %와 백분위는 무엇이 다른가요?</summary>
+  <p>같은 숫자를 반대 방향에서 센 것입니다. 백분위 80이면 나보다 작은 사람이 80%이고, 상위 20%는 나보다 큰 사람이 20%라는 뜻입니다.</p></details>
+<details><summary>왜 20~69세 전체가 아니라 연령대별로 계산하나요?</summary>
+  <p>지금 20~30대와 60대는 자란 시대가 달라 평균 키 차이가 남자 약 7cm, 여자 약 7cm입니다. 전체로 묶으면 젊은 사람은 실제보다 상위로, 나이 든 사람은 하위로 나오기 쉽습니다.</p></details>
+<details><summary>70세 이상은 왜 고를 수 없나요?</summary>
+  <p>8차 조사에서 70~84세는 2022년에 따로 측정했고, 누리집 측정 항목 검색에서는 이 연령대의 8차 표준편차를 조회할 수 없어 같은 방식으로 계산하지 않았습니다. 70대 평균은 남녀 평균키 글에 정리했습니다.</p></details>
+<details><summary>신발을 신고 잰 키를 넣어도 되나요?</summary>
+  <p>기준 데이터는 맨발로 잰 값입니다. 신발 굽 높이만큼 결과가 실제보다 상위로 나오므로 맨발 키를 넣어야 정확합니다.</p></details>
+<details><summary>이 결과로 키가 작다고 판단해도 되나요?</summary>
+  <p>성인 키 상위 %는 통계상 위치일 뿐이고 건강 상태를 판단하는 기준이 아닙니다. 이 계산기는 진단·상담을 대신하지 않습니다.</p></details>
+
+<script src="/calc.js"></script>
+<script>
+  // 사이즈코리아 제8차 한국인 인체치수조사, 측정 항목 검색 '키' (2026-11-10 조회). [평균, 표준편차, 인원]
+  const DATA = {
+    M: { "20-24": [174.99, 5.61, 789], "25-29": [174.74, 5.64, 648], "30-34": [175.18, 5.66, 478], "35-39": [175.42, 5.44, 494],
+         "40-44": [174.08, 5.39, 385], "45-49": [172.66, 5.09, 372], "50-59": [170.49, 5.55, 440], "60-69": [168.22, 5.58, 689], "20-69": [173.19, 6.10, 4295] },
+    F: { "20-24": [161.78, 5.16, 714], "25-29": [162.07, 5.30, 725], "30-34": [162.32, 5.17, 586], "35-39": [162.37, 5.03, 752],
+         "40-44": [161.34, 5.13, 699], "45-49": [159.92, 5.16, 347], "50-59": [157.75, 4.91, 764], "60-69": [155.46, 4.62, 698], "20-69": [160.37, 5.61, 5285] },
+  };
+  const AGE_LABEL = { "20-69": "20~69세 전체" };
+  const ageLabel = (a) => AGE_LABEL[a] || a.replace("-", "~") + "세";
+
+  // 표준정규 누적분포 (Abramowitz-Stegun 7.1.26, 오차 1.5e-7)
+  function normCdf(z) {
+    const t = 1 / (1 + 0.3275911 * Math.abs(z) / Math.SQRT2);
+    const y = 1 - ((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-z * z / 2);
+    return z >= 0 ? (1 + y) / 2 : (1 - y) / 2;
+  }
+  function topPercent(sex, age, h) {
+    const [m, s] = DATA[sex][age];
+    return 100 * (1 - normCdf((h - m) / s));
+  }
+  const pct = (p) => (p < 0.1 ? "0.1% 미만" : p > 99.9 ? "99.9% 초과" : p.toFixed(1) + "%");
+
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const sex = $("sex").value, age = $("age").value, h = parseFloat($("height").value);
+    if (!(h >= 120 && h <= 230)) { $("out").innerHTML = '<p class="err">키를 120~230cm 사이로 입력해 주세요.</p>'; return; }
+    const [m, s, n] = DATA[sex][age];
+    const z = (h - m) / s, top = topPercent(sex, age, h);
+    const rank = Math.min(100, Math.floor(top) + 1);
+    const diff = h - m, sexName = sex === "M" ? "남자" : "여자";
+    const others = Object.keys(DATA[sex]).filter((a) => a !== age && a !== "20-69")
+      .map((a) => `${ageLabel(a)} 상위 ${pct(topPercent(sex, a, h))}`).join(", ");
+    $("out").innerHTML =
+      row("같은 연령대 기준", `상위 ${pct(top)}`) +
+      row("백분위", `${(100 - top).toFixed(1)}`) +
+      row("100명 중", `키 큰 순서로 ${rank}번째 정도`) +
+      row(`${ageLabel(age)} ${sexName} 평균`, `${m.toFixed(1)}cm (${diff >= 0 ? "+" : ""}${diff.toFixed(1)}cm)`) +
+      `<p class="note">같은 키를 다른 연령대 ${sexName}와 비교하면: ${others}.</p>` +
+      (Math.abs(z) > 2.33 ? '<p class="note">상위·하위 1% 바깥은 정규분포 근사 오차가 커서 대략적인 위치로만 보세요.</p>' : "") +
+      `<p class="note">사이즈코리아 제8차 조사 ${sexName} ${ageLabel(age)} ${n.toLocaleString()}명의 평균·표준편차로 계산한 정규분포 근사값입니다.</p>`;
+  });
+
+  if (typeof module !== "undefined") module.exports = { topPercent, normCdf };
+</script>
+
+<h2>더 알아보기</h2>
+<ul><li><a href="/guide/korean-female-height.html">여자 평균키 159.6cm</a></li><li><a href="/guide/korean-height-trend.html">대한민국 평균키 변화</a></li><li><a href="/guide/korean-male-height.html">남자 평균키 172.5cm</a></li></ul>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/average-height-weight.html">평균키 몸무게 계산기</a></li><li><a href="/calc/grade-height.html">학년별 평균키 계산기</a></li><li><a href="/calc/country-height.html">나라별 평균키 계산기</a></li><li><a href="/calc/fetal-size.html">태아 크기 계산기</a></li></ul>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "키 상위 % 계산기", "description": "성별·연령대·키를 넣으면 사이즈코리아 제8차 한국인 인체치수조사 실측 평균과 표준편차로 성인 키 백분위와 상위 몇 %인지, 100명 중 몇 번째인지 계산합니다. 남자 키 상위, 여자 키 상위를 연령대별로 비교할 수 있습니다.", "url": "https://growthcalculator.kr/calc/adult-height-percentile.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ko-KR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "상위 %와 백분위는 무엇이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "같은 숫자를 반대 방향에서 센 것입니다. 백분위 80이면 나보다 작은 사람이 80%이고, 상위 20%는 나보다 큰 사람이 20%라는 뜻입니다."}}, {"@type": "Question", "name": "왜 20~69세 전체가 아니라 연령대별로 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "지금 20~30대와 60대는 자란 시대가 달라 평균 키 차이가 남자 약 7cm, 여자 약 7cm입니다. 전체로 묶으면 젊은 사람은 실제보다 상위로, 나이 든 사람은 하위로 나오기 쉽습니다."}}, {"@type": "Question", "name": "70세 이상은 왜 고를 수 없나요?", "acceptedAnswer": {"@type": "Answer", "text": "8차 조사에서 70~84세는 2022년에 따로 측정했고, 누리집 측정 항목 검색에서는 이 연령대의 8차 표준편차를 조회할 수 없어 같은 방식으로 계산하지 않았습니다. 70대 평균은 남녀 평균키 글에 정리했습니다."}}, {"@type": "Question", "name": "신발을 신고 잰 키를 넣어도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "기준 데이터는 맨발로 잰 값입니다. 신발 굽 높이만큼 결과가 실제보다 상위로 나오므로 맨발 키를 넣어야 정확합니다."}}, {"@type": "Question", "name": "이 결과로 키가 작다고 판단해도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "성인 키 상위 %는 통계상 위치일 뿐이고 건강 상태를 판단하는 기준이 아닙니다. 이 계산기는 진단·상담을 대신하지 않습니다."}}]}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "계산기 모음", "item": "https://growthcalculator.kr/calc/"}, {"@type": "ListItem", "position": 3, "name": "키 상위 % 계산기: 성인 키 백분위, 같은 성별·연령대 100명 중 몇 번째?", "item": "https://growthcalculator.kr/calc/adult-height-percentile.html"}]}</script>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+<p class="credit">Illustrations by <a href="https://storyset.com/children">Storyset</a></p>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6254929045692129" crossorigin="anonymous"></script>
+<title>나라별 평균키 계산기: 200개국 나이별 평균 키·순위와 한국 비교 | 성장계산기</title>
+<meta name="description" content="나라, 성별, 나이(5~19세 또는 성인)를 고르면 그 나라 평균 키와 95% 불확실성 구간, 한국 평균과의 차이, 200개 국가·지역 중 순위를 바로 계산합니다. NCD-RisC 국제 연구 자료 기준입니다.">
+<link rel="canonical" href="https://growthcalculator.kr/calc/country-height.html">
+<meta property="og:title" content="나라별 평균키 계산기: 200개국 나이별 평균 키·순위와 한국 비교">
+<meta property="og:description" content="나라, 성별, 나이(5~19세 또는 성인)를 고르면 그 나라 평균 키와 95% 불확실성 구간, 한국 평균과의 차이, 200개 국가·지역 중 순위를 바로 계산합니다. NCD-RisC 국제 연구 자료 기준입니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://growthcalculator.kr/calc/country-height.html">
+<meta property="og:image" content="https://growthcalculator.kr/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="성장계산기">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<header class="mast"><div class="mast-in">
+<a class="brand" href="/">성장계산기</a>
+<nav aria-label="주요 메뉴"><a href="/">예상키 계산</a><a href="/calc/">계산기 모음</a><a href="/guide/">성장 정보</a></nav>
+</div></header>
+<main>
+<article>
+<h1>나라별 평균키 계산기: 200개국 나이별 평균 키·순위와 한국 비교</h1>
+<form class="card" id="form" novalidate>
+  <div class="grid">
+    <div class="full"><label for="country">나라</label><select id="country"><option value="">불러오는 중…</option></select></div>
+    <div><label for="sex">성별</label><select id="sex"><option value="M">남자</option><option value="F">여자</option></select></div>
+    <div><label for="age">나이</label><select id="age">
+      <option value="5">5세</option><option value="6">6세</option><option value="7">7세</option><option value="8">8세</option>
+      <option value="9">9세</option><option value="10">10세</option><option value="11">11세</option><option value="12">12세</option>
+      <option value="13">13세</option><option value="14">14세</option><option value="15">15세</option><option value="16">16세</option>
+      <option value="17">17세</option><option value="18">18세</option><option value="19">19세</option>
+      <option value="adult" selected>성인 (1996년생)</option></select></div>
+  </div>
+  <button type="submit" id="go" disabled>평균 키 비교하기</button>
+  <div class="out" id="out" aria-live="polite"></div>
+</form>
+
+<h2>이 계산기가 쓰는 자료</h2>
+<p>모든 값은 세계 각국 보건 연구자들의 공동 연구망인 <b>NCD Risk Factor Collaboration(NCD-RisC)</b>의 공개 자료(CC BY 4.0)입니다. 나라마다 따로 발표하는 통계는 조사 연도·측정 방법·나이 구분이 제각각이라 그대로 줄 세울 수 없습니다. NCD-RisC는 각국의 실측 조사를 한데 모아 같은 통계 모형으로 다시 추정했기 때문에 200개 국가·지역을 같은 잣대로 비교할 수 있습니다.</p>
+<ul>
+  <li><b>5~19세</b>: 2019년 기준 1세 단위 평균 키. 2,181개 조사, 6,500만 명의 측정값을 모은 Lancet 2020 논문 자료입니다.</li>
+  <li><b>성인</b>: 1996년에 태어난 사람이 만 18세가 됐을 때의 평균 키. 1,472개 조사, 1,860만 명을 분석한 eLife 2016 논문 자료로, 1896~1996년생의 100년 변화가 들어 있습니다.</li>
+</ul>
+<p>"성인" 값이 1996년생인 이유는 이 연구가 태어난 해(출생 코호트)별로 키를 추정했기 때문입니다. 지금 30대 초반인 세대의 키라고 보면 됩니다. 계산 결과에는 1946년생·1971년생 값도 함께 나와서 한 나라 안에서 세대마다 키가 얼마나 달라졌는지도 볼 수 있습니다.</p>
+
+<h2>결과 읽는 법: 순위보다 구간을 보세요</h2>
+<p>여기 나오는 평균 키는 모두 <b>추정치</b>입니다. 결과에 함께 표시되는 95% 불확실성 구간은 실제 평균이 그 범위 안에 있을 가능성이 95%라는 뜻입니다. 측정 자료가 많은 한국·일본은 구간이 ±1cm 안팎으로 좁고, 조사가 드문 나라는 넓습니다. 예를 들어 1996년생 북한 남자는 평균 172.0cm로 추정되지만 구간이 165.8~178.4cm로 12cm 넘게 벌어집니다.</p>
+<p>그래서 순위가 몇 칸 차이 나는 나라끼리는 실제로 누가 더 큰지 단정할 수 없습니다. 1996년생 남자 1위 네덜란드(182.5cm, 구간 180.6~184.5)와 2위 벨기에(181.7cm, 179.9~183.5)는 구간이 크게 겹칩니다. 평균은 소수 첫째 자리까지 반올림했고, 값이 같은 나라는 같은 순위로 표시합니다.</p>
+
+<h2>계산 예시</h2>
+<ul>
+  <li><b>일본 남자 17세</b>: 2019년 평균 171.3cm(±0.5)입니다. 같은 해 한국 17세 남자(175.3cm)보다 4.0cm 작고, 200개 국가·지역 중 공동 108위입니다.</li>
+  <li><b>네덜란드 여자 성인(1996년생)</b>: 168.7cm(구간 167.1~170.3)로 한국 1996년생 여자(162.3cm)보다 6.4cm 큽니다. 에스토니아와 함께 공동 2위이고, 1위는 라트비아(169.8cm)입니다.</li>
+  <li><b>미국 남자 성인(1996년생)</b>: 177.1cm로 한국(174.9cm)보다 2.2cm 크며 37위입니다. 1896년생 때는 3위였는데 100년 사이 순위가 크게 내려갔습니다.</li>
+</ul>
+<p>성인 순위표와 100년 변화는 <a href="/guide/country-height-ranking.html">나라별 평균키 순위</a>에, 일본과 네덜란드는 각각 <a href="/guide/japan-height.html">일본인 평균키</a>, <a href="/guide/netherlands-height.html">네덜란드 평균키</a>에 정부 공식 통계와 함께 정리했습니다.</p>
+
+<h2>한국 아이 키는 한국 기준으로 보세요</h2>
+<p>이 계산기는 나라끼리 평균을 비교하는 도구입니다. 우리 아이가 또래보다 큰지 작은지는 한국 아이들의 분포로 만든 「2017 소아청소년 성장도표」로 보는 것이 맞습니다. 생년월일과 키를 넣으면 <a href="/calc/height-percentile.html">키 백분위 계산기</a>가 백분위를 알려 주고, 나이별 평균은 <a href="/guide/average-height.html">나이별 평균 키 표</a>에 있습니다. NCD-RisC의 한국 값과 성장도표 값은 조사 연도와 추정 방법이 달라 1~2cm 차이가 날 수 있습니다.</p>
+
+<h2>자주 묻는 질문</h2>
+<details><summary>5~19세 값은 몇 년도 기준인가요?</summary>
+  <p>2019년 추정치입니다. NCD-RisC가 1985~2019년 자료를 발표했고, 이 계산기는 가장 최근인 2019년 값만 씁니다. 그 뒤의 변화는 반영되지 않았습니다.</p></details>
+<details><summary>19세 키와 성인 키가 조금 다른 이유는 무엇인가요?</summary>
+  <p>두 값은 서로 다른 논문(Lancet 2020, eLife 2016)과 다른 모형에서 나왔습니다. 예를 들어 한국 여자는 2019년 19세가 163.2cm, 1996년생 성인이 162.3cm입니다. 같은 사람들을 잰 값이 아니므로 1cm 안팎의 차이는 자연스럽습니다.</p></details>
+<details><summary>순위가 같은 나라가 여럿 나오는 이유는요?</summary>
+  <p>평균 키를 소수 첫째 자리까지 반올림해 비교하기 때문입니다. 반올림한 값이 같으면 같은 순위로 표시합니다. 어차피 구간이 겹치는 나라끼리는 순위 차이에 큰 의미가 없습니다.</p></details>
+<details><summary>홍콩·푸에르토리코 같은 곳도 있는데 200개국이 맞나요?</summary>
+  <p>원 자료가 "200개 국가와 지역(countries and territories)"을 다룹니다. 홍콩, 대만, 푸에르토리코, 그린란드처럼 통계를 따로 내는 지역이 포함되어 있습니다. 나라 이름은 외교부 국가·지역 정보의 표기를 따랐습니다.</p></details>
+<details><summary>우리 아이 키가 이 평균보다 작으면 걱정해야 하나요?</summary>
+  <p>나라 평균과 비교해서 판단하지는 않습니다. 한국 성장도표에서 3백분위 미만이거나 1년 사이 백분위가 크게 떨어질 때 진료를 권합니다. 자세한 기준은 <a href="/guide/short-stature.html">저신장 기준과 병원에 가봐야 하는 성장 신호</a>를 보세요. 이 계산기는 진단·상담을 대신하지 않습니다.</p></details>
+
+<p class="note">데이터 출처: NCD Risk Factor Collaboration (NCD-RisC), CC BY 4.0. Lancet 2020;396:1511–24 (5~19세, 2019년), eLife 2016;5:e13410 (성인, 1996년생). 원 자료에서 필요한 값만 뽑아 소수 첫째 자리로 반올림했으며 값 자체는 바꾸지 않았습니다.</p>
+
+<script src="/calc.js"></script>
+<script>
+  let DATA = null;
+  const SEX_KO = { M: "남자", F: "여자" };
+
+  fetch("/country-height.json")
+    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then((d) => {
+      DATA = d.c;
+      const sel = $("country");
+      sel.innerHTML = "";
+      [...DATA].sort((a, b) => a.ko.localeCompare(b.ko, "ko")).forEach((c) => sel.add(new Option(c.ko, c.en)));
+      sel.value = "Japan";
+      $("go").disabled = false;
+    })
+    .catch(() => { $("out").innerHTML = '<p class="err">자료를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>'; });
+
+  // 선택한 나라·성별·나이의 평균과 95% 구간. 5~19세 구간은 반폭(±)으로 저장되어 있다.
+  function pick(c, sex, age) {
+    if (age === "adult") {
+      const k = sex === "M" ? "m" : "w";
+      return { v: c[k][3], lo: c[k + "ci"][0], hi: c[k + "ci"][1], trend: c[k] };
+    }
+    const k = sex === "M" ? "b" : "g", i = +age - 5, v = c[k][i], u = c[k + "u"][i];
+    return { v, u };
+  }
+
+  const cm = (x) => `${x.toFixed(1)}cm`;
+
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!DATA) return;
+    const c = DATA.find((x) => x.en === $("country").value);
+    if (!c) { $("out").innerHTML = '<p class="err">나라를 골라 주세요.</p>'; return; }
+    const sex = $("sex").value, age = $("age").value;
+    const me = pick(c, sex, age);
+    const all = DATA.map((x) => ({ ko: x.ko, v: pick(x, sex, age).v }));
+    const rankOf = (v) => 1 + all.filter((x) => x.v > v).length;
+    const rank = rankOf(me.v), tied = all.filter((x) => x.v === me.v).length;
+    const kr = pick(DATA.find((x) => x.en === "South Korea"), sex, age);
+    const top = all.reduce((a, b) => (b.v > a.v ? b : a));
+    const diff = me.v - kr.v;
+    const label = age === "adult" ? `성인(1996년생) ${SEX_KO[sex]}` : `${age}세 ${SEX_KO[sex]}`;
+    const range = age === "adult" ? `${cm(me.lo)}~${cm(me.hi)}` : `±${me.u.toFixed(1)}cm`;
+    let html =
+      row(`${c.ko} ${label} 평균 키`, cm(me.v)) +
+      row("95% 불확실성 구간", range) +
+      row("200개 국가·지역 중 순위", `${rank}위${tied > 1 ? ` (공동 ${tied}곳)` : ""}`) +
+      (c.en === "South Korea"
+        ? row("1위와 차이", `${top.ko} ${cm(top.v)} · ${(me.v - top.v).toFixed(1)}cm`)
+        : row(`한국(${cm(kr.v)})과 차이`, `${diff > 0 ? "+" : ""}${diff.toFixed(1)}cm`));
+    if (c.en !== "South Korea") html += row("같은 조건 한국 순위", `${rankOf(kr.v)}위`);
+    if (me.trend) html += row("1946 → 1971 → 1996년생", me.trend.slice(1).map((x) => x.toFixed(1)).join(" → ") + "cm");
+    html += `<p class="note">${age === "adult" ? "1996년생이 18세일 때 기준" : "2019년 기준"} NCD-RisC 추정치입니다. 순위가 몇 칸 차이 나는 나라끼리는 구간이 겹쳐 실제 차이가 확실하지 않습니다.</p>`;
+    $("out").innerHTML = html;
+  });
+</script>
+
+<h2>더 알아보기</h2>
+<ul><li><a href="/guide/country-height-ranking.html">나라별 평균키 순위</a></li><li><a href="/guide/japan-height.html">일본인 평균키</a></li><li><a href="/guide/korean-height-trend.html">대한민국 평균키 변화</a></li><li><a href="/guide/netherlands-height.html">네덜란드 평균키</a></li></ul>
+
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/calc/fetal-size.html">태아 크기 계산기</a></li><li><a href="/calc/grade-height.html">학년별 평균키 계산기</a></li><li><a href="/calc/adult-height-percentile.html">키 상위 % 계산기</a></li><li><a href="/calc/child-calories.html">아이 하루 권장 열량 계산기</a></li></ul>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "나라별 평균키 계산기", "description": "나라, 성별, 나이(5~19세 또는 성인)를 고르면 그 나라 평균 키와 95% 불확실성 구간, 한국 평균과의 차이, 200개 국가·지역 중 순위를 바로 계산합니다. NCD-RisC 국제 연구 자료 기준입니다.", "url": "https://growthcalculator.kr/calc/country-height.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ko-KR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "5~19세 값은 몇 년도 기준인가요?", "acceptedAnswer": {"@type": "Answer", "text": "2019년 추정치입니다. NCD-RisC가 1985~2019년 자료를 발표했고, 이 계산기는 가장 최근인 2019년 값만 씁니다. 그 뒤의 변화는 반영되지 않았습니다."}}, {"@type": "Question", "name": "19세 키와 성인 키가 조금 다른 이유는 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "두 값은 서로 다른 논문(Lancet 2020, eLife 2016)과 다른 모형에서 나왔습니다. 예를 들어 한국 여자는 2019년 19세가 163.2cm, 1996년생 성인이 162.3cm입니다. 같은 사람들을 잰 값이 아니므로 1cm 안팎의 차이는 자연스럽습니다."}}, {"@type": "Question", "name": "순위가 같은 나라가 여럿 나오는 이유는요?", "acceptedAnswer": {"@type": "Answer", "text": "평균 키를 소수 첫째 자리까지 반올림해 비교하기 때문입니다. 반올림한 값이 같으면 같은 순위로 표시합니다. 어차피 구간이 겹치는 나라끼리는 순위 차이에 큰 의미가 없습니다."}}, {"@type": "Question", "name": "홍콩·푸에르토리코 같은 곳도 있는데 200개국이 맞나요?", "acceptedAnswer": {"@type": "Answer", "text": "원 자료가 \"200개 국가와 지역(countries and territories)\"을 다룹니다. 홍콩, 대만, 푸에르토리코, 그린란드처럼 통계를 따로 내는 지역이 포함되어 있습니다. 나라 이름은 외교부 국가·지역 정보의 표기를 따랐습니다."}}, {"@type": "Question", "name": "우리 아이 키가 이 평균보다 작으면 걱정해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "나라 평균과 비교해서 판단하지는 않습니다. 한국 성장도표에서 3백분위 미만이거나 1년 사이 백분위가 크게 떨어질 때 진료를 권합니다. 자세한 기준은 저신장 기준과 병원에 가봐야 하는 성장 신호를 보세요. 이 계산기는 진단·상담을 대신하지 않습니다."}}]}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "계산기 모음", "item": "https://growthcalculator.kr/calc/"}, {"@type": "ListItem", "position": 3, "name": "나라별 평균키 계산기: 200개국 나이별 평균 키·순위와 한국 비교", "item": "https://growthcalculator.kr/calc/country-height.html"}]}</script>
+
+</article>
+<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기</a></p>
+<footer>
+<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+<p class="credit">Illustrations by <a href="https://storyset.com/children">Storyset</a></p>
+</footer>
+</main>
+</body>
+</html>
