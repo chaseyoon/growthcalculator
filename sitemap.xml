@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://growthcalculator.kr/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://growthcalculator.kr/</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://growthcalculator.kr/about.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/privacy.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/</loc><lastmod>2026-11-17</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/average-height.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://growthcalculator.kr/guide/average-height.html</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/percentile-guide.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/predicted-height.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/measure-height.html</loc><lastmod>2026-11-04</lastmod></url>
@@ -29,16 +29,9 @@
   <url><loc>https://growthcalculator.kr/guide/baby-sleep-guide.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/child-nutrition-guide.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/fetal-growth-week.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/country-height-ranking.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/japan-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/netherlands-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/elementary-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/middle-school-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/high-school-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/korean-male-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/korean-female-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/korean-height-trend.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/guide/height-by-age-detail.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://growthcalculator.kr/guide/country-height-ranking.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/guide/school-height.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/guide/korean-adult-height.html</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/growth-spurt.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/height-growth-myths.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/growth-plate.html</loc><lastmod>2026-11-10</lastmod></url>
@@ -50,12 +43,12 @@
   <url><loc>https://growthcalculator.kr/guide/baby-development-milestones.html</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/growth-hormone-injection.html</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://growthcalculator.kr/guide/height-growth-supplement.html</loc><lastmod>2026-11-17</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://growthcalculator.kr/calc/due-date.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://growthcalculator.kr/calc/pregnancy-week.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/height-percentile.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/weight-percentile.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/child-bmi.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/height-percentile.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/weight-percentile.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/child-bmi.html</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://growthcalculator.kr/calc/baby-months.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://growthcalculator.kr/calc/baby-100days.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://growthcalculator.kr/calc/korean-age.html</loc><lastmod>2026-11-04</lastmod></url>
@@ -77,9 +70,9 @@
   <url><loc>https://growthcalculator.kr/calc/baby-sleep.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/calc/child-calories.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://growthcalculator.kr/calc/fetal-size.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/country-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/grade-height.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/adult-height-percentile.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/average-height-weight.html</loc><lastmod>2026-11-10</lastmod></url>
-  <url><loc>https://growthcalculator.kr/calc/weight-by-height.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/country-height.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/grade-height.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/adult-height-percentile.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/average-height-weight.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://growthcalculator.kr/calc/weight-by-height.html</loc><lastmod>2026-11-17</lastmod></url>
 </urlset>

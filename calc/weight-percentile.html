@@ -66,6 +66,27 @@
 <h2>몸무게 백분위만으로 판단하면 안 되는 이유</h2>
 <p>몸무게는 키에 따라 달라집니다. 키 90백분위 아이가 몸무게 90백분위라면 체격이 고른 것이고, 키 10백분위 아이가 몸무게 90백분위라면 체중이 키에 비해 많은 편입니다. 그래서 만 2세 이상은 키와 몸무게를 함께 쓰는 BMI 백분위로 과체중(85~95백분위)과 비만(95백분위 이상)을 판정합니다. 자세한 기준은 <a href="/guide/child-bmi.html">소아 BMI 비만 기준</a>에 정리했습니다.</p>
 
+<h2>계산 방법</h2>
+<p>질병관리청 「2017 소아청소년 성장도표」 데이터 테이블의 연령별 체중 L·M·S 값을 그대로 씁니다. 성별·월령마다 M(중앙값), S(변이계수), L(분포의 치우침을 펴는 거듭제곱 값)이 정해져 있고, 몸무게 X로 다음을 계산합니다.</p>
+<ul>
+  <li><b>표준점수</b>: z = ((X ÷ M)<sup>L</sup> − 1) ÷ (L × S), L이 0이면 z = ln(X ÷ M) ÷ S</li>
+  <li><b>백분위</b>: 표준정규분포에서 z보다 작을 확률 × 100</li>
+</ul>
+<p>몸무게는 무거운 쪽으로 꼬리가 길게 늘어진 분포라 L이 1보다 작습니다. 출생 남아는 0.3487, 만 5세 여아는 −0.876입니다. 그래서 중앙값보다 1kg 가벼운 것과 1kg 무거운 것은 백분위로 같은 거리가 아닙니다. 첫 예시(생후 6개월 남아 7.0kg)를 풀면 L 0.1257, M 7.934, S 0.1096을 넣어 z 약 −1.13, 백분위 약 13입니다.</p>
+<p>월령은 측정일과 생일의 연·월 차이로 세고, 측정일의 '일'이 생일의 '일'보다 작으면 한 달을 뺍니다(만 나이와 같은 규칙). 0~35개월은 WHO 성장기준, 36개월부터 18세 11개월까지는 한국 자료로 만든 표를 씁니다. 결과의 판정은 3백분위 미만 '적은 편', 97백분위 초과 '많은 편', 그 사이 '정상 범위'입니다.</p>
+
+<h2>기준 자료와 한계</h2>
+<ul>
+  <li><b>만 3세 미만</b>: WHO 어린이 성장기준(2006년 발표)입니다. 1997~2003년 6개국에서 모유를 먹고 자란 건강한 아이들을 측정했습니다. 개발 논문은 분유를 먹는 아기는 이 기준에서 무겁게 나오기 쉬워 해석에 주의하라고 적고 있습니다. 실제로 2015년 영유아 건강검진 자료에 새 기준을 적용하자 과체중으로 분류되는 비율이 이전 기준의 두 배가 됐습니다.</li>
+  <li><b>만 3~18세</b>: 1997년과 2005년 전국 신체발육 측정조사 자료로 각각 백분위를 구한 뒤 평균을 냈습니다. 비만이 늘어난 뒤의 자료(2006년부터 쌓인 학교 건강검사 자료)는 일부러 쓰지 않았고, 곡선이 무거운 쪽으로 치우치지 않도록 키에 비해 체중이 +2 표준편차를 넘는 자료도 뺐습니다. 그래서 이 표의 중앙값은 '요즘 아이들의 실제 평균'보다 가벼울 수 있습니다.</li>
+  <li><b>공식 저체중 기준은 5백분위 미만</b>입니다. 2017 성장도표 판정 기준표에서 저체중은 연령별 체중 5백분위 미만인데, 이 계산기는 3백분위 미만만 '적은 편'으로 표시합니다. 12개월 남아 7.9kg은 약 3.5백분위라 결과에 '정상 범위'로 나오지만, 공식 기준으로는 저체중에 해당합니다. 결과가 3~5백분위라면 저체중 기준선 안쪽이라고 보세요.</li>
+  <li><b>표가 바뀌는 36개월</b>: 남아 중앙값이 35개월 14.2kg에서 36개월 14.7kg으로 뛰어, 같은 14kg이 35개월엔 약 46백분위, 36개월엔 약 30백분위로 나옵니다.</li>
+  <li><b>한 번 측정의 오차</b>: 생후 6개월 남아는 6.8kg 약 8백분위, 7.0kg 약 13, 7.2kg 약 19입니다. 200g, 곧 기저귀 하나나 수유 한 번 차이로 5~6칸이 움직입니다.</li>
+  <li><b>몸무게만으로 비만을 판정하지 않습니다</b>. 공식 기준으로 2세 미만 과체중은 <a href="/calc/weight-for-height.html">신장별 체중</a> 95백분위 이상, 2세 이상 과체중·비만은 BMI 백분위로 봅니다.</li>
+  <li><b>극단값</b>: 원본 표는 1~99백분위와 ±3 표준편차까지만 제시하므로, 그 바깥 결과는 곡선을 연장한 추정입니다.</li>
+</ul>
+<p>이 계산 결과는 통계상 위치일 뿐이며 의사의 진단·상담을 대신하지 않습니다.</p>
+
 <h2>자주 묻는 질문</h2>
 <details><summary>몸무게 백분위가 갑자기 떨어졌어요.</summary>
   <p>한두 달 사이 백분위 구간이 두 칸 이상 떨어졌거나 체중이 줄었다면 수유·식사량과 질병 여부를 확인하고 소아청소년과 상담을 받아 보세요.</p></details>
@@ -75,6 +96,16 @@
   <p>2017 성장도표(WHO 기준) 12개월 중앙값은 남아 약 9.6kg, 여아 약 8.9kg입니다. 정상 범위는 남아 7.8~11.8kg, 여아 7.1~11.3kg입니다.</p></details>
 <details><summary>몸무게는 언제 재는 게 좋나요?</summary>
   <p>수유나 식사 직후, 기저귀 상태에 따라 수백 g씩 달라집니다. 매번 같은 시간대(예: 아침 수유 전)에 옷을 비슷하게 입혀 재야 비교가 정확합니다.</p></details>
+<details><summary>분유를 먹이는데 몸무게 백분위가 높게 나와요.</summary>
+  <p>만 3세 미만 기준인 WHO 성장기준은 모유를 먹고 자란 아이들로 만들어서, 분유를 먹는 아기는 상대적으로 무겁게 나오기 쉽습니다. 백분위가 같은 곡선을 따라 꾸준히 가는지 보고, 키에 비해 많은지는 신장별 체중으로 확인하세요.</p></details>
+
+<h2>참고 자료</h2>
+<ul>
+  <li>질병관리청, 「2017 소아청소년 성장도표」 성장도표 누리집(성장도표 다운로드·데이터 테이블), 2017. <a href="https://knhanes.kdca.go.kr/knhanes/grtcht/main.do">knhanes.kdca.go.kr/knhanes/grtcht/main.do</a></li>
+  <li>Kim JH 외, 「The 2017 Korean National Growth Charts for children and adolescents: development, improvement, and prospects」, Korean Journal of Pediatrics 61(5):135–149, 2018 (판정 기준표 포함). <a href="https://doi.org/10.3345/kjp.2018.61.5.135">doi.org/10.3345/kjp.2018.61.5.135</a></li>
+  <li>WHO, Child Growth Standards: Weight-for-age, 2006. <a href="https://www.who.int/tools/child-growth-standards/standards/weight-for-age">who.int/tools/child-growth-standards/standards/weight-for-age</a></li>
+  <li>질병관리청, 「소아청소년 성장도표」 사업 소개(제정 연혁). <a href="https://kdca.go.kr/kdca/5458/subview.do">kdca.go.kr/kdca/5458/subview.do</a></li>
+</ul>
 
 <script src="/calc.js"></script>
 <script src="/growth.js"></script>
@@ -88,7 +119,7 @@
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "아기 몸무게 백분위 계산기", "description": "아기·어린이 생년월일과 몸무게로 2017 성장도표 기준 체중 백분위와 같은 월령 평균 몸무게를 계산합니다. 신생아부터 만 18세까지.", "url": "https://growthcalculator.kr/calc/weight-percentile.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ko-KR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "몸무게 백분위가 갑자기 떨어졌어요.", "acceptedAnswer": {"@type": "Answer", "text": "한두 달 사이 백분위 구간이 두 칸 이상 떨어졌거나 체중이 줄었다면 수유·식사량과 질병 여부를 확인하고 소아청소년과 상담을 받아 보세요."}}, {"@type": "Question", "name": "신생아 몸무게도 계산되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 생후 0개월부터 계산됩니다. 생후 첫 주에는 출생 체중의 7~10%가 빠졌다가 2주 안에 회복하는 것이 일반적입니다."}}, {"@type": "Question", "name": "돌 아기 평균 몸무게는 얼마인가요?", "acceptedAnswer": {"@type": "Answer", "text": "2017 성장도표(WHO 기준) 12개월 중앙값은 남아 약 9.6kg, 여아 약 8.9kg입니다. 정상 범위는 남아 7.8~11.8kg, 여아 7.1~11.3kg입니다."}}, {"@type": "Question", "name": "몸무게는 언제 재는 게 좋나요?", "acceptedAnswer": {"@type": "Answer", "text": "수유나 식사 직후, 기저귀 상태에 따라 수백 g씩 달라집니다. 매번 같은 시간대(예: 아침 수유 전)에 옷을 비슷하게 입혀 재야 비교가 정확합니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "몸무게 백분위가 갑자기 떨어졌어요.", "acceptedAnswer": {"@type": "Answer", "text": "한두 달 사이 백분위 구간이 두 칸 이상 떨어졌거나 체중이 줄었다면 수유·식사량과 질병 여부를 확인하고 소아청소년과 상담을 받아 보세요."}}, {"@type": "Question", "name": "신생아 몸무게도 계산되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 생후 0개월부터 계산됩니다. 생후 첫 주에는 출생 체중의 7~10%가 빠졌다가 2주 안에 회복하는 것이 일반적입니다."}}, {"@type": "Question", "name": "돌 아기 평균 몸무게는 얼마인가요?", "acceptedAnswer": {"@type": "Answer", "text": "2017 성장도표(WHO 기준) 12개월 중앙값은 남아 약 9.6kg, 여아 약 8.9kg입니다. 정상 범위는 남아 7.8~11.8kg, 여아 7.1~11.3kg입니다."}}, {"@type": "Question", "name": "몸무게는 언제 재는 게 좋나요?", "acceptedAnswer": {"@type": "Answer", "text": "수유나 식사 직후, 기저귀 상태에 따라 수백 g씩 달라집니다. 매번 같은 시간대(예: 아침 수유 전)에 옷을 비슷하게 입혀 재야 비교가 정확합니다."}}, {"@type": "Question", "name": "분유를 먹이는데 몸무게 백분위가 높게 나와요.", "acceptedAnswer": {"@type": "Answer", "text": "만 3세 미만 기준인 WHO 성장기준은 모유를 먹고 자란 아이들로 만들어서, 분유를 먹는 아기는 상대적으로 무겁게 나오기 쉽습니다. 백분위가 같은 곡선을 따라 꾸준히 가는지 보고, 키에 비해 많은지는 신장별 체중으로 확인하세요."}}]}</script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "계산기 모음", "item": "https://growthcalculator.kr/calc/"}, {"@type": "ListItem", "position": 3, "name": "아기 몸무게 백분위 계산기: 월령별 체중 백분위·평균 몸무게", "item": "https://growthcalculator.kr/calc/weight-percentile.html"}]}</script>
 

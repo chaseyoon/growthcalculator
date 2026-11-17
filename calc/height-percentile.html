@@ -101,6 +101,33 @@
 <div class="table"><table><thead><tr><th rowspan="2">개월수</th><th colspan="2">남아</th><th colspan="2">여아</th></tr><tr><th>평균 키</th><th>정상 범위</th><th>평균 키</th><th>정상 범위</th></tr></thead><tbody><tr><td>출생 시</td><td>49.9</td><td>46.3~53.4</td><td>49.1</td><td>45.6~52.7</td></tr><tr><td>1개월</td><td>54.7</td><td>51.1~58.4</td><td>53.7</td><td>50.0~57.4</td></tr><tr><td>2개월</td><td>58.4</td><td>54.7~62.2</td><td>57.1</td><td>53.2~60.9</td></tr><tr><td>3개월</td><td>61.4</td><td>57.6~65.3</td><td>59.8</td><td>55.8~63.8</td></tr><tr><td>4개월</td><td>63.9</td><td>60.0~67.8</td><td>62.1</td><td>58.0~66.2</td></tr><tr><td>5개월</td><td>65.9</td><td>61.9~69.9</td><td>64.0</td><td>59.9~68.2</td></tr><tr><td>6개월</td><td>67.6</td><td>63.6~71.7</td><td>65.7</td><td>61.5~70.0</td></tr><tr><td>7개월</td><td>69.2</td><td>65.1~73.2</td><td>67.3</td><td>62.9~71.6</td></tr><tr><td>8개월</td><td>70.6</td><td>66.5~74.7</td><td>68.7</td><td>64.3~73.2</td></tr><tr><td>9개월</td><td>72.0</td><td>67.7~76.2</td><td>70.1</td><td>65.6~74.7</td></tr><tr><td>10개월</td><td>73.3</td><td>69.0~77.6</td><td>71.5</td><td>66.8~76.1</td></tr><tr><td>11개월</td><td>74.5</td><td>70.2~78.9</td><td>72.8</td><td>68.0~77.5</td></tr><tr><td>12개월</td><td>75.7</td><td>71.3~80.2</td><td>74.0</td><td>69.2~78.9</td></tr><tr><td>13개월</td><td>76.9</td><td>72.4~81.5</td><td>75.2</td><td>70.3~80.2</td></tr><tr><td>14개월</td><td>78.0</td><td>73.4~82.7</td><td>76.4</td><td>71.3~81.4</td></tr><tr><td>15개월</td><td>79.1</td><td>74.4~83.9</td><td>77.5</td><td>72.4~82.7</td></tr><tr><td>16개월</td><td>80.2</td><td>75.4~85.1</td><td>78.6</td><td>73.3~83.9</td></tr><tr><td>17개월</td><td>81.2</td><td>76.3~86.2</td><td>79.7</td><td>74.3~85.0</td></tr><tr><td>18개월</td><td>82.3</td><td>77.2~87.3</td><td>80.7</td><td>75.2~86.2</td></tr><tr><td>19개월</td><td>83.2</td><td>78.1~88.4</td><td>81.7</td><td>76.2~87.3</td></tr><tr><td>20개월</td><td>84.2</td><td>78.9~89.5</td><td>82.7</td><td>77.0~88.4</td></tr><tr><td>21개월</td><td>85.1</td><td>79.7~90.5</td><td>83.7</td><td>77.9~89.4</td></tr><tr><td>22개월</td><td>86.0</td><td>80.5~91.6</td><td>84.6</td><td>78.7~90.5</td></tr><tr><td>23개월</td><td>86.9</td><td>81.3~92.6</td><td>85.5</td><td>79.6~91.5</td></tr><tr><td>24개월</td><td>87.1</td><td>81.4~92.9</td><td>85.7</td><td>79.7~91.8</td></tr><tr><td>30개월</td><td>91.9</td><td>85.5~98.3</td><td>90.7</td><td>84.0~97.3</td></tr><tr><td>36개월</td><td>96.5</td><td>89.7~104.4</td><td>95.4</td><td>88.1~102.9</td></tr></tbody></table></div>
 <p class="note">단위 cm. 평균은 50백분위, 정상 범위는 3~97백분위입니다. 2017 소아청소년 성장도표(만 3세 미만은 WHO 성장기준) LMS 값으로 계산했습니다.</p>
 
+<h2>계산 방법</h2>
+<p>이 계산기는 질병관리청 성장도표 누리집에서 내려받은 「2017 소아청소년 성장도표」 데이터 테이블의 L·M·S 값을 반올림이나 보정 없이 그대로 씁니다. 성별과 월령마다 세 숫자가 정해져 있습니다. M은 그 월령의 중앙값, S는 퍼진 정도(변이계수), L은 한쪽으로 치우친 분포를 정규분포 모양으로 펴 주는 거듭제곱 값입니다. 공식은 성장도표 개발 논문의 LMS 방법과 같습니다.</p>
+<ul>
+  <li><b>표준점수</b>: z = ((키 ÷ M)<sup>L</sup> − 1) ÷ (L × S). L이 0일 때는 z = ln(키 ÷ M) ÷ S를 씁니다.</li>
+  <li><b>백분위</b>: 표준정규분포에서 z보다 작을 확률 × 100입니다. 누적확률은 Abramowitz·Stegun 근사식으로 계산하며, 정확한 값과의 차이는 0.0000002 미만입니다.</li>
+</ul>
+<p>위 첫 번째 예시(만 5세 0개월 남아, 108cm)를 직접 풀면 60개월 남아의 값은 L 0.4242, M 109.5896, S 0.0398입니다. 108 ÷ 109.5896을 0.4242제곱한 뒤 1을 빼고 0.4242 × 0.0398로 나누면 z는 약 −0.37이고, 표준정규분포 누적확률은 0.357이라 백분위 약 36이 나옵니다.</p>
+<p><b>월령은 만 나이와 같은 규칙</b>으로 셉니다. 측정일과 생일의 연·월 차이로 개월수를 구하고, 측정일의 '일'이 생일의 '일'보다 작으면 한 달을 뺍니다. 2020년 3월 15일생이라면 2025년 3월 14일에는 59개월(4세 11개월), 3월 15일부터 60개월(5세 0개월)입니다. 성장도표도 72개월 15일을 72개월로 적는 식으로 월 단위 값만 제공하므로, 같은 개월 안에서는 날짜가 지나도 기준값이 바뀌지 않습니다.</p>
+<p>월령에 따라 쓰는 표가 다릅니다. 0~23개월은 WHO 성장기준의 누운 키(신장), 24~35개월은 WHO 성장기준의 선 키, 36개월부터 18세 11개월(227개월)까지는 한국 아이 자료로 만든 표입니다. 228개월 이상은 표가 없어 계산하지 않습니다.</p>
+
+<h2>기준 자료와 한계</h2>
+<p>2017 성장도표는 질병관리청(당시 질병관리본부)과 대한소아청소년과학회(당시 대한소아과학회)가 2015~2017년에 함께 만들어 2017년에 발표했습니다. 1967년 이후 약 10년마다 개정해 왔고, 질병관리청은 현재 「2027 소아청소년 성장도표」 개정을 추진하고 있습니다.</p>
+<ul>
+  <li><b>만 3세 미만</b>: WHO가 2006년에 발표한 어린이 성장기준입니다. 1997~2003년 브라질·가나·인도·노르웨이·오만·미국 6개국에서 건강하게 모유를 먹고 자란 아이 약 8,500명을 측정한 자료입니다.</li>
+  <li><b>만 3~18세 키</b>: 2005년 전국 16개 지역 신체발육 측정조사 자료만 썼습니다. 개발 논문은 최종 키가 2005년 이후 거의 변하지 않아 이 자료가 지금 아이들의 키를 대표한다고 설명합니다. 성별·연령 집단마다 1,000명 넘게 측정됐습니다.</li>
+  <li><b>만 3세 이상은 2007년판보다 3백분위가 올라갔습니다</b>. 이전 저신장 기준이 요즘 아이들에게 너무 낮다는 지적을 반영한 것이라, 2007년판으로는 정상이던 아이가 2017년판으로는 저신장 기준에 들 수 있습니다.</li>
+</ul>
+<p>계산기가 하지 못하는 일도 분명히 있습니다.</p>
+<ul>
+  <li><b>표가 바뀌는 두 지점</b>: 남아 중앙값은 22→23개월에 0.9cm 오르지만 23→24개월에는 0.2cm만 오릅니다. 누운 키가 선 키보다 길게 재지기 때문입니다. 35→36개월에는 WHO 표에서 한국 표로 바뀌며 중앙값이 1.1cm 뛰어, 같은 95cm 남아가 35개월엔 약 45백분위, 36개월엔 약 35백분위로 나옵니다. 개발 논문도 23~24개월, 35~36개월 결과는 추적 측정으로 해석하라고 권합니다.</li>
+  <li><b>한 번 측정의 오차</b>: 만 7세 0개월 남아는 117cm면 약 15백분위, 118cm면 약 20, 119cm면 약 27입니다. 1cm에 5~6칸이 움직이므로 한 번 잰 숫자로 결론을 내리지 마세요.</li>
+  <li><b>사춘기 시기 차이</b>: 사춘기가 일찍 온 아이는 잠시 백분위가 오르고, 늦게 오는 아이는 잠시 내려가는데 계산기는 이를 구분하지 못합니다. 뼈 나이나 사춘기 진행 정도는 진료로 확인해야 합니다.</li>
+  <li><b>극단값</b>: 원본 성장도표는 1~99백분위와 ±3 표준편차까지만 제시합니다. 만 7세 0개월 남아로 보면 1백분위 111.0cm, 99백분위 134.1cm입니다. 그 바깥 결과는 곡선을 연장한 추정이라 정확도가 떨어집니다.</li>
+  <li><b>기준이지 현재 평균이 아님</b>: 성장도표는 '이렇게 자라는 것이 바람직하다'는 기준이라, 지금 아이들의 실제 평균과는 조금 다를 수 있습니다.</li>
+</ul>
+<p>이 계산 결과는 통계상 위치일 뿐이며 의사의 진단·상담을 대신하지 않습니다.</p>
+
 <h2>자주 묻는 질문</h2>
 <details><summary>키 백분위가 몇이면 병원에 가봐야 하나요?</summary>
   <p>3백분위 미만이거나, 1년 사이 백분위 구간이 두 칸 이상(예: 50→15) 떨어졌다면 소아청소년과 상담을 권합니다.</p></details>
@@ -112,20 +139,31 @@
   <p>2017 소아청소년 성장도표는 만 3세 미만에 WHO 성장기준을 그대로 쓰고, 만 3세부터는 한국 아이 자료로 만든 기준을 씁니다. 이 계산기도 같은 규칙을 따릅니다.</p></details>
 <details><summary>집에서 잰 키로 계산해도 되나요?</summary>
   <p>됩니다. 다만 1cm 차이로 백분위가 몇 칸씩 바뀔 수 있으니 <a href="/guide/measure-height.html">집에서 키 정확하게 재는 법</a>대로 재면 결과가 더 믿을 만해집니다.</p></details>
+<details><summary>두 돌·세 돌 무렵에 백분위가 갑자기 바뀌었어요.</summary>
+  <p>24개월부터 누운 키 대신 선 키 표를 쓰고, 36개월부터 WHO 표 대신 한국 표를 쓰기 때문에 이 두 시기에는 실제 성장과 상관없이 백분위가 움직일 수 있습니다. 몇 달 뒤 다시 재서 추세를 보세요.</p></details>
+
+<h2>참고 자료</h2>
+<ul>
+  <li>질병관리청, 「2017 소아청소년 성장도표」 성장도표 누리집(성장도표 다운로드·데이터 테이블), 2017. <a href="https://knhanes.kdca.go.kr/knhanes/grtcht/main.do">knhanes.kdca.go.kr/knhanes/grtcht/main.do</a></li>
+  <li>질병관리청, 「소아청소년 성장도표」 사업 소개(제정 연혁, 2027 개정 추진). <a href="https://kdca.go.kr/kdca/5458/subview.do">kdca.go.kr/kdca/5458/subview.do</a></li>
+  <li>Kim JH 외, 「The 2017 Korean National Growth Charts for children and adolescents: development, improvement, and prospects」, Korean Journal of Pediatrics 61(5):135–149, 2018. <a href="https://doi.org/10.3345/kjp.2018.61.5.135">doi.org/10.3345/kjp.2018.61.5.135</a></li>
+  <li>WHO, Child Growth Standards: Length/height-for-age, 2006. <a href="https://www.who.int/tools/child-growth-standards/standards/length-height-for-age">who.int/tools/child-growth-standards/standards/length-height-for-age</a></li>
+  <li>질병관리청 국가건강정보포털, 「저신장」. <a href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5415">health.kdca.go.kr 저신장</a></li>
+</ul>
 
 <script src="/calc.js"></script>
 <script src="/growth.js"></script>
 <script src="/percentile.js"></script>
 
 <h2>더 알아보기</h2>
-<ul><li><a href="/guide/average-height.html">나이별 평균키 표</a></li><li><a href="/guide/car-seat-guide.html">카시트 단계별 기준</a></li><li><a href="/guide/elementary-height.html">초등학생 평균키</a></li><li><a href="/guide/growth-hormone-injection.html">성장호르몬 주사(키 성장 주사) 건강보험 기준</a></li><li><a href="/guide/growth-plate.html">성장판 확인법</a></li><li><a href="/guide/growth-spurt.html">키 크는 시기·급성장기 정리</a></li><li><a href="/guide/growth-velocity.html">아이 성장 속도 표</a></li><li><a href="/guide/height-by-age-detail.html">나이 별 평균키 해설</a></li><li><a href="/guide/height-growth-myths.html">키 크는 법, 근거로 따져 보기</a></li><li><a href="/guide/height-growth-supplement.html">키 성장 영양제, 식약처 인정 원료 3가지</a></li><li><a href="/guide/infant-growth-0-36.html">0~36개월 아기 키·몸무게 표</a></li><li><a href="/guide/measure-height.html">집에서 아이 키 정확하게 재는 법 (오차 줄이는 5가지)</a></li><li><a href="/guide/middle-school-height.html">중학생 평균키</a></li><li><a href="/guide/percentile-guide.html">성장도표 백분위 보는 법</a></li><li><a href="/guide/precocious-puberty.html">성조숙증 여자아이 기준과 치료</a></li><li><a href="/guide/predicted-height.html">우리 아이 예상키 계산 공식 2가지</a></li><li><a href="/guide/short-stature.html">저신장 기준과 병원에 가봐야 하는 성장 신호</a></li></ul>
+<ul><li><a href="/guide/average-height.html">나이별 평균키 표</a></li><li><a href="/guide/car-seat-guide.html">카시트 단계별 기준</a></li><li><a href="/guide/growth-hormone-injection.html">성장호르몬 주사(키 성장 주사) 건강보험 기준</a></li><li><a href="/guide/growth-plate.html">성장판 확인법</a></li><li><a href="/guide/growth-spurt.html">키 크는 시기·급성장기 정리</a></li><li><a href="/guide/growth-velocity.html">아이 성장 속도 표</a></li><li><a href="/guide/height-growth-myths.html">키 크는 법, 근거로 따져 보기</a></li><li><a href="/guide/height-growth-supplement.html">키 성장 영양제, 식약처 인정 원료 3가지</a></li><li><a href="/guide/infant-growth-0-36.html">0~36개월 아기 키·몸무게 표</a></li><li><a href="/guide/measure-height.html">집에서 아이 키 정확하게 재는 법 (오차 줄이는 5가지)</a></li><li><a href="/guide/percentile-guide.html">성장도표 백분위 보는 법</a></li><li><a href="/guide/precocious-puberty.html">성조숙증 여자아이 기준과 치료</a></li><li><a href="/guide/predicted-height.html">우리 아이 예상키 계산 공식 2가지</a></li><li><a href="/guide/school-height.html">초·중·고 학년별 평균키</a></li><li><a href="/guide/short-stature.html">저신장 기준과 병원에 가봐야 하는 성장 신호</a></li></ul>
 
 <h2>함께 보면 좋은 계산기</h2>
 <ul><li><a href="/calc/pregnancy-week.html">임신 주수 계산기</a></li><li><a href="/calc/weight-percentile.html">아기 몸무게 백분위 계산기</a></li><li><a href="/calc/child-bmi.html">소아 BMI 계산기</a></li><li><a href="/calc/due-date.html">출산예정일 계산기</a></li></ul>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "키 백분위 계산기", "description": "생년월일과 키만 넣으면 질병관리청 2017 성장도표 기준 키 백분위와 같은 월령 평균 키, 저신장 기준 해당 여부를 바로 계산합니다.", "url": "https://growthcalculator.kr/calc/height-percentile.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ko-KR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "키 백분위가 몇이면 병원에 가봐야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "3백분위 미만이거나, 1년 사이 백분위 구간이 두 칸 이상(예: 50→15) 떨어졌다면 소아청소년과 상담을 권합니다."}}, {"@type": "Question", "name": "키는 언제 재야 정확한가요?", "acceptedAnswer": {"@type": "Answer", "text": "키는 아침이 저녁보다 1cm 안팎 큽니다. 매번 같은 시간대에 양말을 벗고 벽에 붙어 재면 비교가 정확해집니다."}}, {"@type": "Question", "name": "남자아이와 여자아이 기준이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 성장도표는 성별을 나눠 만들어서, 같은 키라도 성별에 따라 백분위가 다르게 나옵니다. 계산할 때 성별을 꼭 맞게 고르세요."}}, {"@type": "Question", "name": "WHO 기준과 한국 성장도표는 무엇이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "2017 소아청소년 성장도표는 만 3세 미만에 WHO 성장기준을 그대로 쓰고, 만 3세부터는 한국 아이 자료로 만든 기준을 씁니다. 이 계산기도 같은 규칙을 따릅니다."}}, {"@type": "Question", "name": "집에서 잰 키로 계산해도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "됩니다. 다만 1cm 차이로 백분위가 몇 칸씩 바뀔 수 있으니 집에서 키 정확하게 재는 법대로 재면 결과가 더 믿을 만해집니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "키 백분위가 몇이면 병원에 가봐야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "3백분위 미만이거나, 1년 사이 백분위 구간이 두 칸 이상(예: 50→15) 떨어졌다면 소아청소년과 상담을 권합니다."}}, {"@type": "Question", "name": "키는 언제 재야 정확한가요?", "acceptedAnswer": {"@type": "Answer", "text": "키는 아침이 저녁보다 1cm 안팎 큽니다. 매번 같은 시간대에 양말을 벗고 벽에 붙어 재면 비교가 정확해집니다."}}, {"@type": "Question", "name": "남자아이와 여자아이 기준이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 성장도표는 성별을 나눠 만들어서, 같은 키라도 성별에 따라 백분위가 다르게 나옵니다. 계산할 때 성별을 꼭 맞게 고르세요."}}, {"@type": "Question", "name": "WHO 기준과 한국 성장도표는 무엇이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "2017 소아청소년 성장도표는 만 3세 미만에 WHO 성장기준을 그대로 쓰고, 만 3세부터는 한국 아이 자료로 만든 기준을 씁니다. 이 계산기도 같은 규칙을 따릅니다."}}, {"@type": "Question", "name": "집에서 잰 키로 계산해도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "됩니다. 다만 1cm 차이로 백분위가 몇 칸씩 바뀔 수 있으니 집에서 키 정확하게 재는 법대로 재면 결과가 더 믿을 만해집니다."}}, {"@type": "Question", "name": "두 돌·세 돌 무렵에 백분위가 갑자기 바뀌었어요.", "acceptedAnswer": {"@type": "Answer", "text": "24개월부터 누운 키 대신 선 키 표를 쓰고, 36개월부터 WHO 표 대신 한국 표를 쓰기 때문에 이 두 시기에는 실제 성장과 상관없이 백분위가 움직일 수 있습니다. 몇 달 뒤 다시 재서 추세를 보세요."}}]}</script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "계산기 모음", "item": "https://growthcalculator.kr/calc/"}, {"@type": "ListItem", "position": 3, "name": "키 백분위 계산기: 우리 아이 키, 또래 100명 중 몇 번째?", "item": "https://growthcalculator.kr/calc/height-percentile.html"}]}</script>
 
