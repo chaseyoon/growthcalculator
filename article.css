@@ -53,8 +53,6 @@ summary { cursor:pointer; font-weight:600; }
 .pick { display:flex; flex-direction:column; gap:6px; padding:8px; background:var(--card); border:1px solid var(--line); border-radius:12px; color:var(--text); text-decoration:none; font-size:.85rem; line-height:1.35; }
 .pick img { width:100%; height:auto; aspect-ratio:1; object-fit:contain; border-radius:8px; background:#fff; }
 @media (max-width:560px) { .picks-grid { grid-template-columns:repeat(2, 1fr); } }
-.chart-fig { margin:20px 0; }
-.chart { display:block; width:100%; height:auto; margin-bottom:12px; font-size:19px; fill:var(--muted); }
-.chart .g { stroke:var(--line); stroke-width:1; }
-.chart .h { font-size:20px; font-weight:700; }
-.chart-fig figcaption { font-size:.88rem; color:var(--muted); }
+.fig { margin:20px 0; }
+.fig img { display:block; width:100%; height:auto; margin-bottom:10px; border:1px solid var(--line); border-radius:10px; }
+.fig figcaption { font-size:.88rem; color:var(--muted); }
