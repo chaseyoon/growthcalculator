@@ -46,7 +46,16 @@
 
 <h2>교정연령이란?</h2>
 <p>교정연령은 이른둥이가 <b>원래 예정일(40주)에 태어났다면 몇 개월일지</b>를 계산한 나이입니다. 실제 나이에서 일찍 태어난 기간(40주 − 출생 주수)을 뺍니다. 예를 들어 32주에 태어난 아기는 8주 일찍 태어났으므로, 생후 6개월이면 교정연령은 약 4개월입니다.</p>
-<p>뒤집기·앉기·걷기 같은 발달과 키·몸무게 평가는 보통 <b>만 2세(24개월)까지 교정연령</b>으로 봅니다. 예방접종은 교정연령이 아니라 실제 나이 기준으로 맞습니다. 교정연령으로 성장 백분위를 보려면 <a href="/calc/height-percentile.html">키 백분위 계산기</a>에 예정일을 생일로 넣어 계산하면 됩니다.</p>
+<p>질병관리청은 성장·발달 평가와 이유식을 <b>생후 24개월까지 교정연령</b>으로 보고, 예방접종은 태어난 날 기준으로 하라고 안내합니다. 교정연령으로 성장 백분위를 보려면 <a href="/calc/height-percentile.html">키 백분위 계산기</a>에 예정일을 생일로 넣어 계산하면 됩니다.</p>
+
+<h2>계산기가 날짜를 세는 순서</h2>
+<ol>
+  <li><b>일찍 태어난 날수</b> = 280일(40주) − (출생 주수 × 7 + 일). 32주 0일이면 280 − 224 = 56일(8주)입니다.</li>
+  <li><b>원래 출산예정일</b> = 아기 생일 + 일찍 태어난 날수.</li>
+  <li><b>교정연령</b> = 예정일부터 오늘까지의 만 개월수. 개월수는 예정일과 같은 날짜가 될 때마다 1씩 늘어납니다(실제 개월수를 세는 방식과 같음).</li>
+  <li><b>37주 0일 이상</b>(일찍 태어난 날수 21일 이하)이면 교정하지 않습니다. 세계보건기구와 질병관리청이 37주 미만 출생을 미숙아로 정의하기 때문입니다.</li>
+</ol>
+<p>결과의 "○일째"는 태어난 날을 1일째로 센 실제 일수이고, "교정 ○일"은 예정일로부터 지난 날수입니다. 아직 예정일이 오지 않았으면 교정연령 대신 예정일까지 남은 날(D-○)을 보여 줍니다. 미국소아과학회(AAP)도 실제 나이(주)에서 40 − 출생 주수를 빼는 같은 방식을 씁니다.</p>
 
 <h2>출생 주수별 교정연령 표</h2>
 <div class="table"><table>
@@ -59,27 +68,76 @@
 <tr><td>28주</td><td>12주</td><td>약 3.2개월</td><td>약 9.2개월</td></tr>
 <tr><td>26주</td><td>14주</td><td>약 2.8개월</td><td>약 8.8개월</td></tr>
 </tbody></table></div>
-<p class="note">교정연령 = 실제 나이 − (40주 − 출생 주수). 1개월을 약 4.3주로 환산한 근삿값입니다. 정확한 날짜는 위 계산기로 확인하세요.</p>
+<p class="note">교정연령 = 실제 나이 − (40주 − 출생 주수). 1개월을 약 4.35주로 환산한 근삿값입니다. 정확한 날짜는 위 계산기로 확인하세요.</p>
+
+<h2>실제 날짜로 풀어 본 예</h2>
+<p>오늘(2026년 11월 20일) 계산기에 넣었을 때 나오는 값입니다.</p>
+<div class="table"><table>
+<thead><tr><th>생일 · 출생 주수</th><th>실제 나이</th><th>원래 예정일</th><th>교정연령</th></tr></thead>
+<tbody>
+<tr><td>2026년 3월 2일 · 32주 0일</td><td>8개월(264일째)</td><td>2026년 4월 27일</td><td>6개월</td></tr>
+<tr><td>2026년 5월 10일 · 28주 3일</td><td>6개월(195일째)</td><td>2026년 7월 30일</td><td>3개월</td></tr>
+<tr><td>2026년 9월 1일 · 26주 0일</td><td>2개월(81일째)</td><td>2026년 12월 8일</td><td>아직 예정일 전(D-18)</td></tr>
+</tbody></table></div>
+<p>28주 3일에 태어난 아기는 11주 4일 일찍 태어나 실제로는 6개월이지만 발달은 3개월 아기와 비교합니다. 뒤집기를 아직 못 해도 교정 3개월이면 서두를 단계가 아닐 수 있다는 뜻입니다. 26주에 태어난 아기는 생후 81일이 지났어도 아직 예정일 전이라, 발달 기준으로는 갓 태어난 아기보다도 이른 시기입니다. 그래도 예방접종 시기는 실제 생일로 정하므로, 2개월 접종 시기는 이미 돌아와 있습니다(입원 중 생백신 제외 같은 예외는 아래 참고).</p>
+
+<h2>미숙아 분류와 일찍 태어난 기간</h2>
+<div class="table"><table>
+<thead><tr><th>분류(질병관리청)</th><th>출생 시 임신 주수</th><th>예정일보다 일찍 태어난 기간</th></tr></thead>
+<tbody>
+<tr><td>초극소 미숙아</td><td>28주 미만</td><td>12주 초과</td></tr>
+<tr><td>극소 미숙아</td><td>28주~31주 6일</td><td>8주 1일~12주</td></tr>
+<tr><td>중기 미숙아</td><td>32주~33주 6일</td><td>6주 1일~8주</td></tr>
+<tr><td>후기 미숙아</td><td>34주~36주 6일</td><td>3주 1일~6주</td></tr>
+</tbody></table></div>
+<p>질병관리청에 따르면 2024년 통계청 자료 기준 우리나라 출생아 가운데 미숙아 비율은 10.2%입니다. 후기 미숙아는 일찍 태어난 기간이 1개월 남짓이라 돌 무렵에는 실제 나이와 교정연령 차이가 작게 느껴지지만, 초극소 미숙아는 3개월 넘게 차이 나므로 24개월까지 교정연령으로 보는 의미가 큽니다.</p>
 
 <h2>교정연령으로 볼 때와 실제 나이로 볼 때</h2>
 <div class="table"><table>
 <thead><tr><th>상황</th><th>기준</th></tr></thead>
 <tbody>
-<tr><td>뒤집기·앉기·걷기·말하기 등 발달 평가</td><td>교정연령 (보통 만 2세까지)</td></tr>
+<tr><td>뒤집기·앉기·걷기·말하기 등 발달 평가</td><td>교정연령 (생후 24개월까지)</td></tr>
 <tr><td>키·몸무게·머리둘레 백분위</td><td>교정연령</td></tr>
-<tr><td>이유식 시작</td><td>교정연령 기준으로 판단하는 경우가 많음(의사와 상의)</td></tr>
-<tr><td>예방접종</td><td>실제 나이</td></tr>
-<tr><td>영유아 건강검진 대상 기간</td><td>실제 생일</td></tr>
+<tr><td>이유식 시작·진행</td><td>교정연령 (질병관리청·아이사랑 안내)</td></tr>
+<tr><td>영유아 건강검진 발달선별검사(K-DST) 문진표</td><td>37주 미만 출생아는 생후 24개월까지 조정연령</td></tr>
+<tr><td>영유아 건강검진을 받는 기간</td><td>실제 생일</td></tr>
+<tr><td>예방접종</td><td>실제 생일</td></tr>
 </tbody></table></div>
-<p>이른둥이를 낳은 엄마는 출산휴가가 100일로 늘어납니다. 기간과 급여는 <a href="/calc/maternity-leave.html">출산휴가 계산기</a>에서 미숙아를 골라 확인하세요.</p>
+<p>예방접종에는 이른둥이만의 예외도 있습니다. 질병관리청 안내에 따르면 신생아 집중치료실에 입원해 있는 동안에는 생백신을 맞지 않고 BCG는 퇴원 후에 접종하며, B형간염은 체중이 2kg 이상일 때 맞은 것을 첫 번째 접종으로 셉니다. 일정은 <a href="/calc/vaccination.html">예방접종 일정 계산기</a>에 실제 생일을 넣어 보고 담당 의사와 맞춥니다. 이른둥이를 낳은 엄마는 출산휴가가 100일로 늘어납니다. 기간과 급여는 <a href="/calc/maternity-leave.html">출산휴가 계산기</a>에서 미숙아를 골라 확인하세요.</p>
+
+<h2>영유아 검진·외래에서 교정연령 쓰는 법</h2>
+<ul>
+  <li><b>영유아 건강검진</b>: 「건강검진 실시기준」은 임신 37주 미만에 태어난 아기는 생후 24개월까지 실제 출생일 대신 출산예정일 기준 조정연령으로 발달선별검사 질문지를 고르도록 정합니다. 예를 들어 예정일보다 3개월 일찍 태어난 아기가 생후 18개월에 4차 검진을 받으면 15개월 무렵에 맞는 문진표를 씁니다. 검진 기간 자체는 실제 생일로 정해지니 <a href="/calc/checkup-schedule.html">검진 시기 계산기</a>에는 실제 생일을 넣으세요.</li>
+  <li><b>미숙아 외래 추적</b>: 질병관리청은 퇴원 후 교정연령 4개월, 8개월, 18개월, 36개월에 성장과 발달을 반드시 평가한다고 안내합니다. 위 계산기의 예정일에 4·8·18·36개월을 더한 날이 그 시점입니다.</li>
+  <li><b>청력·시력</b>: 신생아 집중치료실에서 5일 이상 치료받은 아기는 청력 검사가 정상이어도 퇴원 후 이비인후과 진료를 함께 받도록 권고되고, 시력은 미숙아 망막병증 검진과 함께 안과에서 추적합니다.</li>
+</ul>
+
+<h2>결과를 볼 때 주의할 점</h2>
+<ul>
+  <li><b>출생 주수가 정확해야 합니다.</b> 주수가 1주 틀리면 예정일과 교정연령도 1주 어긋납니다. 병원에서 받은 출생 기록의 재태 주수(주+일)를 그대로 넣으세요.</li>
+  <li><b>40주를 기준으로 뺍니다.</b> AAP는 만삭을 39주부터로 보지만, 교정연령은 40주에서 출생 주수를 빼서 계산합니다. 이 계산기도 같습니다.</li>
+  <li><b>교정연령은 비교 기준일 뿐입니다.</b> 교정연령에 맞춰도 발달이 계속 늦거나, 영유아 검진에서 심화평가를 권고받으면 소아청소년과·재활의학과 진료로 이어 가세요. 이 계산기는 진단·상담을 대신하지 않습니다.</li>
+  <li><b>24개월 이후</b>에는 실제 나이로 평가하는 것이 원칙이라, 실제 나이가 만 2세를 넘으면 결과에 안내 문구가 붙습니다.</li>
+</ul>
 
 <h2>자주 묻는 질문</h2>
 <details><summary>37주 이후에 태어나도 교정하나요?</summary>
-  <p>37주 이상은 만삭으로 보기 때문에 보통 교정연령을 쓰지 않습니다.</p></details>
+  <p>37주 이상은 만삭으로 보기 때문에 교정연령을 쓰지 않습니다. 계산기도 37주 0일 이상을 넣으면 교정하지 않습니다.</p></details>
 <details><summary>언제까지 교정연령을 쓰나요?</summary>
-  <p>대부분 만 2세까지 쓰고, 28주 미만 초미숙아는 만 3세까지 쓰기도 합니다. 담당 의사의 안내를 따르세요.</p></details>
+  <p>질병관리청과 영유아 건강검진 기준은 모두 생후 24개월까지입니다. 다만 미숙아 외래에서는 교정 36개월에도 성장·발달 평가 일정이 있으니 담당 의사의 안내를 따르세요.</p></details>
 <details><summary>교정연령으로 키 백분위를 보려면 어떻게 하나요?</summary>
   <p><a href="/calc/height-percentile.html">키 백분위 계산기</a>에 실제 생일 대신 원래 출산예정일을 생일로 넣으면 교정연령 기준 백분위가 나옵니다.</p></details>
+<details><summary>예방접종도 교정연령에 맞춰 늦게 맞나요?</summary>
+  <p>아닙니다. 예방접종은 태어난 날 기준으로 맞습니다. 질병관리청은 면역 기능이 미숙한 미숙아일수록 폐렴구균·독감 등 국가예방접종을 꼭 받으라고 안내합니다. 다만 BCG는 퇴원 후, B형간염은 체중 2kg 이상에서 맞은 것부터 첫 접종으로 셉니다.</p></details>
+
+<h2>참고 자료</h2>
+<ul>
+  <li>질병관리청 국가건강정보포털, 「미숙아」(2023-07-31 등록, 2026-08-28 업데이트). <a href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6304">health.kdca.go.kr</a></li>
+  <li>보건복지부 고시 「건강검진 실시기준」 별표 3(영유아건강검진의 검진 시기별 검사항목, 주 3·주 5 조산아 조정연령), 국가법령정보센터. <a href="https://www.law.go.kr/flDownload.do?bylClsCd=200201&amp;flSeq=148392581">law.go.kr</a></li>
+  <li>임신육아종합포털 아이사랑, 「이른둥이란?」(교정 연령). <a href="https://www.childcare.go.kr/index.html?menuno=286">childcare.go.kr/index.html?menuno=286</a></li>
+  <li>American Academy of Pediatrics, HealthyChildren.org, 「Corrected Age For Preemies」(2018-12-10). <a href="https://www.healthychildren.org/English/ages-stages/baby/preemie/Pages/Corrected-Age-For-Preemies.aspx">healthychildren.org</a></li>
+  <li>국민건강보험공단, 「영유아 건강검진 안내」, 2026-11-20 확인. <a href="https://www.nhis.or.kr/nhis/healthin/wbhaca04800m01.do">nhis.or.kr</a></li>
+</ul>
 
 <script src="/calc.js"></script>
 <script>
@@ -107,22 +165,22 @@
 </script>
 
 <h2>더 알아보기</h2>
-<ul><li><a href="/guide/baby-development-milestones.html">아기 개월수별 발달</a></li><li><a href="/guide/corrected-age-guide.html">미숙아(이른둥이) 교정연령 계산법</a></li><li><a href="/guide/short-stature.html">저신장 기준과 병원에 가봐야 하는 성장 신호</a></li></ul>
+<ul><li><a href="/guide/baby-development-milestones.html">아기 개월수별 발달</a></li><li><a href="/guide/corrected-age-guide.html">미숙아(이른둥이) 교정연령 계산법</a></li><li><a href="/guide/short-stature.html">저신장 기준</a></li></ul>
 
 <h2>함께 보면 좋은 계산기</h2>
 <ul><li><a href="/calc/pregnancy-weight.html">임신 몸무게 증가 계산기</a></li><li><a href="/calc/school-year.html">초등학교 입학년도 계산기</a></li><li><a href="/calc/baby-food.html">이유식 시기 계산기</a></li><li><a href="/calc/checkup-schedule.html">영유아 건강검진 시기 계산기</a></li></ul>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "교정연령 계산기", "description": "출생일과 출생 당시 임신 주수로 이른둥이의 교정연령(교정 개월수)과 원래 출산예정일을 계산합니다. 발달·성장 평가 때 쓰는 기준입니다.", "url": "https://growthcalculator.kr/calc/corrected-age.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ko-KR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "37주 이후에 태어나도 교정하나요?", "acceptedAnswer": {"@type": "Answer", "text": "37주 이상은 만삭으로 보기 때문에 보통 교정연령을 쓰지 않습니다."}}, {"@type": "Question", "name": "언제까지 교정연령을 쓰나요?", "acceptedAnswer": {"@type": "Answer", "text": "대부분 만 2세까지 쓰고, 28주 미만 초미숙아는 만 3세까지 쓰기도 합니다. 담당 의사의 안내를 따르세요."}}, {"@type": "Question", "name": "교정연령으로 키 백분위를 보려면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "키 백분위 계산기에 실제 생일 대신 원래 출산예정일을 생일로 넣으면 교정연령 기준 백분위가 나옵니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "37주 이후에 태어나도 교정하나요?", "acceptedAnswer": {"@type": "Answer", "text": "37주 이상은 만삭으로 보기 때문에 교정연령을 쓰지 않습니다. 계산기도 37주 0일 이상을 넣으면 교정하지 않습니다."}}, {"@type": "Question", "name": "언제까지 교정연령을 쓰나요?", "acceptedAnswer": {"@type": "Answer", "text": "질병관리청과 영유아 건강검진 기준은 모두 생후 24개월까지입니다. 다만 미숙아 외래에서는 교정 36개월에도 성장·발달 평가 일정이 있으니 담당 의사의 안내를 따르세요."}}, {"@type": "Question", "name": "교정연령으로 키 백분위를 보려면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "키 백분위 계산기에 실제 생일 대신 원래 출산예정일을 생일로 넣으면 교정연령 기준 백분위가 나옵니다."}}, {"@type": "Question", "name": "예방접종도 교정연령에 맞춰 늦게 맞나요?", "acceptedAnswer": {"@type": "Answer", "text": "아닙니다. 예방접종은 태어난 날 기준으로 맞습니다. 질병관리청은 면역 기능이 미숙한 미숙아일수록 폐렴구균·독감 등 국가예방접종을 꼭 받으라고 안내합니다. 다만 BCG는 퇴원 후, B형간염은 체중 2kg 이상에서 맞은 것부터 첫 접종으로 셉니다."}}]}</script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "성장계산기", "item": "https://growthcalculator.kr/"}, {"@type": "ListItem", "position": 2, "name": "계산기 모음", "item": "https://growthcalculator.kr/calc/"}, {"@type": "ListItem", "position": 3, "name": "교정연령 계산기: 이른둥이(미숙아) 교정 개월수 계산", "item": "https://growthcalculator.kr/calc/corrected-age.html"}]}</script>
 
 </article>
-<p class="cta"><a href="/">우리 아이 키 백분위·예상키 계산하기</a></p>
+<p class="cta"><a href="/calc/#infant">영유아 돌봄 계산기 모아 보기</a></p>
 <footer>
-<p>데이터 출처: 질병관리청·대한소아청소년과학회 「2017 소아청소년 성장도표」. 이 글은 일반 정보이며 의학적 진단을 대신하지 않습니다.</p>
-<p><a href="/about.html">사이트 소개</a> · <a href="/privacy.html">개인정보처리방침</a></p>
+<p>공식 자료를 바탕으로 정리한 일반 정보이며, 의료·법률 전문가의 상담을 대신하지 않습니다.</p>
+<p><a href="/about.html">사이트 소개</a> · <a href="/editorial.html">편집 원칙</a> · <a href="/contact.html">문의</a> · <a href="/privacy.html">개인정보처리방침</a> · <a href="/terms.html">이용약관</a></p>
 <p class="credit">Illustrations by <a href="https://storyset.com/children">Storyset</a></p>
 </footer>
 </main>
