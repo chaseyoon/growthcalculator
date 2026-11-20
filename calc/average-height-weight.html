@@ -153,7 +153,7 @@
     const hMed = valueAt(0, lmsRow(lms, "height", sex, month)), wMed = valueAt(0, lmsRow(lms, "weight", sex, month));
     let html = row("나이", `만 ${Math.floor(month / 12)}세 ${month % 12}개월 ${sex === "M" ? "남아" : "여아"}`) +
       row("평균 키", `${hMed.toFixed(1)}cm`) + row("키 정상 범위", range(lms, "height", sex, month, "cm")) +
-      row("평균 몸무게", `${wMed.toFixed(1)}kg`) + row("몸무게 정상 범위", range(lms, "weight", sex, month, "kg"));
+      row("평균 몸무게", `${wMed.toFixed(1)}kg`) + row("몸무게 3~97백분위", range(lms, "weight", sex, month, "kg"));
     if (month >= 24) html += row("평균 BMI", valueAt(0, lmsRow(lms, "bmi", sex, month)).toFixed(1));
     if (hRaw) {
       const r = assess(lms, "height", sex, month, h);
@@ -161,13 +161,13 @@
     }
     if (wRaw) {
       const r = assess(lms, "weight", sex, month, w);
-      html += row("우리 아이 몸무게", `${w.toFixed(1)}kg · ${gap(w, wMed, "kg")}`) + row("몸무게 백분위", r.percentile.toFixed(1));
+      html += row("우리 아이 몸무게", `${w.toFixed(1)}kg · ${gap(w, wMed, "kg")}`) + row("몸무게 백분위", `${r.percentile.toFixed(1)}${r.percentile < 5 ? " (저체중 기준)" : ""}`);
     }
     if (hRaw && wRaw && month >= 24) {
       const bmi = w / Math.pow(h / 100, 2), r = assess(lms, "bmi", sex, month, bmi);
       html += row("우리 아이 BMI", `${bmi.toFixed(1)} · ${r.percentile.toFixed(1)}백분위`) + row("비만도 판정", bmiVerdict(r.percentile));
     }
-    html += `<p class="note">평균은 50백분위, 정상 범위는 3~97백분위입니다.${month < 24 ? " 만 2세 미만은 누운 키 기준이며 BMI는 계산하지 않습니다." : ""} 2017 소아청소년 성장도표 기준의 통계적 비교이며 진단이 아닙니다.</p>`;
+    html += `<p class="note">평균은 50백분위, 정상 범위는 3~97백분위이고, 몸무게는 5백분위 미만이 저체중 기준입니다.${month < 24 ? " 만 2세 미만은 누운 키 기준이며 BMI는 계산하지 않습니다." : ""} 2017 소아청소년 성장도표 기준의 통계적 비교이며 진단이 아닙니다.</p>`;
     out.innerHTML = html;
   });
 </script>
