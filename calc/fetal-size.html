@@ -80,6 +80,24 @@
 <h2>계산 예시</h2>
 <p>출산예정일이 <b>2027년 2월 1일</b>이라면 0주 0일은 2026년 4월 27일이고, 2026년 11월 10일은 <b>임신 28주 1일</b>입니다. 성별을 모를 때 이날의 체중 중앙값은 28주(1,189g)와 29주(1,350g) 사이를 하루만큼 이은 약 1,212g, 보통 범위는 약 1,046~1,395g입니다. 초음파 추정 체중이 1,100g으로 나왔다면 10~25백분위 사이로, 같은 날 같은 주수 태아 100명 중 작은 쪽에서 10~25번째쯤에 해당합니다.</p>
 
+<h2>한 주에 몇 g씩 늘까: 4주 구간별 증가 속도</h2>
+<p>위 계산기에 들어 있는 WHO 태아성장표(성별 구분 없음) 값에서 4주 간격 중앙값의 차이를 구하고 4로 나눠 주당 증가량을 계산했습니다. 10·90백분위 열은 각 백분위 곡선이 같은 구간에서 한 주에 얼마나 올라가는지를 뜻합니다. 값은 1g 단위로 반올림했습니다.</p>
+<div class="table"><table>
+<thead><tr><th>구간</th><th>중앙값 변화</th><th>주당 증가(중앙값)</th><th>주당 증가(10백분위 / 90백분위 곡선)</th><th>4주 사이 배수</th></tr></thead>
+<tbody>
+<tr><td>16→20주</td><td>144g → 330g (+186g)</td><td>47g</td><td>41g / 54g</td><td>2.29배</td></tr>
+<tr><td>20→24주</td><td>330g → 665g (+335g)</td><td>84g</td><td>73g / 96g</td><td>2.02배</td></tr>
+<tr><td>24→28주</td><td>665g → 1,189g (+524g)</td><td>131g</td><td>113g / 151g</td><td>1.79배</td></tr>
+<tr><td>28→32주</td><td>1,189g → 1,901g (+712g)</td><td>178g</td><td>152g / 205g</td><td>1.60배</td></tr>
+<tr><td>32→36주</td><td>1,901g → 2,745g (+844g)</td><td>211g</td><td>179g / 242g</td><td>1.44배</td></tr>
+<tr><td>36→40주</td><td>2,745g → 3,617g (+872g)</td><td>218g</td><td>183g / 246g</td><td>1.32배</td></tr>
+</tbody></table></div>
+<figure class="fig"><img src="/img/fetal-size-weekly-gain-16-to-40-weeks.svg" alt="임신 16주부터 40주까지 4주 구간마다 태아 체중 중앙값이 한 주에 몇 g씩 느는지 비교한 막대그림으로, 36→40주가 주당 218g으로 가장 큽니다." width="560" height="392" loading="lazy" decoding="async"><figcaption>막대 길이는 구간 시작·끝 주수 중앙값 차이를 4로 나눈 주당 증가량입니다. WHO 태아성장표(Kiserud 등, 2017)의 성별 구분 없는 값으로 계산했습니다.</figcaption></figure>
+
+<p>표에서 두 가지 흐름이 엇갈립니다. 한 주에 붙는 무게(g)는 막달까지 커지지만, 몸무게가 몇 배가 되는지는 16→20주의 2.29배에서 36→40주의 1.32배로 계속 줄어듭니다. 임신 중기에는 작은 몸이 빠르게 불어나고, 후기에는 이미 커진 몸에 매주 비슷한 양이 더해지는 셈입니다. 주 단위로 보면 증가량이 가장 큰 때는 36→37주(221g)이고, 그 뒤 37→38주 220g, 38→39주 217g, 39→40주 214g으로 거의 같은 수준을 유지합니다. 90백분위 곡선은 10백분위 곡선보다 주당 증가량이 커서, 막달로 갈수록 큰 태아와 작은 태아의 체중 차이가 벌어집니다.</p>
+<p>이 증가량을 초음파 추정 체중의 오차와 나란히 놓으면 해석에 쓸 만한 점이 보입니다. 36주 중앙값 2,745g의 10%는 약 275g으로, 이 시기 한 주 증가량(약 220g)보다 큽니다. 스웨덴 임신 등록 자료 31,521건을 분석한 연구(Lindström 등, 2023)에서는 출산 2일 이내에 잰 추정 체중이 실제 출생체중의 ±10% 안에 든 비율이 계산 공식에 따라 67~76%였습니다. 따라서 1주 간격으로 잰 두 추정 체중의 차이만으로 "이번 주에 덜 컸다"고 판단하기는 어렵습니다.</p>
+<p class="note">해석 한계: 이 값은 백분위 곡선끼리의 차이로, 한 태아가 실제로 따라가는 성장 경로를 직접 잰 값이 아닙니다. WHO 표는 한국을 포함하지 않은 10개국 자료이며, 원 논문은 나라별로 태아 체중 증가에 차이가 있다고 보고했습니다.</p>
+
 <h2>결과 읽는 법</h2>
 <ul>
   <li><b>중앙값</b>은 같은 주수 태아를 크기순으로 세웠을 때 한가운데 값입니다. 정상의 기준점이 아니라 분포의 가운데입니다.</li>
@@ -88,6 +106,14 @@
   <li>병원 초음파 장비는 Hadlock 등 다른 기준표로 백분위를 내기도 해서, 같은 체중이라도 병원 결과지와 백분위가 조금 다를 수 있습니다.</li>
 </ul>
 <p class="note">이 계산기는 참고용이며 의료진의 진단·상담을 대신하지 않습니다. 오늘 주수만 필요하다면 <a href="/calc/pregnancy-week.html">임신 주수 계산기</a>, 예정일이 없다면 <a href="/calc/due-date.html">출산예정일 계산기</a>를 먼저 쓰세요.</p>
+
+<h2>참고 자료</h2>
+<ul>
+  <li>Kiserud T, Piaggio G, Carroli G 외. "The World Health Organization Fetal Growth Charts: A Multinational Longitudinal Study of Ultrasound Biometric Measurements and Estimated Fetal Weight". PLOS Medicine, 2017. DOI: 10.1371/journal.pmed.1002220. <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002220">https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002220</a></li>
+  <li>Papageorghiou AT, Kennedy SH, Salomon LJ 외. "International standards for early fetal size and pregnancy dating based on ultrasound measurement of crown–rump length in the first trimester of pregnancy". Ultrasound in Obstetrics &amp; Gynecology, 2014. DOI: 10.1002/uog.13448. <a href="https://obgyn.onlinelibrary.wiley.com/doi/full/10.1002/uog.13448">https://obgyn.onlinelibrary.wiley.com/doi/full/10.1002/uog.13448</a></li>
+  <li>Lindström L, Cnattingius S, Axelsson O, Granfors M. "Accuracy and precision of sonographic fetal weight estimation in Sweden". Acta Obstetricia et Gynecologica Scandinavica, 2023. DOI: 10.1111/aogs.14554. <a href="https://obgyn.onlinelibrary.wiley.com/doi/10.1111/aogs.14554">https://obgyn.onlinelibrary.wiley.com/doi/10.1111/aogs.14554</a></li>
+  <li>질병관리청 국가건강정보포털, 「정상임신관리(임신의 진단과 관리)」. <a href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=7019">https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=7019</a></li>
+</ul>
 
 <h2>자주 묻는 질문</h2>
 <details><summary>초음파 결과지의 주수와 이 계산기 주수가 달라요.</summary>
